@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+[Serializable]
+public class Item
 {
  public ItemData itemData;
 
