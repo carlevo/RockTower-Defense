@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class Item
 {
- public ItemData itemData;
+public ItemData itemData;
 
- public int itemQuantity;
+public int itemQuantity;
 }

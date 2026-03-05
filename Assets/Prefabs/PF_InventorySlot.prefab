@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlotUI
   itemIconImage: {fileID: 8706340969088962258}
   itemNameText: {fileID: 8996668955034324054}
-  itemQuantity: {fileID: 4377227405142775621}
+  itemQuantityText: {fileID: 4377227405142775621}
 --- !u!1 &2078143455576267505
 GameObject:
   m_ObjectHideFlags: 0

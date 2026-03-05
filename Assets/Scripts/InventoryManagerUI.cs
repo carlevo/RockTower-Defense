@@ -19,11 +19,11 @@ public class InventoryManagerUI : MonoBehaviour
         {
             GameObject newItemSlot = Instantiate(itemSlotPrefab, inventoryContainer);
 
-            ItemSlotUI newItemSlotUI = newItemSlot.GetComponent<ItemSlotUi>();
+            ItemSlotUI newItemSlotUI = newItemSlot.GetComponent<ItemSlotUI>();
 
-            itemSlotUI.itemIconImage.sprite = item.itemData.itemIcon;
-            itemSlotUI.itemNameText.text = item.itemData.itemName;
-            itemSlotUI.itemQuantityText.text = "x" + item.itemQuantity.ToString();
+            newItemSlotUI.itemIconImage.sprite = item.itemData.itemIcon;
+            newItemSlotUI.itemNameText.text = item.itemData.itemName;
+            newItemSlotUI.itemQuantityText.text = "x" + item.itemQuantity.ToString();
         }
     }
 }

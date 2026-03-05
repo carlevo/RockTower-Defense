@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f70da6cb91ff4abcadd2752a56712, type: 3}
   m_Name: pj2
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Oro
-  itemIcon: {fileID: 0}
-  itemDescription: Oro usado en el lobby para mejorar fuera de partida
-  itemType: 0
+  itemName: pj2
+  itemIcon: {fileID: 7574219505754816753, guid: 19193d0dc954a5540854e660f214ea5e, type: 3}
+  itemDescription: personaje ejemplo
+  itemType: 1

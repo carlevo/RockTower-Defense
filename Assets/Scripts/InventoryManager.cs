@@ -26,8 +26,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        AddItem(testItemData, 5);
-        AddItem(testItemData2, 1);
+        AddItem(testItemData, 0);
+        AddItem(testItemData2, 0);
 
         GetComponent<InventoryManagerUI>().RefreshInventoryUI();
     }
@@ -43,6 +43,6 @@ public class InventoryManager : MonoBehaviour
                 return;
             }
         }
-        inventory.Add(new Item { itemData = a, itemQuantity = b});
+        inventory.Add(new Item { itemData = a, itemQuantity = b });
     }
 }
