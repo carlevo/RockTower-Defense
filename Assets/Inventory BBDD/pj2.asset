@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d27f70da6cb91ff4abcadd2752a56712, type: 3}
-  m_Name: Lucky potion
+  m_Name: pj2
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Lucky Potion
+  itemName: Oro
   itemIcon: {fileID: 0}
-  itemDescription: Pocion que aumenta la suerte en el gacha
+  itemDescription: Oro usado en el lobby para mejorar fuera de partida
   itemType: 0

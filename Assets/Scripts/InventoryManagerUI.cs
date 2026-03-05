@@ -6,11 +6,6 @@ public class InventoryManagerUI : MonoBehaviour
     public GameObject itemSlotPrefab;
     public Transform inventoryContainer;
 
-    private void Start()
-    {
-        RefreshInventoryUI();
-    }
-
     public void RefreshInventoryUI()
     {
         // Clear existing UI
@@ -24,7 +19,11 @@ public class InventoryManagerUI : MonoBehaviour
         {
             GameObject newItemSlot = Instantiate(itemSlotPrefab, inventoryContainer);
 
-            
+            ItemSlotUI newItemSlotUI = newItemSlot.GetComponent<ItemSlotUi>();
+
+            itemSlotUI.itemIconImage.sprite = item.itemData.itemIcon;
+            itemSlotUI.itemNameText.text = item.itemData.itemName;
+            itemSlotUI.itemQuantityText.text = "x" + item.itemQuantity.ToString();
         }
     }
 }

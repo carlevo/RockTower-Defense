@@ -6,5 +6,5 @@ public class ItemSlotUI : MonoBehaviour
 {
     public Image itemIconImage;
     public TextMeshProUGUI itemNameText;
-    public TextMeshProUGUI itemQuantity;
+    public TextMeshProUGUI itemQuantityText;
 }

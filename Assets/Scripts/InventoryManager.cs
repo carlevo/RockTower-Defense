@@ -28,10 +28,21 @@ public class InventoryManager : MonoBehaviour
     {
         AddItem(testItemData, 5);
         AddItem(testItemData2, 1);
+
+        GetComponent<InventoryManagerUI>().RefreshInventoryUI();
     }
 
     public void AddItem(ItemData a, int b)
     {
+
+        foreach (Item item in inventory)
+        {
+            if (item.itemData.itemName == a.itemName)
+            {
+                item.itemQuantity += b;
+                return;
+            }
+        }
         inventory.Add(new Item { itemData = a, itemQuantity = b});
     }
 }
