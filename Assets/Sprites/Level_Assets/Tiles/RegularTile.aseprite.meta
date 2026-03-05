@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9218b4e1ec9cf8c4384ab547a1c098a1
+guid: c670b87de0024944298d229251b1fadd
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,10 +127,10 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: RegularPath
+  - name: RegularTile
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 92
       height: 96
-    spriteID: f47532b1a818da740903ea6db853696f
+    spriteID: 4be44bd599297594893da0b7b26352d7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 379131479
+      value0: 4109448510
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: RegularPath
+    name: RegularTile
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: RegularPath
+    - name: RegularTile
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 92
         height: 96
-      spriteId: f47532b1a818da740903ea6db853696f
+      spriteId: 4be44bd599297594893da0b7b26352d7
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c670b87de0024944298d229251b1fadd
+guid: f4454993bbe58f145b63d2d763aa6fe2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,10 +127,10 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: RegularTile
+  - name: TurnTile
     originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 92
       height: 96
-    spriteID: 629f859dcf3e530429321e88baf9be58
+    spriteID: e1ff0f963a5538245a63a0090e41512f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4109448510
+      value0: 244015029
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: RegularTile
+    name: TurnTile
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: RegularTile
+    - name: TurnTile
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 92
         height: 96
-      spriteId: 629f859dcf3e530429321e88baf9be58
+      spriteId: e1ff0f963a5538245a63a0090e41512f
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
