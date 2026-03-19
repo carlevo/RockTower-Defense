@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Card : MonoBehaviour
+public class gacha : MonoBehaviour
 {
+
 
     public cardInfo card;
     [SerializeField] private Image img;
