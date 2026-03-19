@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24cfa7b1beb20024abeca3e1d72ccc92
+guid: a749babeebb68d448b4fbda74f496abd
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: RegularTile
+  - name: TurnTile_(IzqArr)
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 92
       height: 96
-    spriteID: 6ee370417b07c1f4cabcae2db2ec78cf
+    spriteID: 139eb31e44e31d1459e3a4fec7cfbe29
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4109448510
+      value0: 3164986022
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: RegularTile
+    name: TurnTile_(IzqArr)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: RegularTile
+    - name: TurnTile_(IzqArr)
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 92
         height: 96
-      spriteId: 6ee370417b07c1f4cabcae2db2ec78cf
+      spriteId: 139eb31e44e31d1459e3a4fec7cfbe29
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
