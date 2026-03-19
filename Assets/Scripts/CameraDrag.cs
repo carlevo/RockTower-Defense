@@ -22,7 +22,7 @@ public class CameraDrag : MonoBehaviour
         _isDragging = context.started || context.performed;
     }
 
-   private void LateUpdate()
+private void LateUpdate()
     {
         if (!_isDragging) return;
 

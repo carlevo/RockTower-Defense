@@ -1,0 +1,29 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class InventoryManagerUI : MonoBehaviour
+{
+    public GameObject itemSlotPrefab;
+    public Transform inventoryContainer;
+
+    public void RefreshInventoryUI()
+    {
+        // Clear existing UI
+        foreach (Transform t in inventoryContainer)
+        {
+            Destroy(t.gameObject);
+        }
+
+        // Create new UI elements for each item in the inventory
+        foreach (Item item in InventoryManager.instance.inventory)
+        {
+            GameObject newItemSlot = Instantiate(itemSlotPrefab, inventoryContainer);
+
+            ItemSlotUI newItemSlotUI = newItemSlot.GetComponent<ItemSlotUI>();
+
+            newItemSlotUI.itemIconImage.sprite = item.itemData.itemIcon;
+            newItemSlotUI.itemNameText.text = item.itemData.itemName;
+            newItemSlotUI.itemQuantityText.text = "x" + item.itemQuantity.ToString();
+        }
+    }
+}
