@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GachaRate
 {
-    public string rateName;
+    public string rarity;
 
     [Range(1,100)]
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class gacha : MonoBehaviour
+public class Cards : MonoBehaviour
 {
 
 
