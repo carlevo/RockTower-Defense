@@ -26,9 +26,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        AddItem(testItemData, 0);
-        AddItem(testItemData2, 0);
-
         GetComponent<InventoryManagerUI>().RefreshInventoryUI();
     }
 
