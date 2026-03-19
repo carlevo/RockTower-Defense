@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c670b87de0024944298d229251b1fadd
+guid: 5cb06a444f6ecf24884945ce7a1d8003
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: RegularTile
+  - name: Moneda
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 92
-      height: 96
-    spriteID: 629f859dcf3e530429321e88baf9be58
+      width: 32
+      height: 32
+    spriteID: 83178fb44fcebea428cb2a7fd8e42450
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 4109448510
+      value0: 3579281480
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: RegularTile
+    name: Moneda
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: RegularTile
+    - name: Moneda
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 92
-        height: 96
-      spriteId: 629f859dcf3e530429321e88baf9be58
+        width: 32
+        height: 32
+      spriteId: 83178fb44fcebea428cb2a7fd8e42450
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 92, y: 96}
-  previousTextureSize: {x: 128, y: 128}
+  canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 64, y: 64}

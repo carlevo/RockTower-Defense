@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f4454993bbe58f145b63d2d763aa6fe2
+guid: ebf1c5c6225ff4d49b0a7cd6e58db1c2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TurnTile
+  - name: BG_UI_MonedasEstrellas
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 92
-      height: 96
-    spriteID: 397be078399e6444a928350655579b16
+      width: 32
+      height: 16
+    spriteID: aabafa30ce048a64ab7db07589b62bff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 244015029
+      value0: 1155645681
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: TurnTile
+    name: BG_UI_MonedasEstrellas
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TurnTile
+    - name: BG_UI_MonedasEstrellas
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 0
-        width: 92
-        height: 96
-      spriteId: 397be078399e6444a928350655579b16
+        y: 8
+        width: 32
+        height: 16
+      spriteId: aabafa30ce048a64ab7db07589b62bff
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 92, y: 96}
-  previousTextureSize: {x: 128, y: 128}
+  canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 64, y: 32}
