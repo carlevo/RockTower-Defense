@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
         //El nombre de la función comentado y primer parametro es
         //el tiempo desde que se inicia y el segundo
         // parametro es el tiempo desde el primero
-        InvokeRepeating("generarEnemics", 0.5f, 1f);
+        InvokeRepeating("generarEnemics", 0.5f, 1.5f);
     }
 
     // Update is called once per frame
