@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 90eab771a706cb94a88d50f097bae4f8
-=======
-guid: 503c9e94a15baa948ad111a94aa879b0
->>>>>>> origin/Sprint4
+guid: a83f5c65da03cb14cb7b4382d65298de
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: MonedaPlus
+  - name: Kamehameha
     originalName: 
-    pivot: {x: 0.5714286, y: -1}
+    pivot: {x: 0.5, y: -0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -141,13 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 28
-      height: 17
-<<<<<<< HEAD
-    spriteID: 1cf9edbdfc7d45a46b0e482212b39c59
-=======
-    spriteID: 4636ac5dde734a642af2d8376250bd4f
->>>>>>> origin/Sprint4
+      width: 32
+      height: 14
+    spriteID: 879a29cd300f2484ebdb82e4bdae6d4b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,29 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3382888412
+      value0: 3517613314
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: MonedaPlus
+    name: Kamehameha
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: MonedaPlus
+    - name: Kamehameha
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 17
-        width: 28
-        height: 17
-<<<<<<< HEAD
-      spriteId: 1cf9edbdfc7d45a46b0e482212b39c59
-=======
-      spriteId: 4636ac5dde734a642af2d8376250bd4f
->>>>>>> origin/Sprint4
+        y: 7
+        width: 32
+        height: 14
+      spriteId: 879a29cd300f2484ebdb82e4bdae6d4b
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

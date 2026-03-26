@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 90eab771a706cb94a88d50f097bae4f8
-=======
-guid: 503c9e94a15baa948ad111a94aa879b0
->>>>>>> origin/Sprint4
+guid: 5548ac6c122c0634e8eb3e71b26049b0
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: MonedaPlus
+  - name: Josue_(ATTACK)
     originalName: 
-    pivot: {x: 0.5714286, y: -1}
+    pivot: {x: 0.44444445, y: -0.1875}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -141,13 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 28
-      height: 17
-<<<<<<< HEAD
-    spriteID: 1cf9edbdfc7d45a46b0e482212b39c59
-=======
-    spriteID: 4636ac5dde734a642af2d8376250bd4f
->>>>>>> origin/Sprint4
+      width: 18
+      height: 32
+    spriteID: ccd18969b2b84a6469d72dadffaaa5bd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,29 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3382888412
+      value0: 1540791402
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: MonedaPlus
+    name: Josue_(ATTACK)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: MonedaPlus
+    - name: Josue_(ATTACK)
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 17
-        width: 28
-        height: 17
-<<<<<<< HEAD
-      spriteId: 1cf9edbdfc7d45a46b0e482212b39c59
-=======
-      spriteId: 4636ac5dde734a642af2d8376250bd4f
->>>>>>> origin/Sprint4
+        x: 8
+        y: 6
+        width: 18
+        height: 32
+      spriteId: ccd18969b2b84a6469d72dadffaaa5bd
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -194,4 +182,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 48}
-  previousTextureSize: {x: 64, y: 32}
+  previousTextureSize: {x: 32, y: 64}
