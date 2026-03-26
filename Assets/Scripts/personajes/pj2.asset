@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: pj2
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
   name: pj2
-  image: {fileID: 0}
+  image: {fileID: 7574219505754816753, guid: 19193d0dc954a5540854e660f214ea5e, type: 3}
