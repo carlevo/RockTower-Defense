@@ -34,7 +34,7 @@ public class UnitPlacer : MonoBehaviour
         Debug.Log($"Cell: {cellPosition} Ground:{hasGround} Path:{hasPath}");
 
         // Colocar unidad SOLO si hay suelo, NO hay camino y no está ocupada
-        if (!hasGround && !hasPath && !occupiedCells.Contains(cellPosition))
+        if (hasGround && !hasPath && !occupiedCells.Contains(cellPosition))
         {
             Vector3 spawnPosition = groundTilemap.GetCellCenterWorld(cellPosition);
 
