@@ -10,6 +10,25 @@ public class UnitPlacer : MonoBehaviour
 
     private HashSet<Vector3Int> occupiedCells = new HashSet<Vector3Int>();
 
+    void Awake()
+    {
+        if (groundTilemap == null)
+        {
+            GameObject go = GameObject.Find("RegularTile");
+            if (go != null) groundTilemap = go.GetComponent<Tilemap>();
+        }
+        if (pathTilemap == null)
+        {
+            GameObject go = GameObject.Find("RegularPath");
+            if (go != null) pathTilemap = go.GetComponent<Tilemap>();
+        }
+
+        if (groundTilemap == null)
+            Debug.LogError("UnitPlacer: No se encontró el Tilemap 'RegularTile'. Asígnalo en el Inspector o renombra el GameObject.");
+        if (pathTilemap == null)
+            Debug.LogError("UnitPlacer: No se encontró el Tilemap 'RegularPath'. Asígnalo en el Inspector o renombra el GameObject.");
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -20,6 +39,8 @@ public class UnitPlacer : MonoBehaviour
 
     void PlaceUnit()
     {
+        if (groundTilemap == null || pathTilemap == null) return;
+
         // Obtener posición del mouse en el mundo
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0f;
