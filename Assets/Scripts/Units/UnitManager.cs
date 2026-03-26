@@ -1,67 +1,56 @@
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
 public class UnitPlacer : MonoBehaviour
 {
-    public Tilemap groundTilemap;  // SOLO el Tilemap donde se puede colocar
-    public Tilemap pathTilemap;    // Tilemap con caminos
     public GameObject unitPrefab;
 
-    private HashSet<Vector3Int> occupiedCells = new HashSet<Vector3Int>();
+    private Transform pathTileMapParent;
+    private HashSet<GameObject> occupiedTiles = new HashSet<GameObject>();
 
     void Awake()
     {
-        if (groundTilemap == null)
-        {
-            GameObject go = GameObject.Find("RegularTile");
-            if (go != null) groundTilemap = go.GetComponent<Tilemap>();
-        }
-        if (pathTilemap == null)
-        {
-            GameObject go = GameObject.Find("RegularPath");
-            if (go != null) pathTilemap = go.GetComponent<Tilemap>();
-        }
-
-        if (groundTilemap == null)
-            Debug.LogError("UnitPlacer: No se encontró el Tilemap 'RegularTile'. Asígnalo en el Inspector o renombra el GameObject.");
-        if (pathTilemap == null)
-            Debug.LogError("UnitPlacer: No se encontró el Tilemap 'RegularPath'. Asígnalo en el Inspector o renombra el GameObject.");
+        GameObject ptm = GameObject.Find("PathTileMap");
+        if (ptm != null)
+            pathTileMapParent = ptm.transform;
+        else
+            Debug.LogError("UnitPlacer: No se encontró 'PathTileMap' en la escena.");
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
             PlaceUnit();
-        }
     }
 
     void PlaceUnit()
     {
-        if (groundTilemap == null || pathTilemap == null) return;
+        if (pathTileMapParent == null || unitPrefab == null) return;
 
-        // Obtener posición del mouse en el mundo
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0f;
 
-        // Convertir a celda del grid
-        Vector3Int cellPosition = groundTilemap.WorldToCell(mouseWorld);
+        // Busca el RegularTile más cercano al click
+        GameObject closestTile = null;
+        float closestDist = 0.6f; // radio máximo (mitad de tile de 1 unidad)
 
-        // Comprobar tiles
-        bool hasGround = groundTilemap.HasTile(cellPosition); // solo GroundTilemap
-        bool hasPath = pathTilemap.HasTile(cellPosition);     // solo PathTilemap
-
-        Debug.Log($"Cell: {cellPosition} Ground:{hasGround} Path:{hasPath}");
-
-        // Colocar unidad SOLO si hay suelo, NO hay camino y no está ocupada
-        if (hasGround && !hasPath && !occupiedCells.Contains(cellPosition))
+        foreach (Transform child in pathTileMapParent)
         {
-            Vector3 spawnPosition = groundTilemap.GetCellCenterWorld(cellPosition);
+            if (child.name != "RegularTile") continue;
 
-            Instantiate(unitPrefab, spawnPosition, Quaternion.identity);
+            float dist = Vector2.Distance(child.position, mouseWorld);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closestTile = child.gameObject;
+            }
+        }
 
-            occupiedCells.Add(cellPosition);
+        if (closestTile != null && !occupiedTiles.Contains(closestTile))
+        {
+            Instantiate(unitPrefab, closestTile.transform.position, Quaternion.identity);
+            occupiedTiles.Add(closestTile);
+            Debug.Log($"Torre colocada en: {closestTile.transform.position}");
         }
     }
 }
