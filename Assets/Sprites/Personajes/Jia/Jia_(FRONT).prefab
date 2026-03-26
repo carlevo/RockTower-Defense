@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jia_(FRONT)
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -13951471
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
