@@ -506,18 +506,23 @@ MonoBehaviour:
     rate: 10
     reward:
     - {fileID: 11400000, guid: cfef44318ba06bf4aaf57f9c559f8528, type: 2}
+    - {fileID: 11400000, guid: 014c39a6321b3084ca4c8f504a8dfc14, type: 2}
   - rarity: Legendario
     rate: 30
     reward:
     - {fileID: 11400000, guid: 7376aa2132ead524a942e55e56658f5a, type: 2}
+    - {fileID: 11400000, guid: 0f5d5717fb06f7648af85327df3649c2, type: 2}
   - rarity: Epico
     rate: 60
     reward:
-    - {fileID: 11400000, guid: 0d3fa17df8046094f8d24c0bf5177134, type: 2}
+    - {fileID: 11400000, guid: ed9de82d639b3a54fa12c8daf7cab4fb, type: 2}
+    - {fileID: 11400000, guid: 10fc8818fed5f7647b946872275acbcb, type: 2}
   - rarity: Raro
     rate: 100
     reward:
     - {fileID: 11400000, guid: 46c58b5d1c564344e92127b19d6ca51a, type: 2}
+    - {fileID: 11400000, guid: 20c8c048edd0d04449f683a979f742c2, type: 2}
+    - {fileID: 11400000, guid: ebd60913e993fc741aa99e67ca3bc0d9, type: 2}
   parent: {fileID: 1846549476}
   pos: {fileID: 2096412043}
   characterCardGo: {fileID: 8905908343280954758, guid: 9fca3d35183b46c4aa51cb47a744828a, type: 3}

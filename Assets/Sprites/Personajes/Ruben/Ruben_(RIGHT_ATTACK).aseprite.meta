@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90eab771a706cb94a88d50f097bae4f8
+guid: 25917ac4225c7f145aa13cc8737c1cbb
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: MonedaPlus
+  - name: Ruben_(RIGHT_ATTACK)
     originalName: 
-    pivot: {x: 0.5714286, y: -1}
+    pivot: {x: 0.375, y: -0.16216215}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 28
-      height: 17
-    spriteID: bb9d983128798154d9700a3ee6cdc29c
+      width: 24
+      height: 37
+    spriteID: bf00b223d4dc22348ab334782dcf4f90
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3382888412
+      value0: 2730627127
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: MonedaPlus
+    name: Ruben_(RIGHT_ATTACK)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: MonedaPlus
+    - name: Ruben_(RIGHT_ATTACK)
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 17
-        width: 28
-        height: 17
-      spriteId: bb9d983128798154d9700a3ee6cdc29c
+        x: 7
+        y: 6
+        width: 24
+        height: 37
+      spriteId: bf00b223d4dc22348ab334782dcf4f90
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -182,4 +182,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 48}
-  previousTextureSize: {x: 64, y: 32}
+  previousTextureSize: {x: 32, y: 64}
