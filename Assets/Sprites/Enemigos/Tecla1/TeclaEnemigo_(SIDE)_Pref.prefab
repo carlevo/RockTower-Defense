@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasePlateGuyEnemy
   vel: 2
+  HP: 0
+  damage: 0
 --- !u!95 &-2652191937424372044
 Animator:
   serializedVersion: 7
