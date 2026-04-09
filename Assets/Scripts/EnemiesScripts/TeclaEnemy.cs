@@ -1,18 +1,32 @@
 using UnityEngine;
 
+
 public class Teclaenemy : MonoBehaviour
 {
     [SerializeField] private float vel;
+
+//Creamos el hp para este tipo de enemigo
+    public float HP;
+
+
+public float damage;
     private Camera mainCamera;
     Vector3 limitInferiorEsquerra;
     SpriteRenderer hitPLayerGm;
     private float counterTilDestroy = 0.3f;
     private bool arrivedTorRoca = false;
     private RocaHandler player;
+
+    private bool debounce = false;
     //Vector3 limitSuperiorDret;
     void Start()
     {
         mainCamera = Camera.main;
+        //Empiezan con 100
+       if(HP==0f) HP = 100.0f;
+
+        //Daño que hace
+        if(damage==0f) damage = 10f;
 
         limitInferiorEsquerra = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
         //limitSuperiorDret = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
@@ -28,7 +42,7 @@ public class Teclaenemy : MonoBehaviour
 
             if(counterTilDestroy <= 0)
             {
-                HitPlayer(false);
+              HitPlayer(false);
                 Destroy(this.gameObject);
             }
         }
@@ -38,13 +52,12 @@ public class Teclaenemy : MonoBehaviour
         {
             arrivedTorRoca = true;
             HitPlayer(true);
-            RocaHandler.Instance.TakeDamage(20f);
+            RocaHandler.Instance.TakeDamage(damage);
         }
     }
 
     private void HitPlayer(bool activeUIEffect)
     {
-        player.TakeDamage(0.8f);
         hitPLayerGm.enabled=activeUIEffect;
     }
 }

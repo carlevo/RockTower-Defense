@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,13 +16,23 @@ public class RocaHandler : MonoBehaviour
     private float rocaHP = maxHP;
     private float timeSinceLastDamage = 0f;
 
+    [SerializeField] public TextMeshProUGUI textoHp;
+
+
+
     void Awake()
     {
         Instance = this;
+
+    }
+    void Start()
+    {
+        textoHp.text =rocaHP.ToString()+"/"+ maxHP.ToString();
     }
 
     void Update()
     {
+        
         if (rocaHP >= maxHP) return;
 
         timeSinceLastDamage += Time.deltaTime;
@@ -42,6 +54,8 @@ public class RocaHandler : MonoBehaviour
         Debug.Log(rocaHP);
         timeSinceLastDamage = 0f;
         UpdateAlpha();
+        textoHp.text=UpdateHpText();
+        hpVisualFeedBack();
     }
 
     private void UpdateAlpha()
@@ -51,5 +65,23 @@ public class RocaHandler : MonoBehaviour
         Color c = colorHp.color;
         c.a = alpha;
         colorHp.color = c;
+    }
+
+    private String UpdateHpText()
+    {
+        String v = rocaHP.ToString()+"/"+ maxHP.ToString(); 
+        return  v;
+    }
+    private void hpVisualFeedBack()
+    {
+        if(rocaHP <=50f && rocaHP > 25f)
+        {
+            textoHp.color=Color.orange;
+        }
+        if (rocaHP <= 25f)
+        {
+            textoHp.color=Color.red;
+        }
+        
     }
 }
