@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: goku
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
   name: Goku *RARO*
-  image: {fileID: 7954033042908219980, guid: f76cfbeef89fab84796fcc36fbb160ba, type: 3}
+  image: {fileID: 8346360582107699781, guid: 6dcf2df50db2cf0458dfe327f0683f16, type: 3}
