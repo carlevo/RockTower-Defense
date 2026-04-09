@@ -15,21 +15,23 @@ public void Gacha()
     {
         if(characterCard == null)
         {
+            Debug.Log("Gacha function");
             characterCard = Instantiate(characterCardGo, pos.position, Quaternion.identity) as GameObject;
             characterCard.transform.SetParent(parent);
             characterCard.transform.localScale = new Vector3(1, 1, 1);
             card = characterCard.GetComponent<Cards>();
-
-            int rnd = UnityEngine.Random.Range(1, 101);
-            for(int i=0; i<gacha.Length; i++)
+        }
+        int rnd = UnityEngine.Random.Range(1, 101);
+        Debug.Log(rnd);
+        for(int i=0; i<gacha.Length;i++)
+        {
+            if(rnd <= gacha[i].rate)
             {
-                if(gacha[i].rate <= rnd)
-                {
-                    card.card = Reward(gacha[i].rarity);
-                    return;
-                }
+                card.card = Reward(gacha[i].rarity);
+                return;
             }
         }
+        
     }
     cardInfo Reward(string rarity)
     {
