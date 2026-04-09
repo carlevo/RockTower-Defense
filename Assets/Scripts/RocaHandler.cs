@@ -18,6 +18,8 @@ public class RocaHandler : MonoBehaviour
 
     [SerializeField] public TextMeshProUGUI textoHp;
 
+    [SerializeField] public GameObject menu;
+
 
 
     void Awake()
@@ -28,6 +30,7 @@ public class RocaHandler : MonoBehaviour
     void Start()
     {
         textoHp.text =rocaHP.ToString()+"/"+ maxHP.ToString();
+        menu.SetActive(false);
     }
 
     void Update()
@@ -56,6 +59,7 @@ public class RocaHandler : MonoBehaviour
         UpdateAlpha();
         textoHp.text=UpdateHpText();
         hpVisualFeedBack();
+        CheckRocaLife();
     }
 
     private void UpdateAlpha()
@@ -83,5 +87,22 @@ public class RocaHandler : MonoBehaviour
             textoHp.color=Color.red;
         }
         
+    }
+
+    private void CheckRocaLife()
+    {
+       if(rocaHP <= 0)
+        {
+            showMenu(true,"Defeat");
+        } 
+    }
+
+    private void showMenu(bool _value, String _result)
+    {
+        menu.SetActive(_value);
+        //Busca el gameobject llamado result en la escena y le pilla el textmeshpro
+        TextMeshProUGUI _textFromMenu= GameObject.Find("Result").GetComponent<TextMeshProUGUI>();
+        _textFromMenu.text=_result;
+
     }
 }
