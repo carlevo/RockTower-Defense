@@ -7,6 +7,7 @@ public class UnitPlacer : MonoBehaviour
 
     private GameObject selectedPrefab;
     private UnitSelectButton selectedButton;
+    private bool buttonClickedThisFrame = false;
 
     private Transform pathTileMapParent;
     private HashSet<GameObject> occupiedTiles = new HashSet<GameObject>();
@@ -22,26 +23,17 @@ public class UnitPlacer : MonoBehaviour
             Debug.LogError("UnitPlacer: No se encontró 'PathTileMap' en la escena.");
     }
 
-    void Update()
+    // Llamado desde OnMouseDown de UnitSelectButton, que dispara ANTES de Update
+    public void SelectUnit(UnitSelectButton button)
     {
-        if (!Input.GetMouseButtonDown(0)) return;
+        buttonClickedThisFrame = true;
 
-        // Primero comprobamos si el click es sobre un botón de selección
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-        if (hit.collider != null && hit.collider.TryGetComponent<UnitSelectButton>(out var btn))
+        if (button.unitPrefab == null)
         {
-            SelectUnit(btn);
+            Debug.LogError($"[UnitPlacer] '{button.name}' no tiene prefab asignado en UnitSelectButton.");
             return;
         }
 
-        PlaceUnit();
-    }
-
-    public void SelectUnit(UnitSelectButton button)
-    {
-        // Deselecciona el anterior
         if (selectedButton != null)
             selectedButton.SetSelected(false);
 
@@ -49,25 +41,45 @@ public class UnitPlacer : MonoBehaviour
         selectedPrefab = button.unitPrefab;
         button.SetSelected(true);
 
-        Debug.Log($"Unidad seleccionada: {(selectedPrefab != null ? selectedPrefab.name : "ninguna")}");
+        Debug.Log($"[UnitPlacer] Seleccionado: {selectedPrefab.name}");
     }
 
-    void PlaceUnit()
+    void Update()
     {
-        if (pathTileMapParent == null || selectedPrefab == null) return;
+        if (!Input.GetMouseButtonDown(0)) return;
+
+        // Si este frame se clicó un botón, no colocar unidad
+        if (buttonClickedThisFrame)
+        {
+            buttonClickedThisFrame = false;
+            return;
+        }
 
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorld.z = 0f;
+        Vector2 mousePos2D = new Vector2(mouseWorld.x, mouseWorld.y);
+        PlaceUnit(mousePos2D);
+    }
 
-        // Busca el RegularTile más cercano al click
+    void PlaceUnit(Vector2 mousePos2D)
+    {
+        if (pathTileMapParent == null)
+        {
+            Debug.LogError("[UnitPlacer] pathTileMapParent es null. ¿Existe 'PathTileMap' en la escena?");
+            return;
+        }
+        if (selectedPrefab == null)
+        {
+            Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada. Clica primero un botón.");
+            return;
+        }
+
         GameObject closestTile = null;
-        float closestDist = 0.6f; // radio máximo (mitad de tile de 1 unidad)
+        float closestDist = float.MaxValue;
 
         foreach (Transform child in pathTileMapParent)
         {
             if (child.name != "RegularTile") continue;
-
-            float dist = Vector2.Distance(child.position, mouseWorld);
+            float dist = Vector2.Distance(child.position, mousePos2D);
             if (dist < closestDist)
             {
                 closestDist = dist;
@@ -75,11 +87,15 @@ public class UnitPlacer : MonoBehaviour
             }
         }
 
-        if (closestTile != null && !occupiedTiles.Contains(closestTile))
+        if (closestTile != null && closestDist <= 0.6f && !occupiedTiles.Contains(closestTile))
         {
             Instantiate(selectedPrefab, closestTile.transform.position, Quaternion.identity);
             occupiedTiles.Add(closestTile);
-            Debug.Log($"Torre colocada en: {closestTile.transform.position}");
+            Debug.Log($"[UnitPlacer] Torre colocada en: {closestTile.transform.position}");
+        }
+        else if (closestDist > 0.6f)
+        {
+            Debug.LogWarning($"[UnitPlacer] Demasiado lejos del tile más cercano (dist: {closestDist:F3}). Clica más cerca del centro.");
         }
     }
 }

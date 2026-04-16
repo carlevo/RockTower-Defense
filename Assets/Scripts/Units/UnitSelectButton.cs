@@ -19,6 +19,11 @@ public class UnitSelectButton : MonoBehaviour
         sr.color = normalColor;
     }
 
+    void OnMouseDown()
+    {
+        UnitPlacer.Instance.SelectUnit(this);
+    }
+
     public void SetSelected(bool selected)
     {
         sr.color = selected ? selectedColor : normalColor;
