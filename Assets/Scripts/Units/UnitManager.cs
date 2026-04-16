@@ -3,13 +3,18 @@ using System.Collections.Generic;
 
 public class UnitPlacer : MonoBehaviour
 {
-    public GameObject unitPrefab;
+    public static UnitPlacer Instance { get; private set; }
+
+    private GameObject selectedPrefab;
+    private UnitSelectButton selectedButton;
 
     private Transform pathTileMapParent;
     private HashSet<GameObject> occupiedTiles = new HashSet<GameObject>();
 
     void Awake()
     {
+        Instance = this;
+
         GameObject ptm = GameObject.Find("PathTileMap");
         if (ptm != null)
             pathTileMapParent = ptm.transform;
@@ -19,13 +24,37 @@ public class UnitPlacer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            PlaceUnit();
+        if (!Input.GetMouseButtonDown(0)) return;
+
+        // Primero comprobamos si el click es sobre un botón de selección
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+        if (hit.collider != null && hit.collider.TryGetComponent<UnitSelectButton>(out var btn))
+        {
+            SelectUnit(btn);
+            return;
+        }
+
+        PlaceUnit();
+    }
+
+    public void SelectUnit(UnitSelectButton button)
+    {
+        // Deselecciona el anterior
+        if (selectedButton != null)
+            selectedButton.SetSelected(false);
+
+        selectedButton = button;
+        selectedPrefab = button.unitPrefab;
+        button.SetSelected(true);
+
+        Debug.Log($"Unidad seleccionada: {(selectedPrefab != null ? selectedPrefab.name : "ninguna")}");
     }
 
     void PlaceUnit()
     {
-        if (pathTileMapParent == null || unitPrefab == null) return;
+        if (pathTileMapParent == null || selectedPrefab == null) return;
 
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0f;
@@ -48,7 +77,7 @@ public class UnitPlacer : MonoBehaviour
 
         if (closestTile != null && !occupiedTiles.Contains(closestTile))
         {
-            Instantiate(unitPrefab, closestTile.transform.position, Quaternion.identity);
+            Instantiate(selectedPrefab, closestTile.transform.position, Quaternion.identity);
             occupiedTiles.Add(closestTile);
             Debug.Log($"Torre colocada en: {closestTile.transform.position}");
         }
