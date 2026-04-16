@@ -152,26 +152,37 @@ MonoBehaviour:
   inventory:
   - itemData: {fileID: 11400000, guid: 46c58b5d1c564344e92127b19d6ca51a, type: 2}
     itemQuantity: 1
+    itemPrice: 25
   - itemData: {fileID: 11400000, guid: ebd60913e993fc741aa99e67ca3bc0d9, type: 2}
     itemQuantity: 1
+    itemPrice: 50
   - itemData: {fileID: 11400000, guid: 20c8c048edd0d04449f683a979f742c2, type: 2}
     itemQuantity: 1
+    itemPrice: 75
   - itemData: {fileID: 11400000, guid: ed9de82d639b3a54fa12c8daf7cab4fb, type: 2}
     itemQuantity: 1
+    itemPrice: 125
   - itemData: {fileID: 11400000, guid: 10fc8818fed5f7647b946872275acbcb, type: 2}
     itemQuantity: 1
+    itemPrice: 150
   - itemData: {fileID: 11400000, guid: 7376aa2132ead524a942e55e56658f5a, type: 2}
     itemQuantity: 1
+    itemPrice: 250
   - itemData: {fileID: 11400000, guid: 0f5d5717fb06f7648af85327df3649c2, type: 2}
     itemQuantity: 1
+    itemPrice: 300
   - itemData: {fileID: 11400000, guid: 014c39a6321b3084ca4c8f504a8dfc14, type: 2}
     itemQuantity: 1
+    itemPrice: 500
   - itemData: {fileID: 11400000, guid: cfef44318ba06bf4aaf57f9c559f8528, type: 2}
     itemQuantity: 1
-  - itemData: {fileID: 11400000, guid: 029c86bd676006f4bb6a04bc9a329432, type: 2}
-    itemQuantity: 1
+    itemPrice: 550
   - itemData: {fileID: 11400000, guid: d92d8cff73d3da74e8381b5010f24a55, type: 2}
     itemQuantity: 1
+    itemPrice: 750
+  - itemData: {fileID: 11400000, guid: 029c86bd676006f4bb6a04bc9a329432, type: 2}
+    itemQuantity: 1
+    itemPrice: 900
   testItemData: {fileID: 11400000, guid: 8e7fcb2f2b768084f995a41e1bd82a66, type: 2}
   testItemData2: {fileID: 11400000, guid: 530603a2bbea9d848a9c59677dec32f8, type: 2}
 --- !u!4 &180778582

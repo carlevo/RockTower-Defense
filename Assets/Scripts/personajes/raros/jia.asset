@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
   itemName: 
   itemIcon: {fileID: -2007002899398196331, guid: 429b55ee02a459f48947f6444ac5fdc3, type: 3}
-  itemDescription: 
+  itemDescription: 50
   itemType: 0

@@ -156,6 +156,8 @@ public class InventoryManagerUI : MonoBehaviour
                 newItemSlotUI.itemNameText.text = item.itemData.itemName;
             if (newItemSlotUI.itemQuantityText != null)
                 newItemSlotUI.itemQuantityText.text = "x" + item.itemQuantity.ToString();
+            if (newItemSlotUI.itemPriceText != null)
+                newItemSlotUI.itemPriceText.text = item.itemPrice.ToString();
         }
     }
 }
