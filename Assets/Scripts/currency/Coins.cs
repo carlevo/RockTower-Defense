@@ -4,10 +4,11 @@ using UnityEngine;
 public class Coins : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coins;
-    private int currency = 500;
+    private int currency;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currency += 500;
         
         
     }
