@@ -29,11 +29,25 @@ public class UnitPlacer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            PlaceUnit();
+        buttonClickedThisFrame = true;
+
+        if (button.unitPrefab == null)
+        {
+            Debug.LogError($"[UnitPlacer] '{button.name}' no tiene prefab asignado en UnitSelectButton.");
+            return;
+        }
+
+        if (selectedButton != null)
+            selectedButton.SetSelected(false);
+
+        selectedButton = button;
+        selectedPrefab = button.unitPrefab;
+        button.SetSelected(true);
+
+        Debug.Log($"[UnitPlacer] Seleccionado: {selectedPrefab.name}");
     }
 
-    void PlaceUnit()
+    void Update()
     {
         if (pathTileMapParent == null) return;
 
@@ -44,17 +58,30 @@ public class UnitPlacer : MonoBehaviour
         }
 
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorld.z = 0f;
+        Vector2 mousePos2D = new Vector2(mouseWorld.x, mouseWorld.y);
+        PlaceUnit(mousePos2D);
+    }
 
-        // Busca el RegularTile más cercano al click
+    void PlaceUnit(Vector2 mousePos2D)
+    {
+        if (pathTileMapParent == null)
+        {
+            Debug.LogError("[UnitPlacer] pathTileMapParent es null. ¿Existe 'PathTileMap' en la escena?");
+            return;
+        }
+        if (selectedPrefab == null)
+        {
+            Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada. Clica primero un botón.");
+            return;
+        }
+
         GameObject closestTile = null;
         float closestDist = 0.6f;
 
         foreach (Transform child in pathTileMapParent)
         {
             if (child.name != "RegularTile") continue;
-
-            float dist = Vector2.Distance(child.position, mouseWorld);
+            float dist = Vector2.Distance(child.position, mousePos2D);
             if (dist < closestDist)
             {
                 closestDist = dist;
@@ -62,7 +89,7 @@ public class UnitPlacer : MonoBehaviour
             }
         }
 
-        if (closestTile != null && !occupiedTiles.Contains(closestTile))
+        if (closestTile != null && closestDist <= 0.6f && !occupiedTiles.Contains(closestTile))
         {
             Instantiate(selectedPrefab, closestTile.transform.position, Quaternion.identity);
             occupiedTiles.Add(closestTile);
