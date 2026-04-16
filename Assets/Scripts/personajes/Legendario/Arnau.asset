@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: Arnau
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Arnau *Legendario*
-  image: {fileID: -5869953036160726655, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
+  itemName: 
+  itemIcon: {fileID: -6500128167993036942, guid: 4548616d5e4d24e4888331ca6943f98f, type: 3}
+  itemDescription: 
+  itemType: 0

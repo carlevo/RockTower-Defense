@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: alex
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Alex *RARO*
-  image: {fileID: -267657354376724354, guid: c54f9b2412f92f142acc32cbc3695878, type: 3}
+  itemName: 
+  itemIcon: {fileID: 6361317282048452171, guid: c54f9b2412f92f142acc32cbc3695878, type: 3}
+  itemDescription: 
+  itemType: 0

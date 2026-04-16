@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: josue
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Josue *EPICO*
-  image: {fileID: -6342531441421894103, guid: 637b78b38212ffb44a239bf4529c9c0e, type: 3}
+  itemName: 
+  itemIcon: {fileID: -6342531441421894103, guid: 637b78b38212ffb44a239bf4529c9c0e, type: 3}
+  itemDescription: 
+  itemType: 0

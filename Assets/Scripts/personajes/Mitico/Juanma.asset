@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: Juanma
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Juanma *MITICO*
-  image: {fileID: 7574219505754816753, guid: 19193d0dc954a5540854e660f214ea5e, type: 3}
+  itemName: 
+  itemIcon: {fileID: 4011816848146320325, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
+  itemDescription: 
+  itemType: 0

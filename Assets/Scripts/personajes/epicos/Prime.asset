@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: Prime
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Prime *EPICO*
-  image: {fileID: -3482009563518759653, guid: b18276a7cbcc944429c44d0e57a476d3, type: 3}
+  itemName: 
+  itemIcon: {fileID: -3482009563518759653, guid: b18276a7cbcc944429c44d0e57a476d3, type: 3}
+  itemDescription: 
+  itemType: 0

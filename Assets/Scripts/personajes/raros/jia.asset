@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: jia
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Jia *RARO*
-  image: {fileID: -4865139809636398755, guid: 2ed31f8ab4dbf8a4bbc159760b027aed, type: 3}
+  itemName: 
+  itemIcon: {fileID: -2007002899398196331, guid: 429b55ee02a459f48947f6444ac5fdc3, type: 3}
+  itemDescription: 
+  itemType: 0

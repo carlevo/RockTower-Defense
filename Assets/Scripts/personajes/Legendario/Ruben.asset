@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: Ruben
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Ruben *Legendario*
-  image: {fileID: -5168489942886830778, guid: 03b9f6b4aa39af34fae3ed6641375181, type: 3}
+  itemName: 
+  itemIcon: {fileID: -5168489942886830778, guid: 03b9f6b4aa39af34fae3ed6641375181, type: 3}
+  itemDescription: 
+  itemType: 0
