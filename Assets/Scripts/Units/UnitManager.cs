@@ -17,43 +17,29 @@ public class UnitPlacer : MonoBehaviour
         if (ptm != null)
             pathTileMapParent = ptm.transform;
         else
-            Debug.LogError("UnitPlacer: No se encontró 'PathTileMap' en la escena.");
+            Debug.LogError("[UnitPlacer] No se encontró 'PathTileMap' en la escena.");
     }
 
     // Los botones llaman a este método para seleccionar qué torre colocar
     public void SelectUnit(GameObject prefab)
     {
-        selectedPrefab = prefab;
-        Debug.Log($"Unidad seleccionada: {prefab.name}");
-    }
-
-    void Update()
-    {
-        buttonClickedThisFrame = true;
-
-        if (button.unitPrefab == null)
+        if (prefab == null)
         {
-            Debug.LogError($"[UnitPlacer] '{button.name}' no tiene prefab asignado en UnitSelectButton.");
+            Debug.LogError("[UnitPlacer] El prefab recibido es null.");
             return;
         }
-
-        if (selectedButton != null)
-            selectedButton.SetSelected(false);
-
-        selectedButton = button;
-        selectedPrefab = button.unitPrefab;
-        button.SetSelected(true);
-
-        Debug.Log($"[UnitPlacer] Seleccionado: {selectedPrefab.name}");
+        selectedPrefab = prefab;
+        Debug.Log($"[UnitPlacer] Seleccionado: {prefab.name}");
     }
 
     void Update()
     {
+        if (!Input.GetMouseButtonDown(0)) return;
         if (pathTileMapParent == null) return;
 
         if (selectedPrefab == null)
         {
-            Debug.Log("Ninguna unidad seleccionada. Clica primero un botón.");
+            Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada. Clica primero un botón.");
             return;
         }
 
@@ -64,17 +50,6 @@ public class UnitPlacer : MonoBehaviour
 
     void PlaceUnit(Vector2 mousePos2D)
     {
-        if (pathTileMapParent == null)
-        {
-            Debug.LogError("[UnitPlacer] pathTileMapParent es null. ¿Existe 'PathTileMap' en la escena?");
-            return;
-        }
-        if (selectedPrefab == null)
-        {
-            Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada. Clica primero un botón.");
-            return;
-        }
-
         GameObject closestTile = null;
         float closestDist = 0.6f;
 
@@ -89,15 +64,15 @@ public class UnitPlacer : MonoBehaviour
             }
         }
 
-        if (closestTile != null && closestDist <= 0.6f && !occupiedTiles.Contains(closestTile))
+        if (closestTile != null && !occupiedTiles.Contains(closestTile))
         {
             Instantiate(selectedPrefab, closestTile.transform.position, Quaternion.identity);
             occupiedTiles.Add(closestTile);
-            Debug.Log($"Torre '{selectedPrefab.name}' colocada en: {closestTile.transform.position}");
+            Debug.Log($"[UnitPlacer] Torre '{selectedPrefab.name}' colocada en: {closestTile.transform.position}");
         }
         else if (closestTile != null && occupiedTiles.Contains(closestTile))
         {
-            Debug.Log("Este tile ya está ocupado.");
+            Debug.LogWarning("[UnitPlacer] Este tile ya está ocupado.");
         }
     }
 }
