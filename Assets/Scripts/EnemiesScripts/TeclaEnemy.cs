@@ -60,4 +60,14 @@ public float damage;
     {
         hitPLayerGm.enabled=activeUIEffect;
     }
+
+    public void TakeDamage(float damage)
+    {
+        HP -= damage;
+        if (HP <= 0f)
+        {
+            RocaHandler.Instance.RegisterKill();
+            Destroy(gameObject);
+        }
+    }
 }

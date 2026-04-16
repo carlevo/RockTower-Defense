@@ -8,6 +8,7 @@ public class RocaHandler : MonoBehaviour
     public static RocaHandler Instance { get; private set; }
 
     [SerializeField] public SpriteRenderer colorHp;
+    [SerializeField] private int enemiesToKill = 10;
 
     private const float maxHP = 100f;
     private const float recoveryDelay = 5f;
@@ -15,8 +16,11 @@ public class RocaHandler : MonoBehaviour
 
     private float rocaHP = maxHP;
     private float timeSinceLastDamage = 0f;
+    private int enemiesKilled = 0;
 
     [SerializeField] public TextMeshProUGUI textoHp;
+
+    [SerializeField] public GameObject menu;
 
 
 
@@ -28,6 +32,7 @@ public class RocaHandler : MonoBehaviour
     void Start()
     {
         textoHp.text =rocaHP.ToString()+"/"+ maxHP.ToString();
+        menu.SetActive(false);
     }
 
     void Update()
@@ -56,6 +61,7 @@ public class RocaHandler : MonoBehaviour
         UpdateAlpha();
         textoHp.text=UpdateHpText();
         hpVisualFeedBack();
+        CheckRocaLife();
     }
 
     private void UpdateAlpha()
@@ -83,5 +89,29 @@ public class RocaHandler : MonoBehaviour
             textoHp.color=Color.red;
         }
         
+    }
+
+    public void RegisterKill()
+    {
+        enemiesKilled++;
+        if (enemiesKilled >= enemiesToKill)
+            showMenu(true, "Victory");
+    }
+
+    private void CheckRocaLife()
+    {
+       if(rocaHP <= 0)
+        {
+            showMenu(true,"Defeat");
+        }
+    }
+
+    private void showMenu(bool _value, String _result)
+    {
+        menu.SetActive(_value);
+        //Busca el gameobject llamado result en la escena y le pilla el textmeshpro
+        TextMeshProUGUI _textFromMenu= GameObject.Find("Result").GetComponent<TextMeshProUGUI>();
+        _textFromMenu.text=_result;
+
     }
 }
