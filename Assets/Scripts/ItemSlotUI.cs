@@ -12,8 +12,8 @@ public class ItemSlotUI : MonoBehaviour
     public GameObject shadowOverlay;
     public GameObject equippedIndicator;
     public GameObject equippedTick;
-    public Vector2 equippedIndicatorPosition = new Vector2(58.2865f, 14.2365f);
-    public Vector2 equippedIndicatorSize = new Vector2(50f, 44f);
+    [System.NonSerialized] public Vector2 equippedIndicatorPosition = new Vector2(58.2865f, 54.2365f);
+    [System.NonSerialized] public Vector2 equippedIndicatorSize = new Vector2(50f, 64f);
     private bool uiIndicatorBuilt;
     private bool isPurchased;
     private bool isEquipped;
@@ -59,6 +59,7 @@ public class ItemSlotUI : MonoBehaviour
         }
 
         EnsureUIEquippedIndicator();
+        ForceApplyEquippedRect();
 
         SetPurchasedState(false);
     }
@@ -138,6 +139,18 @@ public class ItemSlotUI : MonoBehaviour
 
         equippedIndicator = uiIndicator;
         equippedTick = uiTick;
+    }
+
+    private void ForceApplyEquippedRect()
+    {
+        if (equippedIndicator != null)
+        {
+            RectTransform rt = equippedIndicator.GetComponent<RectTransform>();
+            if (rt != null)
+            {
+                ApplyEquippedRect(rt);
+            }
+        }
     }
 
     private void ApplyEquippedRect(RectTransform rectTransform)

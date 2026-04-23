@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: f9225f15a3c0b6a4382158b5db69a0fe
-=======
-guid: 53e2a07488847cc41a6870dd2e8239c3
->>>>>>> origin/Sprin5
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -143,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 30
-<<<<<<< HEAD
-    spriteID: b12559f1876bb304aa73c9a5b5217d96
-=======
-    spriteID: e50eadb3fea77344685d8995e0e75cac
->>>>>>> origin/Sprin5
+    spriteID: ec9cd00f2bd22f0439e318c91452fad5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,11 +160,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 32
-<<<<<<< HEAD
-    spriteID: c7805941d9230c04ebe1de305e07490c
-=======
-    spriteID: d769034baa3756d47ba05eea2a4ef389
->>>>>>> origin/Sprin5
+    spriteID: 6b1b5e3d2fc84514ab6ae03812815083
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -204,11 +192,7 @@ ScriptedImporter:
         y: 8
         width: 8
         height: 30
-<<<<<<< HEAD
-      spriteId: b12559f1876bb304aa73c9a5b5217d96
-=======
-      spriteId: e50eadb3fea77344685d8995e0e75cac
->>>>>>> origin/Sprin5
+      spriteId: ec9cd00f2bd22f0439e318c91452fad5
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -217,11 +201,7 @@ ScriptedImporter:
         y: 8
         width: 8
         height: 32
-<<<<<<< HEAD
-      spriteId: c7805941d9230c04ebe1de305e07490c
-=======
-      spriteId: d769034baa3756d47ba05eea2a4ef389
->>>>>>> origin/Sprin5
+      spriteId: 6b1b5e3d2fc84514ab6ae03812815083
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
