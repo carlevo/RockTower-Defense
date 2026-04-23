@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: alex
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
   itemName: 
-  itemIcon: {fileID: 6361317282048452171, guid: c54f9b2412f92f142acc32cbc3695878, type: 3}
+  itemIcon: {fileID: 2380363008883523207, guid: c54f9b2412f92f142acc32cbc3695878, type: 3}
   itemDescription: 
   itemType: 0

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: Prime (Evolucionado)
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: Prime (Evolucionado) *SECRETO*
-  image: {fileID: 7574219505754816753, guid: 19193d0dc954a5540854e660f214ea5e, type: 3}
+  itemName: 
+  itemIcon: {fileID: 6666896351236242546, guid: c46eb379d452adb468279918092dc7e7, type: 3}
+  itemDescription: 
+  itemType: 0

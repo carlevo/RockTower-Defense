@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ddc0aded472d34087f68e32fe9400b, type: 3}
   m_Name: E7
   m_EditorClassIdentifier: Assembly-CSharp::cardInfo
-  name: E7 *MITICO*
-  image: {fileID: 7574219505754816753, guid: 19193d0dc954a5540854e660f214ea5e, type: 3}
+  itemName: 
+  itemIcon: {fileID: 7227904896181063974, guid: ae9ab20d9c7dd7446ad911e43345eca1, type: 3}
+  itemDescription: 
+  itemType: 0
