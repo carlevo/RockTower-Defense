@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruben_(FRONT)
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 6d000885785f6ce43a16f8f489aa40e3, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 6d000885785f6ce43a16f8f489aa40e3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1820897431
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6d000885785f6ce43a16f8f489aa40e3, type: 3}
       propertyPath: m_LocalScale.x
       value: 3

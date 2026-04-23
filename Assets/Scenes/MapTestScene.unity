@@ -3705,7 +3705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitPrefab: {fileID: 4785150559889299834, guid: 56762695537c3c94b8599f5a1913edc6, type: 3}
+  unitPrefab: {fileID: 200243051126802757, guid: 229c4dc83377e2a428e563627d8d47c4, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1 &642962767
@@ -9517,7 +9517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7822651528759730894, guid: 90135d8b2cac2494a8be30c5de3c890d, type: 3}
+  m_Sprite: {fileID: -8465929682556194616, guid: 076222918725481488deb9898bb9b1e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

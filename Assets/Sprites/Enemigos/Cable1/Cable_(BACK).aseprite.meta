@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a239287e314e5474fa27c7e45d6704dd
+=======
+guid: c8ac09aa3ffcfc14ea45a013f6abf50c
+>>>>>>> origin/Sprin5
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -139,7 +143,11 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 30
+<<<<<<< HEAD
     spriteID: 4739ea50286cdbc42a9b1771d3268abb
+=======
+    spriteID: a510281f62a3a4140bd89c6fa622a6da
+>>>>>>> origin/Sprin5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -171,7 +179,11 @@ ScriptedImporter:
         y: 8
         width: 8
         height: 30
+<<<<<<< HEAD
       spriteId: 4739ea50286cdbc42a9b1771d3268abb
+=======
+      spriteId: a510281f62a3a4140bd89c6fa622a6da
+>>>>>>> origin/Sprin5
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
