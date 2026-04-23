@@ -7,9 +7,11 @@ public class InventoryManagerUI : MonoBehaviour
 {
     public GameObject itemSlotPrefab;
     public RectTransform inventoryContainer;
-    int currentMoney = 300;
+    private const int MaxEquippedTicks = 5;
+    int currentMoney = 1500;
     public TextMeshProUGUI moneyText;
     private readonly HashSet<string> unlockedItems = new HashSet<string>();
+    private readonly HashSet<string> equippedItems = new HashSet<string>();
 
     private void Awake()
     {
@@ -224,11 +226,26 @@ public class InventoryManagerUI : MonoBehaviour
             newItemSlotUI.BindItem(item);
             bool alreadyPurchased = IsItemPurchased(item);
             newItemSlotUI.SetPurchasedState(alreadyPurchased);
+            if (alreadyPurchased)
+            {
+                newItemSlotUI.SetEquippedState(IsItemEquipped(item));
+            }
+            else
+            {
+                newItemSlotUI.SetEquippedState(false);
+            }
 
             if (newItemSlotUI.buyButton != null)
             {
                 newItemSlotUI.buyButton.onClick.RemoveAllListeners();
-                newItemSlotUI.buyButton.onClick.AddListener(() => TryBuyItem(item, newItemSlotUI));
+                if (alreadyPurchased)
+                {
+                    newItemSlotUI.buyButton.onClick.AddListener(newItemSlotUI.OnEquipToggle);
+                }
+                else
+                {
+                    newItemSlotUI.buyButton.onClick.AddListener(() => TryBuyItem(item, newItemSlotUI));
+                }
             }
         }
     }
@@ -252,6 +269,43 @@ public class InventoryManagerUI : MonoBehaviour
     {
         string key = GetItemKey(item);
         return !string.IsNullOrEmpty(key) && unlockedItems.Contains(key);
+    }
+
+    private bool IsItemEquipped(Item item)
+    {
+        string key = GetItemKey(item);
+        return !string.IsNullOrEmpty(key) && equippedItems.Contains(key);
+    }
+
+    public bool TryToggleEquip(Item item, ItemSlotUI slotUI)
+    {
+        if (item == null || slotUI == null)
+        {
+            return false;
+        }
+
+        string key = GetItemKey(item);
+        if (string.IsNullOrEmpty(key))
+        {
+            return false;
+        }
+
+        if (equippedItems.Contains(key))
+        {
+            equippedItems.Remove(key);
+            slotUI.SetEquippedState(false);
+            return true;
+        }
+
+        if (equippedItems.Count >= MaxEquippedTicks)
+        {
+            Debug.Log("InventoryManagerUI: Maximo de 5 personajes equipados.");
+            return false;
+        }
+
+        equippedItems.Add(key);
+        slotUI.SetEquippedState(true);
+        return true;
     }
 
     public bool TryBuyItem(Item item, ItemSlotUI slotUI = null)
