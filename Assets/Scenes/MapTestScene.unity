@@ -4530,6 +4530,7 @@ GameObject:
   - component: {fileID: 788768396}
   - component: {fileID: 788768400}
   - component: {fileID: 788768399}
+  - component: {fileID: 788768401}
   m_Layer: 5
   m_Name: 5Unidad
   m_TagString: Untagged
@@ -4600,7 +4601,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 788768397}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1962980609}
+        m_TargetAssemblyTypeName: UnitPlacer, Assembly-CSharp
+        m_MethodName: SelectUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 788768401}
+          m_ObjectArgumentAssemblyTypeName: UnitSelectButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &788768397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4743,6 +4756,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &788768401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788768394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
+  unitPrefab: {fileID: 5208763038702043546, guid: bb8ff0b4b3b521f4f95a23496aa070eb, type: 3}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &796592957
 PrefabInstance:
   m_ObjectHideFlags: 0
