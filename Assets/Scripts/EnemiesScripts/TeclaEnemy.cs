@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class Teclaenemy : MonoBehaviour
 {
+    //Campo de velocidad de este enemigo
     [SerializeField] private float vel;
 
 //Creamos el hp para este tipo de enemigo
     public float HP;
 
-
+//daño que hace el enemigo
 public float damage;
     private Camera mainCamera;
     Vector3 limitInferiorEsquerra;
@@ -17,10 +18,10 @@ public float damage;
     private bool arrivedTorRoca = false;
     private RocaHandler player;
 
-    private bool debounce = false;
     //Vector3 limitSuperiorDret;
     void Start()
     {
+        //Devuelve la camara marcada como Main Camera en la escena
         mainCamera = Camera.main;
         //Empiezan con 100
        if(HP==0f) HP = 100.0f;
