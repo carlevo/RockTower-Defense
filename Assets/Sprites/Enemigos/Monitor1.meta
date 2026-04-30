@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 34460050d781b5e488a411d70756d7f9
+=======
+<<<<<<< HEAD
+guid: b3c56dd1ad0e6474db46e2b568a13452
+=======
+guid: 4c22d388a2f67514cb718ea2894865ff
+>>>>>>> origin/Sprint6
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
