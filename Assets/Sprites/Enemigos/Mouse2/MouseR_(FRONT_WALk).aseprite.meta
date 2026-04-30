@@ -139,7 +139,11 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 32
+<<<<<<< HEAD
     spriteID: 6d7651eb7ffa9254cbb3e5b5a4064094
+=======
+    spriteID: 7fb69419625e5734aa7df4d53b2118af
+>>>>>>> origin/Sprint6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,7 +164,11 @@ ScriptedImporter:
       y: 84
       width: 28
       height: 31
+<<<<<<< HEAD
     spriteID: 59d8572a25a0c9045a85caec8682d9c1
+=======
+    spriteID: 65b6dddfa90621d4eafdac03db7515c8
+>>>>>>> origin/Sprint6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +189,11 @@ ScriptedImporter:
       y: 44
       width: 28
       height: 32
+<<<<<<< HEAD
     spriteID: 739b711ae8dab8c48a523fd84a268517
+=======
+    spriteID: 7d3a734ccb4622f48b9a8c2d6159d546
+>>>>>>> origin/Sprint6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -202,7 +214,11 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 31
+<<<<<<< HEAD
     spriteID: a357402d706b7f948abb993d96c3dc52
+=======
+    spriteID: d2430a9bf1244a64aaf2f5e68bb6c1e1
+>>>>>>> origin/Sprint6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -234,7 +250,11 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
+<<<<<<< HEAD
       spriteId: 6d7651eb7ffa9254cbb3e5b5a4064094
+=======
+      spriteId: 7fb69419625e5734aa7df4d53b2118af
+>>>>>>> origin/Sprint6
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -243,7 +263,11 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 31
+<<<<<<< HEAD
       spriteId: 59d8572a25a0c9045a85caec8682d9c1
+=======
+      spriteId: 65b6dddfa90621d4eafdac03db7515c8
+>>>>>>> origin/Sprint6
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -252,7 +276,11 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
+<<<<<<< HEAD
       spriteId: 739b711ae8dab8c48a523fd84a268517
+=======
+      spriteId: 7d3a734ccb4622f48b9a8c2d6159d546
+>>>>>>> origin/Sprint6
     - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -261,7 +289,11 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 31
+<<<<<<< HEAD
       spriteId: a357402d706b7f948abb993d96c3dc52
+=======
+      spriteId: d2430a9bf1244a64aaf2f5e68bb6c1e1
+>>>>>>> origin/Sprint6
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
