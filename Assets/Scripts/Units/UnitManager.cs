@@ -89,7 +89,8 @@ public class UnitPlacer : MonoBehaviour
 
         if (closestTile != null && closestDist <= 0.6f && !occupiedTiles.Contains(closestTile))
         {
-            Instantiate(selectedPrefab, closestTile.transform.position, Quaternion.identity);
+            Vector3 spawnPos = new Vector3(closestTile.transform.position.x, closestTile.transform.position.y, -1f);
+            Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
             occupiedTiles.Add(closestTile);
             Debug.Log($"[UnitPlacer] Torre colocada en: {closestTile.transform.position}");
         }

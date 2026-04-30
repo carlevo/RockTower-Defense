@@ -10,6 +10,7 @@ public class InventoryManagerUI : MonoBehaviour
     private const int MaxEquippedTicks = 5;
     int currentMoney = 1500;
     public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI equippedCounterText;
     private readonly HashSet<string> unlockedItems = new HashSet<string>();
     private readonly HashSet<string> equippedItems = new HashSet<string>();
 
@@ -17,19 +18,25 @@ public class InventoryManagerUI : MonoBehaviour
     {
         EnsureReferences();
         ResolveMoneyTextReference();
+        ResolveEquippedCounterTextReference();
         UpdateMoneyText();
+        UpdateEquippedCounterText();
     }
 
     private void Start()
     {
         ResolveMoneyTextReference();
+        ResolveEquippedCounterTextReference();
         UpdateMoneyText();
+        UpdateEquippedCounterText();
     }
 
     private void OnEnable()
     {
         ResolveMoneyTextReference();
+        ResolveEquippedCounterTextReference();
         UpdateMoneyText();
+        UpdateEquippedCounterText();
     }
 
     private void UpdateMoneyText()
@@ -37,6 +44,14 @@ public class InventoryManagerUI : MonoBehaviour
         if (moneyText != null)
         {
             moneyText.text =currentMoney.ToString();
+        }
+    }
+
+    private void UpdateEquippedCounterText()
+    {
+        if (equippedCounterText != null)
+        {
+            equippedCounterText.text = equippedItems.Count + "/" + MaxEquippedTicks;
         }
     }
 
@@ -71,6 +86,35 @@ public class InventoryManagerUI : MonoBehaviour
         if (moneyText == null)
         {
             Debug.LogWarning("InventoryManagerUI: No se encontro un TextMeshProUGUI para mostrar el dinero. Asigna 'moneyText' en el inspector.");
+        }
+    }
+
+    private void ResolveEquippedCounterTextReference()
+    {
+        if (equippedCounterText != null)
+        {
+            return;
+        }
+
+        Canvas rootCanvas = GetComponentInParent<Canvas>();
+        if (rootCanvas == null)
+        {
+            rootCanvas = FindObjectOfType<Canvas>();
+        }
+
+        if (rootCanvas != null)
+        {
+            TextMeshProUGUI[] allTexts = rootCanvas.GetComponentsInChildren<TextMeshProUGUI>(true);
+            foreach (TextMeshProUGUI text in allTexts)
+            {
+                if (text == moneyText) continue;
+                string lowerName = text.gameObject.name.ToLower();
+                if (lowerName.Contains("tick") || lowerName.Contains("equip") || lowerName.Contains("contador") || lowerName.Contains("count"))
+                {
+                    equippedCounterText = text;
+                    return;
+                }
+            }
         }
     }
 
@@ -294,6 +338,7 @@ public class InventoryManagerUI : MonoBehaviour
         {
             equippedItems.Remove(key);
             slotUI.SetEquippedState(false);
+            UpdateEquippedCounterText();
             return true;
         }
 
@@ -305,6 +350,7 @@ public class InventoryManagerUI : MonoBehaviour
 
         equippedItems.Add(key);
         slotUI.SetEquippedState(true);
+        UpdateEquippedCounterText();
         return true;
     }
 

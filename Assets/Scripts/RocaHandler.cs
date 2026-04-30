@@ -49,7 +49,7 @@ public class RocaHandler : MonoBehaviour
         }
         if(rocaHP <= 0)
         {
-            Time.timeScale=0f;
+            Time.timeScale=0f; //Ponerlo en el victory
         }
     }
 
