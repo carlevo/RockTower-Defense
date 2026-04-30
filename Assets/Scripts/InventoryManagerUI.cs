@@ -339,6 +339,8 @@ public class InventoryManagerUI : MonoBehaviour
             equippedItems.Remove(key);
             slotUI.SetEquippedState(false);
             UpdateEquippedCounterText();
+            UnitData unitToRemove = GetUnitDataForItem(item);
+            if (unitToRemove != null) ValoresInventario.removeUnit(unitToRemove);
             return true;
         }
 
@@ -351,6 +353,8 @@ public class InventoryManagerUI : MonoBehaviour
         equippedItems.Add(key);
         slotUI.SetEquippedState(true);
         UpdateEquippedCounterText();
+        UnitData unitToAdd = GetUnitDataForItem(item);
+        if (unitToAdd != null) ValoresInventario.addUnit(unitToAdd);
         return true;
     }
 
@@ -398,5 +402,11 @@ public class InventoryManagerUI : MonoBehaviour
         return true;
     }
 
-    
+
+    private UnitData GetUnitDataForItem(Item item)
+    {
+        if (item?.itemData == null) return null;
+        string cardName = item.itemData.itemName.Split(' ')[0];
+        return InventoryManager.Instance?.FindCharacterUnitData(cardName);
+    }
 }

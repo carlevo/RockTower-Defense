@@ -4,5 +4,6 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     public GameObject unitPrefab;
+    public Sprite unitSprite;
     public int cost = 100;
 }

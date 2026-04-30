@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -70,6 +69,9 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> inventory = new List<Item>();
 
+    [Header("Character Unit Data")]
+    public UnitData[] characterUnitData;
+
     [Header("Debug")]
     public ItemData testItemData;
     public ItemData testItemData2;
@@ -133,5 +135,15 @@ public class InventoryManager : MonoBehaviour
         {
             ui.RefreshInventoryUI();
         }
+    }
+
+    public UnitData FindCharacterUnitData(string cardName)
+    {
+        foreach (UnitData data in characterUnitData)
+        {
+            if (data != null && data.name.ToLower().StartsWith(cardName.ToLower()))
+                return data;
+        }
+        return null;
     }
 }
