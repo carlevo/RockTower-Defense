@@ -11,10 +11,14 @@ public class EnemyMovement : MonoBehaviour
     private int currentWaypointIndex = 0;
     private Animator anim; // Para las animaciones de giro
 
+    private Vector3 fixedScale;
+    
+
     void Start()
     {
         anim = GetComponent<Animator>();
 
+        fixedScale = transform.localScale;
         // Buscamos la ruta en la escena (puedes pasarla por el Spawner también)
         Route route = FindObjectOfType<Route>();
         if (route != null)
@@ -66,7 +70,22 @@ public class EnemyMovement : MonoBehaviour
         // mire a la derecha/izquierda haciendo espejo:
         if (direction.x > 0.1f) transform.localScale = new Vector3(-1, 1, 1); // Derecha
         else if (direction.x < -0.1f) transform.localScale = new Vector3(1, 1, 1); // Izquierda
+        Debug.Log(direction);
     }
+
+    void LateUpdate()
+{
+    // Esto obliga al enemigo a mantener su tamaño original 
+    // ignorando lo que diga el clip de animación "Read Only"
+    
+    float directionSign = transform.localScale.x > 0 ? 1f : -1f;
+    
+    transform.localScale = new Vector3(
+        fixedScale.x, 
+        fixedScale.y, 
+        fixedScale.z
+    );
+}
 
     private void ReachEnd()
     {
