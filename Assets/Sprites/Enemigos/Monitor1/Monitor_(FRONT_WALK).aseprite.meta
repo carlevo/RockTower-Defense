@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: abfe0feba34a7de478feb91a9d5bad89
-=======
-guid: 1f9d836f486b15d4685a70ae11bbaadd
->>>>>>> Stashed changes
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -143,15 +139,7 @@ ScriptedImporter:
       y: 4
       width: 38
       height: 26
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-    spriteID: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
-=======
-    spriteID: 224873f5c7284a24cb79f6793a1c9663
->>>>>>> origin/Sprint6
+    spriteID: b7ac35940269b424ca675b6c36917539
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,15 +160,7 @@ ScriptedImporter:
       y: 38
       width: 38
       height: 25
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 64478207efd135a4b9a6a499fc7d49df
-=======
-    spriteID: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
-=======
-    spriteID: df8ad0b302dc58d4a8a4deb057ccc929
->>>>>>> origin/Sprint6
+    spriteID: def6281e6f1413445aed205ee47d85ff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,15 +192,7 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 26
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-      spriteId: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
-=======
-      spriteId: 224873f5c7284a24cb79f6793a1c9663
->>>>>>> origin/Sprint6
+      spriteId: b7ac35940269b424ca675b6c36917539
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -229,15 +201,7 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 25
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 64478207efd135a4b9a6a499fc7d49df
-=======
-      spriteId: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
-=======
-      spriteId: df8ad0b302dc58d4a8a4deb057ccc929
->>>>>>> origin/Sprint6
+      spriteId: def6281e6f1413445aed205ee47d85ff
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
