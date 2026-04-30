@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: abfe0feba34a7de478feb91a9d5bad89
-=======
-guid: 1f9d836f486b15d4685a70ae11bbaadd
->>>>>>> Stashed changes
+guid: 2653e3910fc5cef45a4fa47997bafe18
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -133,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.34615386}
+    pivot: {x: 0.48571432, y: -0.72222227}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -141,13 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 38
-      height: 26
-<<<<<<< Updated upstream
-    spriteID: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-    spriteID: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
+      width: 35
+      height: 18
+    spriteID: 22ed9c3a47198a245916166e62c27338
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,21 +150,17 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.35999998}
+    pivot: {x: 0.41176474, y: -0.72222227}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
-      y: 38
-      width: 38
-      height: 25
-<<<<<<< Updated upstream
-    spriteID: 64478207efd135a4b9a6a499fc7d49df
-=======
-    spriteID: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
+      y: 30
+      width: 34
+      height: 18
+    spriteID: 61ffb6752a77e514c80371e535d2c28a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,18 +168,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 38}
+    uvTransform: {x: 4, y: 30}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2759258893
+      value0: 2650704640
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Monitor_(FRONT_WALK)
+    name: Cable_(SIDE_WALK)
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -200,28 +188,20 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 9
-        width: 38
-        height: 26
-<<<<<<< Updated upstream
-      spriteId: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-      spriteId: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
+        x: 7
+        y: 13
+        width: 35
+        height: 18
+      spriteId: 22ed9c3a47198a245916166e62c27338
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 9
-        width: 38
-        height: 25
-<<<<<<< Updated upstream
-      spriteId: 64478207efd135a4b9a6a499fc7d49df
-=======
-      spriteId: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
+        x: 10
+        y: 13
+        width: 34
+        height: 18
+      spriteId: 61ffb6752a77e514c80371e535d2c28a
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -232,4 +212,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 48, y: 48}
-  previousTextureSize: {x: 64, y: 128}
+  previousTextureSize: {x: 64, y: 64}

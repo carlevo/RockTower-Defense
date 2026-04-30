@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: abfe0feba34a7de478feb91a9d5bad89
-=======
-guid: 1f9d836f486b15d4685a70ae11bbaadd
->>>>>>> Stashed changes
+guid: 38fafa416b3dcdb4ba6dbc32b4469212
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -143,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 38
       height: 26
-<<<<<<< Updated upstream
-    spriteID: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-    spriteID: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
+    spriteID: 45cddcdc192d48f45a5efda68b024ca3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,11 +160,7 @@ ScriptedImporter:
       y: 38
       width: 38
       height: 25
-<<<<<<< Updated upstream
-    spriteID: 64478207efd135a4b9a6a499fc7d49df
-=======
-    spriteID: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
+    spriteID: 79e535b49b6c15f4bb3d2b66afbcc94e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -186,12 +174,12 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2759258893
+      value0: 63408523
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Monitor_(FRONT_WALK)
+    name: MonitorR_(FRONT_WALK)
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -204,11 +192,7 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 26
-<<<<<<< Updated upstream
-      spriteId: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-      spriteId: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
+      spriteId: 45cddcdc192d48f45a5efda68b024ca3
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -217,11 +201,7 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 25
-<<<<<<< Updated upstream
-      spriteId: 64478207efd135a4b9a6a499fc7d49df
-=======
-      spriteId: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
+      spriteId: 79e535b49b6c15f4bb3d2b66afbcc94e
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: abfe0feba34a7de478feb91a9d5bad89
-=======
-guid: 1f9d836f486b15d4685a70ae11bbaadd
->>>>>>> Stashed changes
+guid: f9225f15a3c0b6a4382158b5db69a0fe
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -133,7 +129,28 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.34615386}
+    pivot: {x: 0.62499994, y: -0.26666668}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 20
+      y: 4
+      width: 8
+      height: 30
+    spriteID: 2b62efef8946bf64ca16d8d2c5bb21a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 20, y: 4}
+  - name: Frame_1
+    originalName: 
+    pivot: {x: 0.62499994, y: -0.25}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -141,13 +158,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 38
-      height: 26
-<<<<<<< Updated upstream
-    spriteID: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-    spriteID: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
+      width: 8
+      height: 32
+    spriteID: efeeb10bb14532b44a2a06649e680f17
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -156,42 +169,17 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: -0.35999998}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 38
-      width: 38
-      height: 25
-<<<<<<< Updated upstream
-    spriteID: 64478207efd135a4b9a6a499fc7d49df
-=======
-    spriteID: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 38}
   spriteSheetImportData: []
   tileSetImportData: []
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2759258893
+      value0: 3131367296
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Monitor_(FRONT_WALK)
+    name: Cable_(BACK_WALK)
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -200,28 +188,20 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 9
-        width: 38
-        height: 26
-<<<<<<< Updated upstream
-      spriteId: 2b24bdb9f40bc2444a6ee9efd886994a
-=======
-      spriteId: 0d43dcf82bb53a845864f85c4d0cd85b
->>>>>>> Stashed changes
+        x: 19
+        y: 8
+        width: 8
+        height: 30
+      spriteId: 2b62efef8946bf64ca16d8d2c5bb21a2
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 5
-        y: 9
-        width: 38
-        height: 25
-<<<<<<< Updated upstream
-      spriteId: 64478207efd135a4b9a6a499fc7d49df
-=======
-      spriteId: 163e28880bd172949a3ccd2e48559859
->>>>>>> Stashed changes
+        x: 19
+        y: 8
+        width: 8
+        height: 32
+      spriteId: efeeb10bb14532b44a2a06649e680f17
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -232,4 +212,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 48, y: 48}
-  previousTextureSize: {x: 64, y: 128}
+  previousTextureSize: {x: 32, y: 64}
