@@ -70,6 +70,9 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> inventory = new List<Item>();
 
+    [Header("Character Prefabs")]
+    public GameObject[] characterPrefabs;
+
     [Header("Debug")]
     public ItemData testItemData;
     public ItemData testItemData2;
@@ -133,5 +136,36 @@ public class InventoryManager : MonoBehaviour
         {
             ui.RefreshInventoryUI();
         }
+    }
+
+    public void SendInventoryToGame()
+    {
+        ValoresInventario valoresInventario = FindFirstObjectByType<ValoresInventario>();
+        if (valoresInventario == null)
+        {
+            Debug.LogError("ValoresInventario not found in scene.");
+            return;
+        }
+
+        foreach (Item item in inventory)
+        {
+            string cardName = item.itemData.itemName.Split(' ')[0];
+            GameObject prefab = FindCharacterPrefab(cardName);
+            if (prefab != null)
+                valoresInventario.setInventoryPrefabs(prefab);
+            else
+                Debug.LogWarning($"No prefab found for card: {cardName}");
+        }
+    }
+
+    private GameObject FindCharacterPrefab(string cardName)
+    {
+        string targetName = cardName + "_(FRONT)";
+        foreach (GameObject prefab in characterPrefabs)
+        {
+            if (prefab != null && prefab.name == targetName)
+                return prefab;
+        }
+        return null;
     }
 }
