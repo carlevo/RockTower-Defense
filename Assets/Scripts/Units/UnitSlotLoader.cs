@@ -7,10 +7,15 @@ public class UnitSlotLoader : MonoBehaviour
 {
     void Start()
     {
-        List<GameObject> prefabs = ValoresInventario.getInventoryPrefabs();
-        if (prefabs.Count == 0)
+        List<UnitData> units = ValoresInventario.getInventorySlots();
+
+        Debug.Log($"[UnitSlotLoader] Personajes en ValoresInventario: {units.Count}");
+        foreach (UnitData u in units)
+            Debug.Log($"  - {u?.name}");
+
+        if (units.Count == 0)
         {
-            Debug.LogWarning("[UnitSlotLoader] ValoresInventario esta vacio. No se asignaron prefabs a los slots.");
+            Debug.LogWarning("[UnitSlotLoader] ValoresInventario esta vacio.");
             return;
         }
 
@@ -18,22 +23,44 @@ public class UnitSlotLoader : MonoBehaviour
             .OrderBy(b => b.name)
             .ToArray();
 
-        for (int i = 0; i < slots.Length && i < prefabs.Count; i++)
+        Debug.Log($"[UnitSlotLoader] Slots encontrados: {slots.Length}");
+
+        for (int i = 0; i < slots.Length && i < units.Count; i++)
         {
-            int cost = slots[i].unitData != null ? slots[i].unitData.cost : 100;
-            Sprite sprite = slots[i].unitData != null ? slots[i].unitData.unitSprite : null;
+            slots[i].unitData = units[i];
 
-            UnitData newData = ScriptableObject.CreateInstance<UnitData>();
-            newData.unitPrefab = prefabs[i];
-            newData.cost = cost;
-            newData.unitSprite = sprite;
-            slots[i].unitData = newData;
+            Transform pjImage = slots[i].transform.Find("PJ_Image");
+            if (pjImage == null)
+                pjImage = FindDeep(slots[i].transform, "PJ_Image");
 
-            Image img = slots[i].GetComponentInChildren<Image>();
-            if (img != null && sprite != null)
-                img.sprite = sprite;
+            if (pjImage != null)
+            {
+                Image img = pjImage.GetComponent<Image>();
+                if (img != null && units[i].unitSprite != null)
+                {
+                    img.sprite = units[i].unitSprite;
+                    Debug.Log($"[UnitSlotLoader] Sprite asignado a {slots[i].name}: {units[i].unitSprite.name}");
+                }
+                else
+                {
+                    Debug.LogWarning($"[UnitSlotLoader] {slots[i].name}: Image={img != null}, Sprite={units[i].unitSprite != null}");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"[UnitSlotLoader] No se encontro PJ_Image en {slots[i].name}");
+            }
         }
+    }
 
-        Debug.Log($"[UnitSlotLoader] {Mathf.Min(slots.Length, prefabs.Count)} slots asignados desde inventario.");
+    Transform FindDeep(Transform parent, string childName)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == childName) return child;
+            Transform found = FindDeep(child, childName);
+            if (found != null) return found;
+        }
+        return null;
     }
 }

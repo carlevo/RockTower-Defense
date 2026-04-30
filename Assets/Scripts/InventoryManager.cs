@@ -69,8 +69,8 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> inventory = new List<Item>();
 
-    [Header("Character Prefabs")]
-    public GameObject[] characterPrefabs;
+    [Header("Character Unit Data")]
+    public UnitData[] characterUnitData;
 
     [Header("Debug")]
     public ItemData testItemData;
@@ -137,13 +137,12 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-public GameObject FindCharacterPrefab(string cardName)
+    public UnitData FindCharacterUnitData(string cardName)
     {
-        string targetName = cardName + "_(FRONT)";
-        foreach (GameObject prefab in characterPrefabs)
+        foreach (UnitData data in characterUnitData)
         {
-            if (prefab != null && prefab.name == targetName)
-                return prefab;
+            if (data != null && data.name.ToLower().StartsWith(cardName.ToLower()))
+                return data;
         }
         return null;
     }

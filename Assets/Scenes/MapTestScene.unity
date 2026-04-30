@@ -246,7 +246,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8346360582107699781, guid: 6dcf2df50db2cf0458dfe327f0683f16, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitData: {fileID: 11400000, guid: 2cee8914ed1ee5a42ba470eb8a5d4d8b, type: 2}
+  unitData: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &302189804
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3749950060137149262, guid: 6d000885785f6ce43a16f8f489aa40e3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3635,7 +3635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitData: {fileID: 11400000, guid: d99b3d45c1a21a742856c3ff201de47b, type: 2}
+  unitData: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1 &642962767
@@ -4628,7 +4628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitData: {fileID: 11400000, guid: defff2cd247662c4ab67cd68a318787b, type: 2}
+  unitData: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &796592957
@@ -4758,7 +4758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2380363008883523207, guid: c54f9b2412f92f142acc32cbc3695878, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5163,7 +5163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitData: {fileID: 11400000, guid: 463918d5f4b946b4794085b4d1627f6d, type: 2}
+  unitData: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &844517857
@@ -8247,7 +8247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitData: {fileID: 11400000, guid: 1a409c276f4ad5a4994240e838897fbc, type: 2}
+  unitData: {fileID: 0}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &1585564951
@@ -8747,7 +8747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4865139809636398755, guid: 2ed31f8ab4dbf8a4bbc159760b027aed, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9931,7 +9931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8465929682556194616, guid: 076222918725481488deb9898bb9b1e7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10019,63 +10019,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 24cfa7b1beb20024abeca3e1d72ccc92, type: 3}
   m_PrefabInstance: {fileID: 2139532141}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2697551533101240670
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.10485
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.52956
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 239964282601716545, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1061016290246136612, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
-      propertyPath: m_Name
-      value: PRIME_EVO_(FRONT)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -10098,4 +10041,3 @@ SceneRoots:
   - {fileID: 736943696}
   - {fileID: 642962769}
   - {fileID: 1595070911}
-  - {fileID: 2697551533101240670}

@@ -3,24 +3,24 @@ using UnityEngine;
 
 public static class ValoresInventario
 {
-    static readonly List<GameObject> inventorySlots = new List<GameObject>();
+    static readonly List<UnitData> inventorySlots = new List<UnitData>();
 
-    public static List<GameObject> getInventoryPrefabs()
+    public static List<UnitData> getInventorySlots()
     {
         return inventorySlots;
     }
 
-    public static void setInventoryPrefabs(GameObject prefabToAdd)
+    public static void addUnit(UnitData unit)
     {
         if (inventorySlots.Count < 6)
-            inventorySlots.Add(prefabToAdd);
+            inventorySlots.Add(unit);
         else
             Debug.Log("MaxRANGE");
     }
 
-    public static void removeInventoryPrefab(GameObject prefabToRemove)
+    public static void removeUnit(UnitData unit)
     {
-        inventorySlots.Remove(prefabToRemove);
+        inventorySlots.Remove(unit);
     }
 
     public static void Clear()
