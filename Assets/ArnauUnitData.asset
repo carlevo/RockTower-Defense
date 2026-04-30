@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d0f65d3d5ba3204e98a7893359a1e29, type: 3}
-  m_Name: RubenUnitData
+  m_Name: ArnauUnitData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitPrefab: {fileID: 8586724853275316178, guid: abd665b4ee02fbe4284b9238839d6b31, type: 3}
-  unitSprite: {fileID: 3749950060137149262, guid: 6d000885785f6ce43a16f8f489aa40e3, type: 3}
-  cost: 500
+  unitPrefab: {fileID: 3390520479992921089, guid: 57765be6f2cdc344d8c43c838cf39658, type: 3}
+  unitSprite: {fileID: -6500128167993036942, guid: 4548616d5e4d24e4888331ca6943f98f, type: 3}
+  cost: 750

@@ -1,29 +1,30 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Rendering;
 using UnityEngine;
 
-public class ValoresInventario : MonoBehaviour
+public static class ValoresInventario
 {
- List <GameObject> inventorySlots =new List<GameObject>();
+    static readonly List<GameObject> inventorySlots = new List<GameObject>();
 
-    public List <GameObject> getInventoryPrefabs()
+    public static List<GameObject> getInventoryPrefabs()
     {
         return inventorySlots;
     }
 
-    public void setInventoryPrefabs(GameObject prefabToAdd)
+    public static void setInventoryPrefabs(GameObject prefabToAdd)
     {
-        if(inventorySlots.Capacity <6){ 
+        if (inventorySlots.Count < 6)
             inventorySlots.Add(prefabToAdd);
-        }
         else
-        {
             Debug.Log("MaxRANGE");
-        }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public static void removeInventoryPrefab(GameObject prefabToRemove)
+    {
+        inventorySlots.Remove(prefabToRemove);
+    }
+
+    public static void Clear()
+    {
+        inventorySlots.Clear();
+    }
 }

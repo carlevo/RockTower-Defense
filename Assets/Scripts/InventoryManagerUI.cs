@@ -339,6 +339,8 @@ public class InventoryManagerUI : MonoBehaviour
             equippedItems.Remove(key);
             slotUI.SetEquippedState(false);
             UpdateEquippedCounterText();
+            GameObject prefabToRemove = GetPrefabForItem(item);
+            if (prefabToRemove != null) ValoresInventario.removeInventoryPrefab(prefabToRemove);
             return true;
         }
 
@@ -351,6 +353,8 @@ public class InventoryManagerUI : MonoBehaviour
         equippedItems.Add(key);
         slotUI.SetEquippedState(true);
         UpdateEquippedCounterText();
+        GameObject prefabToAdd = GetPrefabForItem(item);
+        if (prefabToAdd != null) ValoresInventario.setInventoryPrefabs(prefabToAdd);
         return true;
     }
 
@@ -398,5 +402,11 @@ public class InventoryManagerUI : MonoBehaviour
         return true;
     }
 
-    
+
+    private GameObject GetPrefabForItem(Item item)
+    {
+        if (item?.itemData == null) return null;
+        string cardName = item.itemData.itemName.Split(' ')[0];
+        return InventoryManager.Instance?.FindCharacterPrefab(cardName);
+    }
 }

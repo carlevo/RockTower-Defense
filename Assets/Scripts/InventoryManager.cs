@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -138,27 +137,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void SendInventoryToGame()
-    {
-        ValoresInventario valoresInventario = FindFirstObjectByType<ValoresInventario>();
-        if (valoresInventario == null)
-        {
-            Debug.LogError("ValoresInventario not found in scene.");
-            return;
-        }
-
-        foreach (Item item in inventory)
-        {
-            string cardName = item.itemData.itemName.Split(' ')[0];
-            GameObject prefab = FindCharacterPrefab(cardName);
-            if (prefab != null)
-                valoresInventario.setInventoryPrefabs(prefab);
-            else
-                Debug.LogWarning($"No prefab found for card: {cardName}");
-        }
-    }
-
-    private GameObject FindCharacterPrefab(string cardName)
+public GameObject FindCharacterPrefab(string cardName)
     {
         string targetName = cardName + "_(FRONT)";
         foreach (GameObject prefab in characterPrefabs)
