@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         
         // Buscamos la ruta en la escena (puedes pasarla por el Spawner también)
-        Route route = FindObjectOfType<Route>();
+        Route route = FindObjectOfType<Route>();    
         if (route != null)
         {
             targetWaypoints = route.waypoints;

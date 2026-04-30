@@ -372,7 +372,8 @@ public class InventoryManagerUI : MonoBehaviour
             equippedItems.Remove(key);
             slotUI.SetEquippedState(false);
             UpdateEquippedCounterText();
-            SaveProgress();
+            UnitData unitToRemove = GetUnitDataForItem(item);
+            if (unitToRemove != null) ValoresInventario.removeUnit(unitToRemove);
             return true;
         }
 
@@ -385,7 +386,8 @@ public class InventoryManagerUI : MonoBehaviour
         equippedItems.Add(key);
         slotUI.SetEquippedState(true);
         UpdateEquippedCounterText();
-        SaveProgress();
+        UnitData unitToAdd = GetUnitDataForItem(item);
+        if (unitToAdd != null) ValoresInventario.addUnit(unitToAdd);
         return true;
     }
 
@@ -435,5 +437,12 @@ public class InventoryManagerUI : MonoBehaviour
         return true;
     }
 
-    
+
+    private UnitData GetUnitDataForItem(Item item)
+    {
+        if (item?.itemData == null) return null;
+        if (item.itemData.unitData == null)
+            Debug.LogWarning($"[InventoryManagerUI] {item.itemData.itemName} no tiene UnitData asignado en su ItemData.");
+        return item.itemData.unitData;
+    }
 }

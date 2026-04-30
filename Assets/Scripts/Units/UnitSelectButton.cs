@@ -4,10 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class UnitSelectButton : MonoBehaviour
 {
-    //Esto es el "titulo del campo"
-    [Header("Prefab a colocar")]
-    //Campo para arrastrar el gameobject con la "descripcion" unitprefab (le damos un nombre relacionado a lo que es)
-    public GameObject unitPrefab;
+    [Header("Datos de la unidad")]
+    public UnitData unitData;
 
 //Titulo de la seccion
     [Header("Colores de estado")]
@@ -26,6 +24,11 @@ public class UnitSelectButton : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (unitData == null)
+        {
+            Debug.LogError($"[UnitSelectButton] '{name}' no tiene UnitData asignado.");
+            return;
+        }
         UnitPlacer.Instance.SelectUnit(this);
     }
 

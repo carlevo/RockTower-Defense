@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0f65d3d5ba3204e98a7893359a1e29, type: 3}
+  m_Name: PrimeEvoUnitData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitPrefab: {fileID: 1061016290246136612, guid: 3d4366d08fa25c44da5e4dd995ab096e, type: 3}
+  unitSprite: {fileID: 6666896351236242546, guid: c46eb379d452adb468279918092dc7e7, type: 3}
+  cost: 800

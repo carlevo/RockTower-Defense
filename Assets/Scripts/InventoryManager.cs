@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -70,6 +69,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> inventory = new List<Item>();
 
+
     [Header("Debug")]
     public ItemData testItemData;
     public ItemData testItemData2;
@@ -134,4 +134,5 @@ public class InventoryManager : MonoBehaviour
             ui.RefreshInventoryUI();
         }
     }
+
 }
