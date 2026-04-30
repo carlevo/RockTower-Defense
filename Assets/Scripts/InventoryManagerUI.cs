@@ -8,14 +8,15 @@ public class InventoryManagerUI : MonoBehaviour
     public GameObject itemSlotPrefab;
     public RectTransform inventoryContainer;
     private const int MaxEquippedTicks = 5;
-    int currentMoney = 1500;
+    public int currentMoney = 1500;
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI equippedCounterText;
-    private readonly HashSet<string> unlockedItems = new HashSet<string>();
-    private readonly HashSet<string> equippedItems = new HashSet<string>();
+    public HashSet<string> unlockedItems = new HashSet<string>();
+    public HashSet<string> equippedItems  = new HashSet<string>();
 
     private void Awake()
     {
+        LoadProgress();
         EnsureReferences();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
@@ -37,6 +38,32 @@ public class InventoryManagerUI : MonoBehaviour
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
         UpdateEquippedCounterText();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveProgress();
+    }
+
+    private void SaveProgress()
+    {
+        Debug.Log("[SAVE] money=" + currentMoney + " | unlocked=[" + string.Join(",", unlockedItems) + "] | equipped=[" + string.Join(",", equippedItems) + "]");
+        SaveManager.SaveToPrefs(currentMoney, unlockedItems, equippedItems);
+    }
+
+    private void LoadProgress()
+    {
+        if (SaveManager.LoadFromPrefs(out int money, out var unlocked, out var equipped))
+        {
+            currentMoney  = money;
+            unlockedItems = unlocked;
+            equippedItems = equipped;
+            Debug.Log("[LOAD] money=" + money + " | unlocked=[" + string.Join(",", unlocked) + "] | equipped=[" + string.Join(",", equipped) + "]");
+        }
+        else
+        {
+            Debug.Log("[LOAD] No save found.");
+        }
     }
 
     private void UpdateMoneyText()
@@ -306,7 +333,13 @@ public class InventoryManagerUI : MonoBehaviour
             return item.itemData.itemName;
         }
 
-        return item.GetHashCode().ToString();
+        // Fallback: use the Unity asset name (stable between sessions)
+        if (item.itemData != null && !string.IsNullOrEmpty(item.itemData.name))
+        {
+            return item.itemData.name;
+        }
+
+        return string.Empty;
     }
 
     private bool IsItemPurchased(Item item)
@@ -339,6 +372,7 @@ public class InventoryManagerUI : MonoBehaviour
             equippedItems.Remove(key);
             slotUI.SetEquippedState(false);
             UpdateEquippedCounterText();
+            SaveProgress();
             return true;
         }
 
@@ -351,6 +385,7 @@ public class InventoryManagerUI : MonoBehaviour
         equippedItems.Add(key);
         slotUI.SetEquippedState(true);
         UpdateEquippedCounterText();
+        SaveProgress();
         return true;
     }
 
@@ -384,6 +419,7 @@ public class InventoryManagerUI : MonoBehaviour
         UpdateMoneyText();
 
         string key = GetItemKey(item);
+        Debug.Log("[BUY] key='" + key + "' item='" + itemName + "'");
         if (!string.IsNullOrEmpty(key))
         {
             unlockedItems.Add(key);
@@ -394,6 +430,7 @@ public class InventoryManagerUI : MonoBehaviour
             slotUI.SetPurchasedState(true);
         }
 
+        SaveProgress();
         Debug.Log("Purchased: " + itemName);
         return true;
     }
