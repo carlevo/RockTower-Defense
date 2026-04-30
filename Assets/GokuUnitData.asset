@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0f65d3d5ba3204e98a7893359a1e29, type: 3}
+  m_Name: GokuUnitData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitPrefab: {fileID: 5208763038702043546, guid: bb8ff0b4b3b521f4f95a23496aa070eb, type: 3}
+  cost: 500
