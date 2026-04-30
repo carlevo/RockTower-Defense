@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitPrefab: {fileID: 6908928396458125743, guid: a6f811828da60b042824cfb022bfcb22, type: 3}
+  unitData: {fileID: 11400000, guid: 2cee8914ed1ee5a42ba470eb8a5d4d8b, type: 2}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &302189804
@@ -3705,7 +3705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitPrefab: {fileID: 200243051126802757, guid: 229c4dc83377e2a428e563627d8d47c4, type: 3}
+  unitData: {fileID: 11400000, guid: d99b3d45c1a21a742856c3ff201de47b, type: 2}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1 &642962767
@@ -4768,7 +4768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitPrefab: {fileID: 5208763038702043546, guid: bb8ff0b4b3b521f4f95a23496aa070eb, type: 3}
+  unitData: {fileID: 11400000, guid: defff2cd247662c4ab67cd68a318787b, type: 2}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &796592957
@@ -5303,7 +5303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitPrefab: {fileID: 3157378867526134574, guid: 0483f083fc5c76b49ae11afbe0648556, type: 3}
+  unitData: {fileID: 11400000, guid: 463918d5f4b946b4794085b4d1627f6d, type: 2}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &844517857
@@ -8037,7 +8037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d6b549cb717f843b5e9ab40639a3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitSelectButton
-  unitPrefab: {fileID: 8586724853275316178, guid: abd665b4ee02fbe4284b9238839d6b31, type: 3}
+  unitData: {fileID: 11400000, guid: 1a409c276f4ad5a4994240e838897fbc, type: 2}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.4, g: 1, b: 0.4, a: 1}
 --- !u!1001 &1585564951

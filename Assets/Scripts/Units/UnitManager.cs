@@ -5,7 +5,7 @@ public class UnitPlacer : MonoBehaviour
 {
     public static UnitPlacer Instance { get; private set; }
 
-    private GameObject selectedPrefab;
+    private UnitData selectedUnitData;
     private UnitSelectButton selectedButton;
     private bool buttonClickedThisFrame = false;
 
@@ -28,20 +28,14 @@ public class UnitPlacer : MonoBehaviour
     {
         buttonClickedThisFrame = true;
 
-        if (button.unitPrefab == null)
-        {
-            Debug.LogError($"[UnitPlacer] '{button.name}' no tiene prefab asignado en UnitSelectButton.");
-            return;
-        }
-
         if (selectedButton != null)
             selectedButton.SetSelected(false);
 
         selectedButton = button;
-        selectedPrefab = button.unitPrefab;
+        selectedUnitData = button.unitData;
         button.SetSelected(true);
 
-        Debug.Log($"[UnitPlacer] Seleccionado: {selectedPrefab.name}");
+        Debug.Log($"[UnitPlacer] Seleccionado: {selectedUnitData.unitPrefab.name} (coste: {selectedUnitData.cost})");
     }
 
     void Update()
@@ -67,9 +61,15 @@ public class UnitPlacer : MonoBehaviour
             Debug.LogError("[UnitPlacer] pathTileMapParent es null. ¿Existe 'PathTileMap' en la escena?");
             return;
         }
-        if (selectedPrefab == null)
+        if (selectedUnitData == null)
         {
             Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada. Clica primero un botón.");
+            return;
+        }
+
+        if (!Coins.Instance.CanAfford(selectedUnitData.cost))
+        {
+            Debug.LogWarning($"[UnitPlacer] Sin monedas suficientes (necesitas {selectedUnitData.cost}).");
             return;
         }
 
@@ -89,7 +89,9 @@ public class UnitPlacer : MonoBehaviour
 
         if (closestTile != null && closestDist <= 0.6f && !occupiedTiles.Contains(closestTile))
         {
-            Instantiate(selectedPrefab, closestTile.transform.position, Quaternion.identity);
+            Coins.Instance.SpendCoins(selectedUnitData.cost);
+            Vector3 spawnPos = new Vector3(closestTile.transform.position.x, closestTile.transform.position.y, -1f);
+            Instantiate(selectedUnitData.unitPrefab, spawnPos, Quaternion.identity);
             occupiedTiles.Add(closestTile);
             Debug.Log($"[UnitPlacer] Torre colocada en: {closestTile.transform.position}");
         }
