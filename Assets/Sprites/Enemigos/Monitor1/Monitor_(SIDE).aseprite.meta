@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
 guid: 68408753cba411a4ea75d10c7d0a342c
-=======
-guid: 6f31d18e23111b74c841a4245981ec4a
->>>>>>> Stashed changes
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -143,15 +139,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 32
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 5b1cd402bebc685498145543dbf3173b
-=======
-    spriteID: 2f12c48b82f3c4d459b18a0a786350fc
->>>>>>> Stashed changes
-=======
-    spriteID: 48948ecb8533b894fb24af320127c343
->>>>>>> origin/Sprint6
+    spriteID: c37535fd701126a409f981fe81e9c42f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -183,15 +171,7 @@ ScriptedImporter:
         y: 9
         width: 16
         height: 32
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 5b1cd402bebc685498145543dbf3173b
-=======
-      spriteId: 2f12c48b82f3c4d459b18a0a786350fc
->>>>>>> Stashed changes
-=======
-      spriteId: 48948ecb8533b894fb24af320127c343
->>>>>>> origin/Sprint6
+      spriteId: c37535fd701126a409f981fe81e9c42f
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
