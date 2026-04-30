@@ -406,7 +406,8 @@ public class InventoryManagerUI : MonoBehaviour
     private UnitData GetUnitDataForItem(Item item)
     {
         if (item?.itemData == null) return null;
-        string cardName = item.itemData.itemName.Split(' ')[0];
-        return InventoryManager.Instance?.FindCharacterUnitData(cardName);
+        if (item.itemData.unitData == null)
+            Debug.LogWarning($"[InventoryManagerUI] {item.itemData.itemName} no tiene UnitData asignado en su ItemData.");
+        return item.itemData.unitData;
     }
 }

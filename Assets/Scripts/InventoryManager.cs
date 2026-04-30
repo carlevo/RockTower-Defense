@@ -69,8 +69,6 @@ public class InventoryManager : MonoBehaviour
 
     public List<Item> inventory = new List<Item>();
 
-    [Header("Character Unit Data")]
-    public UnitData[] characterUnitData;
 
     [Header("Debug")]
     public ItemData testItemData;
@@ -137,13 +135,4 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public UnitData FindCharacterUnitData(string cardName)
-    {
-        foreach (UnitData data in characterUnitData)
-        {
-            if (data != null && data.name.ToLower().StartsWith(cardName.ToLower()))
-                return data;
-        }
-        return null;
-    }
 }
