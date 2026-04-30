@@ -14,9 +14,9 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        
+
         // Buscamos la ruta en la escena (puedes pasarla por el Spawner también)
-        Route route = FindObjectOfType<Route>();    
+        Route route = FindObjectOfType<Route>();
         if (route != null)
         {
             targetWaypoints = route.waypoints;
@@ -43,7 +43,7 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
             currentWaypointIndex++;
-            
+
             // Si era el último punto, daña a la roca
             if (currentWaypointIndex >= targetWaypoints.Length)
             {
@@ -56,11 +56,16 @@ public class EnemyMovement : MonoBehaviour
     {
         if (anim == null) return;
 
+        // Calculamos la dirección (destino - posición actual)
         Vector3 direction = (target - transform.position).normalized;
-        
-        // Ejemplo simple: Cambiar parámetros del Animator
+
+        // Enviamos los valores al Blend Tree
         anim.SetFloat("DirX", direction.x);
         anim.SetFloat("DirY", direction.y);
+
+        // mire a la derecha/izquierda haciendo espejo:
+        if (direction.x > 0.1f) transform.localScale = new Vector3(-1, 1, 1); // Derecha
+        else if (direction.x < -0.1f) transform.localScale = new Vector3(1, 1, 1); // Izquierda
     }
 
     private void ReachEnd()
