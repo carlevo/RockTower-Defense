@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: dfd1444aad35ee94d88e12a83cf4ca39
-=======
-guid: a74c34ef0cb9d2f45bd8364fbb925b75
->>>>>>> Stashed changes
+guid: 13a0b1a21226a904a92ad03fae5f87bf
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Monitor_(FRONT)
+  - name: MonitorR_(BACK)
     originalName: 
     pivot: {x: 0.5, y: -0.34615386}
     alignment: 9
@@ -143,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 38
       height: 26
-<<<<<<< Updated upstream
-    spriteID: dfaef74bc37a8d9438f0f461aa83d04b
-=======
-    spriteID: 2cd0cd4b6c84046448254d99aa537a25
->>>>>>> Stashed changes
+    spriteID: f55617c25ce50504886123cc28092d6c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1569798467
+      value0: 549759715
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Monitor_(FRONT)
+    name: MonitorR_(BACK)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Monitor_(FRONT)
+    - name: MonitorR_(BACK)
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -179,11 +171,7 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 26
-<<<<<<< Updated upstream
-      spriteId: dfaef74bc37a8d9438f0f461aa83d04b
-=======
-      spriteId: 2cd0cd4b6c84046448254d99aa537a25
->>>>>>> Stashed changes
+      spriteId: f55617c25ce50504886123cc28092d6c
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
