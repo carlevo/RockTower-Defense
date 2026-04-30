@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: bbed64b2f1eae4d49a55bdad07dcf089
-=======
-guid: 48f8a93d8e318bf42a3208c90c289db1
->>>>>>> origin/main
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -143,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 30
-<<<<<<< HEAD
-    spriteID: 407b85917f5a50440a04828e27b254da
-=======
-    spriteID: b3d7ef1001e73d74e8537d93928aaec9
->>>>>>> origin/main
+    spriteID: 97bbabc54aff0be45b03990fcec7941e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -168,11 +160,7 @@ ScriptedImporter:
       y: 42
       width: 16
       height: 30
-<<<<<<< HEAD
-    spriteID: dc48b7d7fd3ea794d99fee0eb5efc5d0
-=======
-    spriteID: fef1d2af1e4f1194393763798c0ea500
->>>>>>> origin/main
+    spriteID: d3973fddff60c8b4abd34ee4c12c105f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -193,11 +181,7 @@ ScriptedImporter:
       y: 80
       width: 16
       height: 30
-<<<<<<< HEAD
-    spriteID: 6776ddf9ee6860048bac80b218f311cd
-=======
-    spriteID: 18dfeeca9b5bffa44b89b73d5415c1c0
->>>>>>> origin/main
+    spriteID: 30ca87c88e75a0a4c82ec7c953665c36
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -229,11 +213,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 30
-<<<<<<< HEAD
-      spriteId: 407b85917f5a50440a04828e27b254da
-=======
-      spriteId: b3d7ef1001e73d74e8537d93928aaec9
->>>>>>> origin/main
+      spriteId: 97bbabc54aff0be45b03990fcec7941e
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -242,11 +222,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 30
-<<<<<<< HEAD
-      spriteId: dc48b7d7fd3ea794d99fee0eb5efc5d0
-=======
-      spriteId: fef1d2af1e4f1194393763798c0ea500
->>>>>>> origin/main
+      spriteId: d3973fddff60c8b4abd34ee4c12c105f
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -255,11 +231,7 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 30
-<<<<<<< HEAD
-      spriteId: 6776ddf9ee6860048bac80b218f311cd
-=======
-      spriteId: 18dfeeca9b5bffa44b89b73d5415c1c0
->>>>>>> origin/main
+      spriteId: 30ca87c88e75a0a4c82ec7c953665c36
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
