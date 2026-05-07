@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_Name
-      value: BaseEnemyWayPointTest
+      value: EnemigoRuben
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_FlipX
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_FlipY
@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7865988559286889637, guid: d71dd08bc9795f54baa9c6f8bacb127c, type: 3}
+      objectReference: {fileID: 1581927116742039777, guid: 776fb37ec0425794aaaea9f90fbc6a4b, type: 3}
     - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 5809374711748011590}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3173c97f048cb4943b63d7f6ab1a9acf, type: 2}
+  m_Controller: {fileID: 9100000, guid: d4258de8618d0974fb4e5a48234469ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
