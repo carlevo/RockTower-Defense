@@ -26,7 +26,7 @@ public class SaveManager : MonoBehaviour
         InventoryManagerUI ui = FindFirstObjectByType<InventoryManagerUI>();
         if (ui != null)
         {
-            Save(ui.currentMoney, ui.unlockedItems, ui.equippedItems);
+            Save(ui.dineroGlobal, ui.unlockedItems, ui.equippedItems);
         }
     }
 

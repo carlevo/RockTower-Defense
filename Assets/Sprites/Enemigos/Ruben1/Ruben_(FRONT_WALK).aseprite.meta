@@ -139,7 +139,11 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 40
+<<<<<<< HEAD
     spriteID: 5a041e055617b0c40b1f0b40bea3623c
+=======
+    spriteID: a00cd2baf8335584f805bc50a7d8e8c7
+>>>>>>> Sprint6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,7 +164,11 @@ ScriptedImporter:
       y: 52
       width: 28
       height: 40
+<<<<<<< HEAD
     spriteID: 94e4a263cdf696e4e8369300554997e9
+=======
+    spriteID: 12ee27ca555b33c4f93d83ecf210cd45
+>>>>>>> Sprint6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +200,11 @@ ScriptedImporter:
         y: 4
         width: 28
         height: 40
+<<<<<<< HEAD
       spriteId: 5a041e055617b0c40b1f0b40bea3623c
+=======
+      spriteId: a00cd2baf8335584f805bc50a7d8e8c7
+>>>>>>> Sprint6
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -201,7 +213,11 @@ ScriptedImporter:
         y: 4
         width: 28
         height: 40
+<<<<<<< HEAD
       spriteId: 94e4a263cdf696e4e8369300554997e9
+=======
+      spriteId: 12ee27ca555b33c4f93d83ecf210cd45
+>>>>>>> Sprint6
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
