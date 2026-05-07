@@ -4861,7 +4861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285d4848eb1698048a64c3d1ff1a4aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  prefabEnemicBase: {fileID: 5809374711748011590, guid: 9443c1ce4baa12641a952a5a0a392b3b, type: 3}
+  prefabEnemicBase: {fileID: 5809374711748011590, guid: 46acf20acde958e4a830163b0594213a, type: 3}
 --- !u!4 &813797296
 Transform:
   m_ObjectHideFlags: 0
