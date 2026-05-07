@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 93db62c1d22448e468c70ed40cf6845b
+guid: 1acf3a5ba22d3a245a5767f058b576b4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -139,7 +139,11 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 30
+<<<<<<< HEAD
     spriteID: f0ea48b87b34eb44788aa5f6d7e1b7d8
+=======
+    spriteID: 4f740fd463c86eb4cb5c4c9dabe82aff
+>>>>>>> ArregloBugsInventario
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -171,7 +175,11 @@ ScriptedImporter:
         y: 0
         width: 16
         height: 30
+<<<<<<< HEAD
       spriteId: f0ea48b87b34eb44788aa5f6d7e1b7d8
+=======
+      spriteId: 4f740fd463c86eb4cb5c4c9dabe82aff
+>>>>>>> ArregloBugsInventario
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

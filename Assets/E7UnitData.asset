@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0f65d3d5ba3204e98a7893359a1e29, type: 3}
+  m_Name: E7UnitData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitPrefab: {fileID: 4441467022459529995, guid: b338f7c4495af884794b2bb76f45506a, type: 3}
+  unitSprite: {fileID: 7227904896181063974, guid: ae9ab20d9c7dd7446ad911e43345eca1, type: 3}
+  cost: 700
