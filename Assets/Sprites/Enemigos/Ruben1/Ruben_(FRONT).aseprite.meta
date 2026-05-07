@@ -139,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 40
-<<<<<<< HEAD
-    spriteID: f06b61f29030ec342ba63168e753c97e
-=======
-    spriteID: 6c6875791e7c5da46987c3ea1e085e9b
->>>>>>> ArregloBugsInventario
+    spriteID: 98d305e1fa2e4ff468a1ea421e892608
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -175,11 +171,7 @@ ScriptedImporter:
         y: 4
         width: 28
         height: 40
-<<<<<<< HEAD
-      spriteId: f06b61f29030ec342ba63168e753c97e
-=======
-      spriteId: 6c6875791e7c5da46987c3ea1e085e9b
->>>>>>> ArregloBugsInventario
+      spriteId: 98d305e1fa2e4ff468a1ea421e892608
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

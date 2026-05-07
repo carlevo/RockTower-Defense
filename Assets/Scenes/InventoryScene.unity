@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManagerUI
   itemSlotPrefab: {fileID: 1215016169166487020, guid: 0ce5839f343c3634b9bd95d5c2ad9033, type: 3}
   inventoryContainer: {fileID: 1130993893}
-  currentMoney: 1500
+  dineroGlobalSource: {fileID: 0}
   moneyText: {fileID: 1144735932}
   equippedCounterText: {fileID: 570201061}
 --- !u!1 &247223298
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7750181563860064203, guid: 94029f4a714cbc04980aeb4f19876621, type: 3}
+  m_Sprite: {fileID: -7805543914568131376, guid: 94029f4a714cbc04980aeb4f19876621, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
