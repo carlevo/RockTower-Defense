@@ -139,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 32
-<<<<<<< HEAD
-    spriteID: 3e795d343bd2a4b46a458e5c4699b40d
-=======
-    spriteID: 6a420371aaecb1c429a96a2acbcbc614
->>>>>>> ArregloBugsInventario
+    spriteID: 9b1947e52b704e142b096075a6654b66
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -164,11 +160,7 @@ ScriptedImporter:
       y: 84
       width: 28
       height: 31
-<<<<<<< HEAD
-    spriteID: 195cde6cfe2bc4744934d47d0fdac766
-=======
-    spriteID: 90c1819c7bd807644a5924fda06b964a
->>>>>>> ArregloBugsInventario
+    spriteID: a64819d30af742f46b37ff6ca6c4c7a9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -189,11 +181,7 @@ ScriptedImporter:
       y: 44
       width: 28
       height: 32
-<<<<<<< HEAD
-    spriteID: 8d788e7cbf5e0844da98e204a7075410
-=======
-    spriteID: f0941e3a154a4ae49a4acd54989ff042
->>>>>>> ArregloBugsInventario
+    spriteID: 041eec1f4add45647893c3d25786422a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -214,11 +202,7 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 31
-<<<<<<< HEAD
-    spriteID: 9524ba65c9e425944b22647afa37a9bd
-=======
-    spriteID: a9ddcfc994f60794d8eb00da7ae08cd3
->>>>>>> ArregloBugsInventario
+    spriteID: e5f13555517a7324cb84ec8898e244cc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -250,11 +234,7 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
-<<<<<<< HEAD
-      spriteId: 3e795d343bd2a4b46a458e5c4699b40d
-=======
-      spriteId: 6a420371aaecb1c429a96a2acbcbc614
->>>>>>> ArregloBugsInventario
+      spriteId: 9b1947e52b704e142b096075a6654b66
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -263,11 +243,7 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 31
-<<<<<<< HEAD
-      spriteId: 195cde6cfe2bc4744934d47d0fdac766
-=======
-      spriteId: 90c1819c7bd807644a5924fda06b964a
->>>>>>> ArregloBugsInventario
+      spriteId: a64819d30af742f46b37ff6ca6c4c7a9
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -276,11 +252,7 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
-<<<<<<< HEAD
-      spriteId: 8d788e7cbf5e0844da98e204a7075410
-=======
-      spriteId: f0941e3a154a4ae49a4acd54989ff042
->>>>>>> ArregloBugsInventario
+      spriteId: 041eec1f4add45647893c3d25786422a
     - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -289,11 +261,7 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 31
-<<<<<<< HEAD
-      spriteId: 9524ba65c9e425944b22647afa37a9bd
-=======
-      spriteId: a9ddcfc994f60794d8eb00da7ae08cd3
->>>>>>> ArregloBugsInventario
+      spriteId: e5f13555517a7324cb84ec8898e244cc
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
