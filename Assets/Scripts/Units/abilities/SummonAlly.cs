@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AllyInvoker : MonoBehaviour
 {
+    public float summonCooldown;
    
     [Header("Summon Details")]
     //Lista con los prefabs de las invocaciones
@@ -13,11 +14,17 @@ public class AllyInvoker : MonoBehaviour
     void Start()
     {
         
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void seleccionarSummon()
+    {
+        int summonSeleccionada = Random.Range(0, prefabsToSummon.Count);
     }
 }
