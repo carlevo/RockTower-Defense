@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: JiaUnitData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitPrefab: {fileID: 6908928396458125743, guid: a6f811828da60b042824cfb022bfcb22, type: 3}
+  unitSprite: {fileID: -7019379175165256961, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
   cost: 100

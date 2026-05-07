@@ -16,3 +16,4 @@ MonoBehaviour:
   itemIcon: {fileID: -3482009563518759653, guid: b18276a7cbcc944429c44d0e57a476d3, type: 3}
   itemDescription: 
   itemType: 0
+  unitData: {fileID: 11400000, guid: d99b3d45c1a21a742856c3ff201de47b, type: 2}

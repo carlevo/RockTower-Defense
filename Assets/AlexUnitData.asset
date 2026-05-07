@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: AlexUnitData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitPrefab: {fileID: 3157378867526134574, guid: 0483f083fc5c76b49ae11afbe0648556, type: 3}
+  unitSprite: {fileID: 2380363008883523207, guid: c54f9b2412f92f142acc32cbc3695878, type: 3}
   cost: 400

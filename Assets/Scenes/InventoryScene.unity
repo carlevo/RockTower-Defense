@@ -195,6 +195,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131717694}
   m_CullTransparentMesh: 1
+--- !u!1 &162541433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162541435}
+  - component: {fileID: 162541434}
+  m_Layer: 0
+  m_Name: Guardar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &162541434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162541433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8aa84d949aec94f8bf392eb46a4b41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveManager
+--- !u!4 &162541435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162541433}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 928.0286, y: 562.5344, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &180778580
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManagerUI
   itemSlotPrefab: {fileID: 1215016169166487020, guid: 0ce5839f343c3634b9bd95d5c2ad9033, type: 3}
   inventoryContainer: {fileID: 1130993893}
+  currentMoney: 1500
   moneyText: {fileID: 1144735932}
   equippedCounterText: {fileID: 570201061}
 --- !u!1 &247223298
@@ -1322,7 +1367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9153974347006942174, guid: ad403e6d3244e664e99f0abe329d1fd6, type: 3}
+  m_Sprite: {fileID: -7750181563860064203, guid: 94029f4a714cbc04980aeb4f19876621, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1427,3 +1472,4 @@ SceneRoots:
   - {fileID: 1100778607}
   - {fileID: 477354725}
   - {fileID: 2135857607}
+  - {fileID: 162541435}

@@ -14,4 +14,5 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
     public string itemDescription;
     public ItemType itemType;
+    public UnitData unitData;
 }
