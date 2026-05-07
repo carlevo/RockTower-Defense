@@ -139,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 32
-<<<<<<< HEAD
-    spriteID: c588705261bd3264e8b064e38f679379
-=======
-    spriteID: 34ff5d9786ec5a846beefd9e94ca5692
->>>>>>> Sprint6
+    spriteID: fa6a42681bb64584eb93d32b557dca15
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -175,11 +171,7 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
-<<<<<<< HEAD
-      spriteId: c588705261bd3264e8b064e38f679379
-=======
-      spriteId: 34ff5d9786ec5a846beefd9e94ca5692
->>>>>>> Sprint6
+      spriteId: fa6a42681bb64584eb93d32b557dca15
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
