@@ -8,7 +8,18 @@ public class InventoryManagerUI : MonoBehaviour
     public GameObject itemSlotPrefab;
     public RectTransform inventoryContainer;
     private const int MaxEquippedTicks = 5;
-    public int currentMoney = 1500;
+    [SerializeField] private DineroGlobal dineroGlobalSource;
+    public int dineroGlobal
+    {
+        get => dineroGlobalSource != null ? dineroGlobalSource.dineroGlobal : 0;
+        set
+        {
+            if (dineroGlobalSource != null)
+            {
+                dineroGlobalSource.dineroGlobal = value;
+            }
+        }
+    }
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI equippedCounterText;
     public HashSet<string> unlockedItems = new HashSet<string>();
@@ -16,6 +27,7 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void Awake()
     {
+        ResolveDineroGlobalReference();
         LoadProgress();
         EnsureReferences();
         ResolveMoneyTextReference();
@@ -26,6 +38,7 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void Start()
     {
+        ResolveDineroGlobalReference();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
@@ -34,6 +47,7 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void OnEnable()
     {
+        ResolveDineroGlobalReference();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
@@ -47,15 +61,17 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void SaveProgress()
     {
-        Debug.Log("[SAVE] money=" + currentMoney + " | unlocked=[" + string.Join(",", unlockedItems) + "] | equipped=[" + string.Join(",", equippedItems) + "]");
-        SaveManager.SaveToPrefs(currentMoney, unlockedItems, equippedItems);
+        ResolveDineroGlobalReference();
+        Debug.Log("[SAVE] money=" + dineroGlobal + " | unlocked=[" + string.Join(",", unlockedItems) + "] | equipped=[" + string.Join(",", equippedItems) + "]");
+        SaveManager.SaveToPrefs(dineroGlobal, unlockedItems, equippedItems);
     }
 
     private void LoadProgress()
     {
+        ResolveDineroGlobalReference();
         if (SaveManager.LoadFromPrefs(out int money, out var unlocked, out var equipped))
         {
-            currentMoney  = money;
+            dineroGlobal  = money;
             unlockedItems = unlocked;
             equippedItems = equipped;
             Debug.Log("[LOAD] money=" + money + " | unlocked=[" + string.Join(",", unlocked) + "] | equipped=[" + string.Join(",", equipped) + "]");
@@ -68,9 +84,26 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void UpdateMoneyText()
     {
+        ResolveDineroGlobalReference();
         if (moneyText != null)
         {
-            moneyText.text =currentMoney.ToString();
+            moneyText.text =dineroGlobal.ToString();
+        }
+    }
+
+    private void ResolveDineroGlobalReference()
+    {
+        if (dineroGlobalSource != null)
+        {
+            return;
+        }
+
+        dineroGlobalSource = FindFirstObjectByType<DineroGlobal>();
+        if (dineroGlobalSource == null)
+        {
+            GameObject dineroGlobalGO = new GameObject("DineroGlobal");
+            dineroGlobalSource = dineroGlobalGO.AddComponent<DineroGlobal>();
+            Debug.Log("InventoryManagerUI: Se creo automaticamente DineroGlobal en escena.");
         }
     }
 
@@ -409,13 +442,13 @@ public class InventoryManagerUI : MonoBehaviour
             return true;
         }
 
-        if (currentMoney < totalPrice)
+        if (dineroGlobal < totalPrice)
         {
             Debug.Log("Not enough money to buy " + itemName);
             return false;
         }
 
-        currentMoney -= totalPrice;
+        dineroGlobal -= totalPrice;
         UpdateMoneyText();
 
         string key = GetItemKey(item);
