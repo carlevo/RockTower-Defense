@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -13951471
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_LocalScale.x
       value: -4
@@ -133,7 +137,7 @@ Animator:
   m_GameObject: {fileID: 5809374711748011590}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7416b044b1b2f0a489b524592fe930d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: faaf925275557c947aff7a1c2071f3d9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

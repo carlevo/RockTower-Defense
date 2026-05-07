@@ -9,7 +9,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -5239491504907982728, guid: b31f97e4c7f22ce43883d9c93c4d6dbf, type: 3}
+    m_Motion: {fileID: -8310592180976982407, guid: dda54eadb6790b74188bfa4aad2f3a2c, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -17,7 +17,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 2553788848820580411, guid: a918c884d5e9ada4d9a3a08baf421972, type: 3}
+    m_Motion: {fileID: -5791333193235170948, guid: a055e618c68f5cb4083b73a67b584f05, type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -25,7 +25,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 4276577087446647427, guid: d71dd08bc9795f54baa9c6f8bacb127c, type: 3}
+    m_Motion: {fileID: 5286534824276128442, guid: 8702c7dda8f39e1448557a4ae6edac07, type: 3}
     m_Threshold: 0.6666667
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -33,7 +33,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 4276577087446647427, guid: d71dd08bc9795f54baa9c6f8bacb127c, type: 3}
+    m_Motion: {fileID: 5286534824276128442, guid: 8702c7dda8f39e1448557a4ae6edac07, type: 3}
     m_Threshold: 1
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -53,7 +53,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TeclaAnimatorController
+  m_Name: MouseAnimatorController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Blend
