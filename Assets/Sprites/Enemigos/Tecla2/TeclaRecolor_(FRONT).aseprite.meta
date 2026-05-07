@@ -139,7 +139,11 @@ ScriptedImporter:
       y: 4
       width: 31
       height: 23
+<<<<<<< HEAD
     spriteID: 09b48ae4b1a31d64596328cf987e3977
+=======
+    spriteID: 89e0b14e12ffc7349951f5c71f41b77c
+>>>>>>> AjustesRango
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -171,7 +175,11 @@ ScriptedImporter:
         y: 4
         width: 31
         height: 23
+<<<<<<< HEAD
       spriteId: 09b48ae4b1a31d64596328cf987e3977
+=======
+      spriteId: 89e0b14e12ffc7349951f5c71f41b77c
+>>>>>>> AjustesRango
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
