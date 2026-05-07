@@ -3,20 +3,28 @@ using System.Collections.Generic;
 
 public class UnitPlacer : MonoBehaviour
 {
-    public static UnitPlacer Instance { get; private set; }
 
+    //Declaración para que otros scripts lo puedan invocar desde cualquier sitio sin tener que buscarlo
+    public static UnitPlacer Instance { get; private set; }
+//Esta es la variable que guardará la unitdata que se selecciona
     private UnitData selectedUnitData;
+
+    //variable que guardará el boton seleccionado
     private UnitSelectButton selectedButton;
     private bool buttonClickedThisFrame = false;
 
+//Guardamos todas las "casillas" Tilemaps del hierarchy
     private Transform pathTileMapParent;
+    //Diccionario que solo contiene las keys para guardar que tiles ya están ocupadas (no contiene el valor)
     private HashSet<GameObject> occupiedTiles = new HashSet<GameObject>();
 
+//Awake se utiliza para inicializar los valores al empezar el juego
     void Awake()
     {
         Instance = this;
-
+//Busca el pathtilemap
         GameObject ptm = GameObject.Find("PathTileMap");
+        //Si lo encuentra guarda el transform rotacion, escala del objeto si no lo encuentra tira error
         if (ptm != null)
             pathTileMapParent = ptm.transform;
         else

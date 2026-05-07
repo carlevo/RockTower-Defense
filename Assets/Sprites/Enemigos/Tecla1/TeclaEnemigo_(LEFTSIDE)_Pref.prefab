@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: -2652191937424372044}
   - component: {fileID: -407388675426422345}
   m_Layer: 0
-  m_Name: TeclaEnemigo_(SIDE)_Pref
-  m_TagString: Untagged
+  m_Name: TeclaEnemigo_(LEFTSIDE)_Pref
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016319723920a7c4598b597bbe4fc622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasePlateGuyEnemy
-  vel: 2
+  vel: 1
   HP: 0
   damage: 0
 --- !u!95 &-2652191937424372044

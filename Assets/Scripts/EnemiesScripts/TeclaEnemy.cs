@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class Teclaenemy : MonoBehaviour
+public class Teclaenemy : MonoBehaviour, IDamageable
 {
     //Campo de velocidad de este enemigo
     [SerializeField] private float vel;
