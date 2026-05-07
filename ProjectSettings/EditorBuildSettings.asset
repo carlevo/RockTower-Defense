@@ -18,6 +18,21 @@ EditorBuildSettings:
     path: Assets/Scenes/ScrollScene.unity
     guid: 14201827e852a5f49a2041b162904bb4
   - enabled: 1
+    path: Assets/Scenes/PantallaNiveles.unity
+    guid: e7a2719028acab44e8464f2ff3967d36
+  - enabled: 1
+    path: Assets/Scenes/Nivel2Scene.unity
+    guid: c9dbfb1460703a9418f88cfebb8ec330
+  - enabled: 1
+    path: Assets/Scenes/Nivel3Scene.unity
+    guid: dc1ef462ff17bc648ab2e478b2cd7934
+  - enabled: 1
+    path: Assets/Scenes/Nivel4Scene.unity
+    guid: ba5d751bd7eb885419c0da50cd992369
+  - enabled: 1
+    path: Assets/Scenes/Nivel5Scene.unity
+    guid: 24e69f1dcb4a00946ac9738f862c605c
+  - enabled: 1
     path: Assets/Scenes/LobbyScene.unity
     guid: 68a3910d2ca782d409398fb9d63cfb48
   - enabled: 1

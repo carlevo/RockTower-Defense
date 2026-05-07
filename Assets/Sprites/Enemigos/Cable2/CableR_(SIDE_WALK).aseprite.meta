@@ -139,11 +139,7 @@ ScriptedImporter:
       y: 4
       width: 35
       height: 18
-<<<<<<< HEAD
-    spriteID: 0456382b0807889418e82791b813a8aa
-=======
-    spriteID: a6a4ed789d4a75d479bc2feffd8d6dae
->>>>>>> AjustesRango
+    spriteID: 31f4dfbdb6940ed4b984093fb441b9a2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -164,11 +160,7 @@ ScriptedImporter:
       y: 30
       width: 34
       height: 18
-<<<<<<< HEAD
-    spriteID: a0fb2fd9599297046918679680d0bb34
-=======
-    spriteID: 5bf466f1da0c4e64aa1bafecd83396e8
->>>>>>> AjustesRango
+    spriteID: 9af724393f7fb524b82778d9bae2a491
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -200,11 +192,7 @@ ScriptedImporter:
         y: 13
         width: 35
         height: 18
-<<<<<<< HEAD
-      spriteId: 0456382b0807889418e82791b813a8aa
-=======
-      spriteId: a6a4ed789d4a75d479bc2feffd8d6dae
->>>>>>> AjustesRango
+      spriteId: 31f4dfbdb6940ed4b984093fb441b9a2
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -213,11 +201,7 @@ ScriptedImporter:
         y: 13
         width: 34
         height: 18
-<<<<<<< HEAD
-      spriteId: a0fb2fd9599297046918679680d0bb34
-=======
-      spriteId: 5bf466f1da0c4e64aa1bafecd83396e8
->>>>>>> AjustesRango
+      spriteId: 9af724393f7fb524b82778d9bae2a491
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
