@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 800950097a5ad164288c6746479ccd6c
+guid: 63cc8fbe84d92f04191735addf7d1d8d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639143848851855197
+  platformSettingsDirtyTick: 639143849053701588
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Nokia_Object
+  - name: LaDe20
     originalName: 
-    pivot: {x: 0.53846157, y: -0.75}
+    pivot: {x: 0.5, y: -1.3846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 13
-      height: 20
-    spriteID: 2f634a9efb57ab747968c044c9f6928e
+      width: 20
+      height: 13
+    spriteID: 3e177572551b49f44a68922cdca4df70
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3603758610
+      value0: 1679433332
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Nokia_Object
+    name: LaDe20
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Nokia_Object
+    - name: LaDe20
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 9
-        y: 15
-        width: 13
-        height: 20
-      spriteId: 2f634a9efb57ab747968c044c9f6928e
+        x: 6
+        y: 18
+        width: 20
+        height: 13
+      spriteId: 3e177572551b49f44a68922cdca4df70
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

@@ -15,3 +15,7 @@ MonoBehaviour:
   unitPrefab: {fileID: 4441467022459529995, guid: b338f7c4495af884794b2bb76f45506a, type: 3}
   unitSprite: {fileID: 7227904896181063974, guid: ae9ab20d9c7dd7446ad911e43345eca1, type: 3}
   cost: 700
+  attackRange: 2
+  attackDamage: 100
+  attackCooldown: 1
+  attackAnimationTrigger: Attack
