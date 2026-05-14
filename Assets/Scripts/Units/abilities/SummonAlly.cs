@@ -8,7 +8,6 @@ public class AllyInvoker : MonoBehaviour
 
     [Header("Summon Details")]
     public List<GameObject> prefabsToSummon;
-    public Transform spawnPoint;
 
     void Start()
     {
@@ -26,8 +25,7 @@ public class AllyInvoker : MonoBehaviour
     {
         int index = Random.Range(0, prefabsToSummon.Count);
         GameObject prefab = prefabsToSummon[index];
-        Vector3 pos = spawnPoint != null ? spawnPoint.position : transform.position;
-        Instantiate(prefab, pos, Quaternion.identity);
+        Instantiate(prefab, Vector3.zero, Quaternion.identity);
         Debug.Log("[AllyInvoker] Invocado: " + prefab.name);
     }
 }

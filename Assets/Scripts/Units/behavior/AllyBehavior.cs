@@ -20,7 +20,8 @@ public class AllyBehavior : MonoBehaviour, IDamageable
         if (route != null && route.waypoints.Length > 0)
         {
             waypoints = route.waypoints;
-            currentWaypointIndex = 0;
+            currentWaypointIndex = waypoints.Length - 1;
+            transform.position = waypoints[currentWaypointIndex].position;
         }
         else
         {
@@ -30,7 +31,7 @@ public class AllyBehavior : MonoBehaviour, IDamageable
 
     void Update()
     {
-        if (waypoints == null || currentWaypointIndex >= waypoints.Length) return;
+        if (waypoints == null || currentWaypointIndex < 0) return;
         MoveTowardsTarget();
     }
 
@@ -43,9 +44,9 @@ public class AllyBehavior : MonoBehaviour, IDamageable
 
         if (Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= waypoints.Length)
-                ReachPlayerBase();
+            currentWaypointIndex--;
+            if (currentWaypointIndex < 0)
+                ReachDestination();
         }
     }
 
@@ -70,7 +71,7 @@ public class AllyBehavior : MonoBehaviour, IDamageable
         );
     }
 
-    private void ReachPlayerBase()
+    private void ReachDestination()
     {
         Destroy(gameObject);
     }
