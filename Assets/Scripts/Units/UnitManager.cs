@@ -11,7 +11,6 @@ public class UnitPlacer : MonoBehaviour
 
     //variable que guardará el boton seleccionado
     private UnitSelectButton selectedButton;
-    private bool buttonClickedThisFrame = false;
 
     //Guardamos todas las "casillas" Tilemaps del hierarchy
     private Transform pathTileMapParent;
@@ -31,11 +30,8 @@ public class UnitPlacer : MonoBehaviour
             Debug.LogError("UnitPlacer: No se encontró 'PathTileMap' en la escena.");
     }
 
-    // Llamado desde OnMouseDown de UnitSelectButton, que dispara ANTES de Update
     public void SelectUnit(UnitSelectButton button)
     {
-        buttonClickedThisFrame = true;
-
         if (selectedButton != null)
             selectedButton.SetSelected(false);
 
@@ -50,15 +46,13 @@ public class UnitPlacer : MonoBehaviour
     {
         if (!Input.GetMouseButtonDown(0)) return;
 
-        // Si este frame se clicó un botón, no colocar unidad
-        if (buttonClickedThisFrame)
-        {
-            buttonClickedThisFrame = false;
-            return;
-        }
-
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mouseWorld.x, mouseWorld.y);
+
+        // Si el clic fue sobre un botón de selección, no colocar
+        Collider2D hit = Physics2D.OverlapPoint(mousePos2D);
+        if (hit != null && hit.GetComponent<UnitSelectButton>() != null) return;
+
         PlaceUnit(mousePos2D);
     }
 
