@@ -3,8 +3,15 @@ using UnityEngine;
 public class AllyBehavior : MonoBehaviour, IDamageable
 {
     public float HP = 50f;
-    public float DMG = 10f;
     [SerializeField] private float vel = 2f;
+
+    [Header("Attack")]
+    [SerializeField] public float attackDamage = 200f;
+    [SerializeField] private float attackRange = 1.5f;
+    [SerializeField] private float attackCooldown = 1f;
+
+    private float cooldownTimer = 0f;
+    private readonly Collider2D[] attackResults = new Collider2D[10];
 
     private Transform[] waypoints;
     private int currentWaypointIndex;
@@ -33,6 +40,24 @@ public class AllyBehavior : MonoBehaviour, IDamageable
     {
         if (waypoints == null || currentWaypointIndex < 0) return;
         MoveTowardsTarget();
+        HandleAttack();
+    }
+
+    private void HandleAttack()
+    {
+        cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer > 0f) return;
+
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, attackRange, attackResults);
+        for (int i = 0; i < count; i++)
+        {
+            if (!attackResults[i].CompareTag("Enemy")) continue;
+            IDamageable enemy = attackResults[i].GetComponent<IDamageable>();
+            if (enemy == null) continue;
+            enemy.TakeDamage(attackDamage);
+            cooldownTimer = attackCooldown;
+            break;
+        }
     }
 
     private void MoveTowardsTarget()
@@ -57,18 +82,11 @@ public class AllyBehavior : MonoBehaviour, IDamageable
         Vector3 direction = (target - transform.position).normalized;
         anim.SetFloat("DirX", direction.x);
         anim.SetFloat("DirY", direction.y);
-
-        if (direction.x > 0.1f) transform.localScale = new Vector3(-1, 1, 1);
-        else if (direction.x < -0.1f) transform.localScale = new Vector3(1, 1, 1);
     }
 
     void LateUpdate()
     {
-        transform.localScale = new Vector3(
-            Mathf.Sign(transform.localScale.x) * Mathf.Abs(fixedScale.x),
-            fixedScale.y,
-            fixedScale.z
-        );
+        transform.localScale = fixedScale;
     }
 
     private void ReachDestination()
