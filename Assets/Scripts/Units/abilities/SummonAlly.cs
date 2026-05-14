@@ -23,9 +23,13 @@ public class AllyInvoker : MonoBehaviour
 
     private void SeleccionarSummon()
     {
+        Route route = FindObjectOfType<Route>();
+        Vector3 spawnPos = (route != null && route.waypoints.Length > 0)
+            ? route.waypoints[route.waypoints.Length - 1].position
+            : transform.position;
+
         int index = Random.Range(0, prefabsToSummon.Count);
-        GameObject prefab = prefabsToSummon[index];
-        Instantiate(prefab, Vector3.zero, Quaternion.identity);
-        Debug.Log("[AllyInvoker] Invocado: " + prefab.name);
+        Instantiate(prefabsToSummon[index], spawnPos, Quaternion.identity);
+        Debug.Log("[AllyInvoker] Invocado: " + prefabsToSummon[index].name);
     }
 }
