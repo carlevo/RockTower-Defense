@@ -92,7 +92,7 @@ MonoBehaviour:
   vel: 2
   attackDamage: 200
   attackRange: 1.5
-  attackCooldown: 1
+  attackCooldown: 0
 --- !u!61 &1961099028634355346
 BoxCollider2D:
   m_ObjectHideFlags: 0

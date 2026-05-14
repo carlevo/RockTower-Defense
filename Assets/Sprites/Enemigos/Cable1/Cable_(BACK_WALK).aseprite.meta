@@ -139,23 +139,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 30
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 00edbecfbcbba8542b24594181ed909a
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 37c81c2527ebb694990060ba16ad8508
-=======
-    spriteID: accc87cae5507004f8c6eb10028b85be
->>>>>>> Stashed changes
-=======
-    spriteID: 2eb77422d5d982f4b824815e423bb968
->>>>>>> origin/Sprint7
->>>>>>> Stashed changes
-=======
-    spriteID: 2eb77422d5d982f4b824815e423bb968
->>>>>>> origin/Sprint7
+    spriteID: 1defcbe9ddad1804a9048f1d37f5382e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -176,23 +160,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 32
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 8266e279cab15e445b2aa4277170c537
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-    spriteID: 1ac7cd5c8c726874e86ea14c3f6e0170
-=======
-    spriteID: 97640be584963104a8baab260c8a279f
->>>>>>> Stashed changes
-=======
-    spriteID: adb451f1cab72fa4582c62cb7c9a0747
->>>>>>> origin/Sprint7
->>>>>>> Stashed changes
-=======
-    spriteID: adb451f1cab72fa4582c62cb7c9a0747
->>>>>>> origin/Sprint7
+    spriteID: 9859a2d937912664db2841fec4b1b308
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -224,23 +192,7 @@ ScriptedImporter:
         y: 8
         width: 8
         height: 30
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 00edbecfbcbba8542b24594181ed909a
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 37c81c2527ebb694990060ba16ad8508
-=======
-      spriteId: accc87cae5507004f8c6eb10028b85be
->>>>>>> Stashed changes
-=======
-      spriteId: 2eb77422d5d982f4b824815e423bb968
->>>>>>> origin/Sprint7
->>>>>>> Stashed changes
-=======
-      spriteId: 2eb77422d5d982f4b824815e423bb968
->>>>>>> origin/Sprint7
+      spriteId: 1defcbe9ddad1804a9048f1d37f5382e
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -249,23 +201,7 @@ ScriptedImporter:
         y: 8
         width: 8
         height: 32
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 8266e279cab15e445b2aa4277170c537
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-      spriteId: 1ac7cd5c8c726874e86ea14c3f6e0170
-=======
-      spriteId: 97640be584963104a8baab260c8a279f
->>>>>>> Stashed changes
-=======
-      spriteId: adb451f1cab72fa4582c62cb7c9a0747
->>>>>>> origin/Sprint7
->>>>>>> Stashed changes
-=======
-      spriteId: adb451f1cab72fa4582c62cb7c9a0747
->>>>>>> origin/Sprint7
+      spriteId: 9859a2d937912664db2841fec4b1b308
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
