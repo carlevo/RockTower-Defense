@@ -46,4 +46,11 @@ public class DineroGlobal : MonoBehaviour
         PlayerPrefs.SetInt(SaveKeyMoney, dineroGlobal);
         PlayerPrefs.Save();
     }
+
+    public void SumarDinero(int cantidad)
+    {
+        dineroGlobal += cantidad;
+        SaveMoney(); // Guardamos inmediatamente para evitar pérdidas si el juego crashea
+        Debug.Log("Dinero actualizado: " + dineroGlobal);
+    }
 }

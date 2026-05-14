@@ -23,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
     [Header("Configuración de Oleadas")]
     [SerializeField] private List<Oleada> oleadas;
     [SerializeField] private float pausaEntreOleadas = 3f;
+    [Header("Recompensa")]
+    [SerializeField] private int recompensaNivel = 150;
 
     private int oleadaActualIndex = 0;
 
@@ -36,53 +38,61 @@ public class WaveSpawner : MonoBehaviour
     }
 
     IEnumerator GestionarOleadas()
+{
+    while (oleadaActualIndex < oleadas.Count)
     {
-        // Mientras queden oleadas por procesar
-        while (oleadaActualIndex < oleadas.Count)
+        Oleada oleadaActual = oleadas[oleadaActualIndex];
+        foreach (GrupoEnemigos grupo in oleadaActual.grupos)
         {
-            Oleada oleadaActual = oleadas[oleadaActualIndex];
-            Debug.Log("--- Iniciando " + oleadaActual.nombreOleada + " ---");
-
-            // 1. Spawneamos todos los grupos de la oleada actual
-            foreach (GrupoEnemigos grupo in oleadaActual.grupos)
+            for (int i = 0; i < grupo.cantidad; i++)
             {
-                for (int i = 0; i < grupo.cantidad; i++)
-                {
-                    // Si la roca ha sido destruida mientras spawneamos, salimos de la corrutina
-                    if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0)
-                        yield break;
+                if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0)
+                    yield break;
 
-                    Instantiate(grupo.prefab, transform.position, Quaternion.identity);
-                    yield return new WaitForSeconds(grupo.intervaloSpawn);
-                }
+                Instantiate(grupo.prefab, transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(grupo.intervaloSpawn);
             }
-
-            // 2. Espera de seguridad para que el último enemigo instanciado aparezca en los cálculos
-            yield return new WaitForSeconds(1f);
-
-            // 3. BLOQUEO: Esperar hasta que no haya objetos con el tag "Enemy"
-            // Solo pasará de línea cuando el contador de enemigos sea 0
-            yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
-
-            // 4. Verificación extra: si al limpiar la oleada resulta que hemos perdido, no seguimos
-            if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0)
-                yield break;
-
-            Debug.Log("Oleada Limpia. Siguiente en " + pausaEntreOleadas + " segundos...");
-
-            // 5. Pausa de descanso antes de la siguiente oleada
-            yield return new WaitForSeconds(pausaEntreOleadas);
-
-            oleadaActualIndex++;
         }
 
-        // --- GRAN FINAL ---
-        // Si el bucle termina, significa que todas las oleadas se han completado y limpiado
-        Debug.Log("¡Felicidades! Todas las oleadas superadas.");
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
 
-        if (RocaHandler.Instance != null)
-        {
-            RocaHandler.Instance.ShowVictory();
-        }
+        if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0)
+            yield break;
+
+        yield return new WaitForSeconds(pausaEntreOleadas);
+        oleadaActualIndex++;
     }
+
+    // Al terminar todas las oleadas de forma normal:
+    FinalizarNivel();
+}
+
+    void Update()
+{
+    // --- CÓDIGO DE TESTEO ---
+    // Si presionas la V, saltamos a la victoria inmediatamente
+    if (Input.GetKeyDown(KeyCode.V))
+    {
+        Debug.Log("Cheat: Forzando Victoria");
+        StopAllCoroutines(); // Detiene el spawn de enemigos actual
+        FinalizarNivel();    // Llama a la función de dar dinero y mostrar menú
+    }
+    // ------------------------
+}
+
+// He sacado esto a una función aparte para poder llamarla desde el cheat y desde la corrutina
+private void FinalizarNivel()
+{
+    if (DineroGlobal.Instance != null)
+    {
+        // Usamos la recompensa que configuraste en el Inspector
+        DineroGlobal.Instance.SumarDinero(recompensaNivel);
+    }
+
+    if (RocaHandler.Instance != null)
+    {
+        RocaHandler.Instance.ShowVictory();
+    }
+}
 }
