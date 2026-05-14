@@ -56,18 +56,11 @@ public class AIBehavior : MonoBehaviour, IDamageable
         Vector3 direction = (target - transform.position).normalized;
         anim.SetFloat("DirX", direction.x);
         anim.SetFloat("DirY", direction.y);
-
-        if (direction.x > 0.1f) transform.localScale = new Vector3(-1, 1, 1);
-        else if (direction.x < -0.1f) transform.localScale = new Vector3(1, 1, 1);
     }
 
     void LateUpdate()
     {
-        transform.localScale = new Vector3(
-            Mathf.Sign(transform.localScale.x) * Mathf.Abs(fixedScale.x),
-            fixedScale.y,
-            fixedScale.z
-        );
+        transform.localScale = fixedScale;
     }
 
     private void ReachEnemyBase()

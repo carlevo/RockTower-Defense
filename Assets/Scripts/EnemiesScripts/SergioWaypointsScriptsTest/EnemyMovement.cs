@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour, IDamageable
 {
     [Header("Configuración")]
     [SerializeField] private float vel = 2f;

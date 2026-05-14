@@ -3,32 +3,33 @@ using UnityEngine;
 
 public class AllyInvoker : MonoBehaviour
 {
-    public float summonCooldown;
-   
-    [Header("Summon Details")]
-    //Lista con los prefabs de las invocaciones
-    public List<GameObject> prefabsToSummon;    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float summonCooldown = 15f;
+    public float summonDelay = 5f;
 
+    [Header("Summon Details")]
+    public List<GameObject> prefabsToSummon;
 
     void Start()
     {
-        
-        
+        if (prefabsToSummon == null || prefabsToSummon.Count == 0)
+        {
+            Debug.LogWarning("[AllyInvoker] No hay prefabs en prefabsToSummon.");
+            return;
+        }
+        InvokeRepeating(nameof(SeleccionarSummon), summonDelay, summonCooldown);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() { }
+
+    private void SeleccionarSummon()
     {
-        InvokeRepeating("seleccionarSummon",5,15);
-        
-    }
-//Seleccionamos un prefab aleatorio
-    private void seleccionarSummon()
-    {
-        int summonSeleccionada = Random.Range(0, prefabsToSummon.Count);
-        GameObject prefabDeLaUnidad = prefabsToSummon[summonSeleccionada];
-        Debug.Log(summonSeleccionada + " con el nombre " +prefabDeLaUnidad.name);
-       // prefabDeLaUnidad(0);
+        Route route = FindObjectOfType<Route>();
+        Vector3 spawnPos = (route != null && route.waypoints.Length > 0)
+            ? route.waypoints[route.waypoints.Length - 1].position
+            : transform.position;
+
+        int index = Random.Range(0, prefabsToSummon.Count);
+        Instantiate(prefabsToSummon[index], spawnPos, Quaternion.identity);
+        Debug.Log("[AllyInvoker] Invocado: " + prefabsToSummon[index].name);
     }
 }
