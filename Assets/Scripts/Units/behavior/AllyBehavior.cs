@@ -18,13 +18,13 @@ public class AllyBehavior : MonoBehaviour, IDamageable
     private int currentWaypointIndex;
     private Animator anim;
     private Vector3 fixedScale;
-    private SpriteRenderer sr;
+    private SpriteRenderer[] renderers;
 
     void Awake()
     {
         fixedScale = transform.localScale;
-        sr = GetComponent<SpriteRenderer>();
-        if (sr != null) sr.enabled = false;
+        renderers = GetComponentsInChildren<SpriteRenderer>(true);
+        foreach (var r in renderers) r.enabled = false;
 
         enemyFilter = new ContactFilter2D();
         enemyFilter.useTriggers = true;
@@ -35,7 +35,7 @@ public class AllyBehavior : MonoBehaviour, IDamageable
     void Start()
     {
         anim = GetComponent<Animator>();
-        if (sr != null) sr.enabled = true;
+        foreach (var r in renderers) r.enabled = true;
 
         Route route = FindObjectOfType<Route>();
         if (route != null && route.waypoints.Length > 0)
