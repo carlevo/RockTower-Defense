@@ -35,6 +35,12 @@ public class UnitAttack : MonoBehaviour
             attackAnimTrigger = "Attack";
             Debug.LogWarning($"[UnitAttack] {gameObject.name} no tiene UnitData asignado.");
         }
+
+        if (attackDamage <= 0 || attackRange <= 0)
+        {
+            this.enabled = false; 
+            return;
+        }
     }
 
     void Update()
