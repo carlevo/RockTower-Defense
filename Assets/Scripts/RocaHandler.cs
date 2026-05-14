@@ -95,13 +95,6 @@ public class RocaHandler : MonoBehaviour
 
     }
 
-    public void RegisterKill()
-    {
-        enemiesKilled++;
-        if (enemiesKilled >= enemiesToKill)
-            showMenu(true, "Victory");
-    }
-
     private void CheckRocaLife()
     {
         if (rocaHP <= 0)

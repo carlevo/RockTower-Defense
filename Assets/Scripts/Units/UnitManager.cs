@@ -6,23 +6,23 @@ public class UnitPlacer : MonoBehaviour
 
     //Declaración para que otros scripts lo puedan invocar desde cualquier sitio sin tener que buscarlo
     public static UnitPlacer Instance { get; private set; }
-//Esta es la variable que guardará la unitdata que se selecciona
+    //Esta es la variable que guardará la unitdata que se selecciona
     private UnitData selectedUnitData;
 
     //variable que guardará el boton seleccionado
     private UnitSelectButton selectedButton;
     private bool buttonClickedThisFrame = false;
 
-//Guardamos todas las "casillas" Tilemaps del hierarchy
+    //Guardamos todas las "casillas" Tilemaps del hierarchy
     private Transform pathTileMapParent;
     //Diccionario que solo contiene las keys para guardar que tiles ya están ocupadas (no contiene el valor)
     private HashSet<GameObject> occupiedTiles = new HashSet<GameObject>();
 
-//Awake se utiliza para inicializar los valores al empezar el juego
+    //Awake se utiliza para inicializar los valores al empezar el juego
     void Awake()
     {
         Instance = this;
-//Busca el pathtilemap
+        //Busca el pathtilemap
         GameObject ptm = GameObject.Find("PathTileMap");
         //Si lo encuentra guarda el transform rotacion, escala del objeto si no lo encuentra tira error
         if (ptm != null)
@@ -66,18 +66,18 @@ public class UnitPlacer : MonoBehaviour
     {
         if (pathTileMapParent == null)
         {
-            Debug.LogError("[UnitPlacer] pathTileMapParent es null. ¿Existe 'PathTileMap' en la escena?");
+            Debug.LogError("[UnitPlacer] pathTileMapParent es null.");
             return;
         }
         if (selectedUnitData == null)
         {
-            Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada. Clica primero un botón.");
+            Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada.");
             return;
         }
 
         if (!Coins.Instance.CanAfford(selectedUnitData.cost))
         {
-            Debug.LogWarning($"[UnitPlacer] Sin monedas suficientes (necesitas {selectedUnitData.cost}).");
+            Debug.LogWarning($"[UnitPlacer] Sin monedas suficientes.");
             return;
         }
 
@@ -95,17 +95,32 @@ public class UnitPlacer : MonoBehaviour
             }
         }
 
+        // Si encontramos un tile válido y no está ocupado
         if (closestTile != null && closestDist <= 0.6f && !occupiedTiles.Contains(closestTile))
         {
             Coins.Instance.SpendCoins(selectedUnitData.cost);
+            
+            // Posición de spawn (Z = -1 para estar frente al fondo)
             Vector3 spawnPos = new Vector3(closestTile.transform.position.x, closestTile.transform.position.y, -1f);
-            Instantiate(selectedUnitData.unitPrefab, spawnPos, Quaternion.identity);
+            
+            // INSTANCIAR
+            GameObject torreInstanciada = Instantiate(selectedUnitData.unitPrefab, spawnPos, Quaternion.identity);
+            
+            // CONFIGURAR DATOS
+            UnitAttack scriptAtaque = torreInstanciada.GetComponent<UnitAttack>();
+            if (scriptAtaque != null)
+            {
+                scriptAtaque.InicializarUnidad(selectedUnitData);
+            }
+            else 
+            {
+                // Si es la unidad generadora de dinero, buscamos su script específico
+                Alex scriptDinero = torreInstanciada.GetComponent<Alex>();
+                if(scriptDinero == null) Debug.LogWarning("La unidad colocada no tiene script de ataque ni de dinero.");
+            }
+
             occupiedTiles.Add(closestTile);
-            Debug.Log($"[UnitPlacer] Torre colocada en: {closestTile.transform.position}");
-        }
-        else if (closestDist > 0.6f)
-        {
-            Debug.LogWarning($"[UnitPlacer] Demasiado lejos del tile más cercano (dist: {closestDist:F3}). Clica más cerca del centro.");
+            Debug.Log($"[UnitPlacer] {selectedUnitData.name} colocada con éxito.");
         }
     }
 }

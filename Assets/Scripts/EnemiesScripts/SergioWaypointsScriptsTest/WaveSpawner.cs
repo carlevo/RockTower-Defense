@@ -1,41 +1,60 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Necesario para Listas
+using System.Collections.Generic;
 
 [System.Serializable]
-public class GrupoEnemigos
-{
-    public string nombreGrupo;      // Ej: "Grupo de Teclas"
-    public GameObject prefab;       // El enemigo (Tecla, Mouse, etc.)
-    public int cantidad;            // Cuántos de este tipo
-    public float intervaloSpawn;    // Tiempo entre cada enemigo de este grupo
+public class GrupoEnemigos {
+    public string nombreGrupo;
+    public GameObject prefab;
+    public int cantidad;
+    public float intervaloSpawn;
 }
 
 [System.Serializable]
-public class Oleada
-{
-    public string nombreOleada;     // Ej: "Oleada 1: El ataque periférico"
-    public List<GrupoEnemigos> grupos; // Lista de diferentes tipos de enemigos en esta oleada
+public class Oleada {
+    public string nombreOleada;
+    public List<GrupoEnemigos> grupos;
 }
-
 public class WaveSpawner : MonoBehaviour
 {
-    [Header("Configuración de Oleadas")]
-    [SerializeField] private List<Oleada> oleadas;
-    [SerializeField] private float pausaEntreOleadas = 3f;
-    [Header("Recompensa")]
-    [SerializeField] private int recompensaNivel = 150;
+    public static WaveSpawner Instance;
+
+    // --- EVENTO PARA ALEX Y OTROS GENERADORES ---
     public delegate void OleadaFinalizada();
     public static event OleadaFinalizada OnOleadaFinalizada;
 
+    [Header("Configuración")]
+    [SerializeField] private List<Oleada> oleadas;
+    [SerializeField] private float pausaEntreOleadas = 3f;
+    [SerializeField] private int recompensaNivel = 150;
+
+    private int totalEnemigosNivel = 0;
+    private int enemigosMuertos = 0;
     private int oleadaActualIndex = 0;
+
+    void Awake() { Instance = this; }
 
     void Start()
     {
-        Time.timeScale = 1f; // Aseguramos que el tiempo esté normal al iniciar
-        if (oleadas.Count > 0)
+        // Contamos total de enemigos
+        totalEnemigosNivel = 0;
+        foreach (var oleada in oleadas) {
+            foreach (var grupo in oleada.grupos) {
+                totalEnemigosNivel += grupo.cantidad;
+            }
+        }
+        
+        if (oleadas.Count > 0) StartCoroutine(GestionarOleadas());
+    }
+
+    public void RegistrarMuerteEnemigo()
+    {
+        enemigosMuertos++;
+        Debug.Log($"Enemigo fuera. {enemigosMuertos} / {totalEnemigosNivel}");
+
+        if (enemigosMuertos >= totalEnemigosNivel)
         {
-            StartCoroutine(GestionarOleadas());
+            StartCoroutine(EsperarVictoria());
         }
     }
 
@@ -44,61 +63,37 @@ public class WaveSpawner : MonoBehaviour
         while (oleadaActualIndex < oleadas.Count)
         {
             Oleada oleadaActual = oleadas[oleadaActualIndex];
+
             foreach (GrupoEnemigos grupo in oleadaActual.grupos)
             {
                 for (int i = 0; i < grupo.cantidad; i++)
                 {
-                    if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0)
-                        yield break;
-
+                    if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0) yield break;
                     Instantiate(grupo.prefab, transform.position, Quaternion.identity);
                     yield return new WaitForSeconds(grupo.intervaloSpawn);
                 }
             }
 
-            yield return new WaitForSeconds(1f);
-            yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
-
-            if (RocaHandler.Instance != null && RocaHandler.Instance.rocaHP <= 0)
-                yield break;
-
-            // --- NUEVO: Avisar a las unidades que la oleada terminó ---
-            Debug.Log("Oleada finalizada, avisando a unidades generadoras...");
+            // --- AVISAR A ALEX ---
+            // Cuando terminan de salir los enemigos de la oleada actual, lanzamos el evento
+            Debug.Log("Spawning de oleada terminado, avisando a generadores...");
             OnOleadaFinalizada?.Invoke();
 
-            yield return new WaitForSeconds(pausaEntreOleadas);
             oleadaActualIndex++;
+            yield return new WaitForSeconds(pausaEntreOleadas);
         }
+    }
 
-        // Al terminar todas las oleadas de forma normal:
+    IEnumerator EsperarVictoria()
+    {
+        // Esperamos 2 segundos para que el jugador vea morir al último antes del menú
+        yield return new WaitForSeconds(2f);
         FinalizarNivel();
     }
 
-    void Update()
-    {
-        // --- CÓDIGO DE TESTEO ---
-        // Si presionas la V, saltamos a la victoria inmediatamente
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Debug.Log("Cheat: Forzando Victoria");
-            StopAllCoroutines(); // Detiene el spawn de enemigos actual
-            FinalizarNivel();    // Llama a la función de dar dinero y mostrar menú
-        }
-        // ------------------------
-    }
-
-    // He sacado esto a una función aparte para poder llamarla desde el cheat y desde la corrutina
     private void FinalizarNivel()
     {
-        if (DineroGlobal.Instance != null)
-        {
-            // Usamos la recompensa que configuraste en el Inspector
-            DineroGlobal.Instance.SumarDinero(recompensaNivel);
-        }
-
-        if (RocaHandler.Instance != null)
-        {
-            RocaHandler.Instance.ShowVictory();
-        }
+        if (DineroGlobal.Instance != null) DineroGlobal.Instance.SumarDinero(recompensaNivel);
+        if (RocaHandler.Instance != null) RocaHandler.Instance.ShowVictory();
     }
 }

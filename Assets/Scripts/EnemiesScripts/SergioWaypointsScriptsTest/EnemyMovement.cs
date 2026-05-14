@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour, IDamageable
     private Animator anim; // Para las animaciones de giro
 
     private Vector3 fixedScale;
-    
+
 
     void Start()
     {
@@ -74,35 +74,43 @@ public class EnemyMovement : MonoBehaviour, IDamageable
     }
 
     void LateUpdate()
+    {
+        // Esto obliga al enemigo a mantener su tamaño original 
+        // ignorando lo que diga el clip de animación "Read Only"
+
+        float directionSign = transform.localScale.x > 0 ? 1f : -1f;
+
+        transform.localScale = new Vector3(
+            fixedScale.x,
+            fixedScale.y,
+            fixedScale.z
+        );
+    }
+
+    // Dentro de tu EnemyMovement.cs
+
+    public void TakeDamage(float amount)
 {
-    // Esto obliga al enemigo a mantener su tamaño original 
-    // ignorando lo que diga el clip de animación "Read Only"
-    
-    float directionSign = transform.localScale.x > 0 ? 1f : -1f;
-    
-    transform.localScale = new Vector3(
-        fixedScale.x, 
-        fixedScale.y, 
-        fixedScale.z
-    );
+    hp -= amount;
+    if (hp <= 0)
+    {
+        // ESTA ES LA LÍNEA IMPORTANTE
+        if(WaveSpawner.Instance != null) 
+            WaveSpawner.Instance.RegistrarMuerteEnemigo();
+        
+        Destroy(gameObject);
+    }
 }
 
     private void ReachEnd()
     {
         RocaHandler.Instance.TakeDamage(damage);
-        // Aquí podrías activar el efecto visual "hitPLayerGm" que tenías
+
+        // AUNQUE NO MUERA POR TORRE, CUENTA COMO ENEMIGO QUE "SALIÓ" DE LA ESCENA
+        if (WaveSpawner.Instance != null) WaveSpawner.Instance.RegistrarMuerteEnemigo();
+
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float amount)
-    {
-        hp -= amount;
-        if (hp <= 0)
-        {
-            RocaHandler.Instance.RegisterKill();
-            Destroy(gameObject);
-        }
-    }
 
-    
 }

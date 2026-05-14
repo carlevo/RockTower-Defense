@@ -4,7 +4,7 @@ public class DineroGlobal : MonoBehaviour
 {
     public static DineroGlobal Instance { get; private set; }
 
-    [SerializeField] private int defaultDinero = 125;
+    [SerializeField] private int defaultDinero = 5000000;
     public int dineroGlobal;
 
     private const string SaveKeyMoney = "InventoryMoney";
