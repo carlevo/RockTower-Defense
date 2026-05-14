@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
 {
+  
     public static InventoryManager instance;
 
     public static InventoryManager Instance
@@ -97,6 +98,7 @@ public class InventoryManager : MonoBehaviour
         {
             ui.RefreshInventoryUI();
         }
+        
     }
 
     public void AddItem(ItemData a, int b)

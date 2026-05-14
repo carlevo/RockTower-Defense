@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class InventoryManagerUI : MonoBehaviour
 {
     public GameObject itemSlotPrefab;
     public RectTransform inventoryContainer;
     private const int MaxEquippedTicks = 5;
+    [SerializeField] private string inventorySceneName = "InventoryScene";
     [SerializeField] private DineroGlobal dineroGlobalSource;
     public int dineroGlobal
     {
@@ -27,6 +29,7 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void Awake()
     {
+        
         ResolveDineroGlobalReference();
         LoadProgress();
         EnsureReferences();
@@ -43,15 +46,35 @@ public class InventoryManagerUI : MonoBehaviour
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
         UpdateEquippedCounterText();
+       
     }
 
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         ResolveDineroGlobalReference();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
         UpdateEquippedCounterText();
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!string.IsNullOrEmpty(inventorySceneName) && scene.name != inventorySceneName)
+        {
+            return;
+        }
+
+        ReassingData();
+        UpdateMoneyText();
+        UpdateEquippedCounterText();
+        RefreshInventoryUI();
     }
 
     private void OnApplicationQuit()
@@ -477,5 +500,56 @@ public class InventoryManagerUI : MonoBehaviour
         if (item.itemData.unitData == null)
             Debug.LogWarning($"[InventoryManagerUI] {item.itemData.itemName} no tiene UnitData asignado en su ItemData.");
         return item.itemData.unitData;
+    }
+
+    public void ReassingData(){
+        if (inventoryContainer == null)
+        {
+            GameObject containerGO = GameObject.Find("PNL_InventoryContainer");
+            if (containerGO != null)
+            {
+                if (containerGO.TryGetComponent(out RectTransform containerRect))
+                {
+                    inventoryContainer = containerRect;
+                }
+                else
+                {
+                    EnsureReferences();
+                }
+            }
+            else
+            {
+                EnsureReferences();
+            }
+        }
+        if(moneyText == null)
+        {
+            GameObject moneyGO = GameObject.Find("Monedas");
+            if (moneyGO != null)
+            {
+                moneyText = moneyGO.GetComponent<TextMeshProUGUI>();
+            }
+            else
+            {
+                ResolveMoneyTextReference();
+            }
+        }
+        if(equippedCounterText == null)
+        {
+            GameObject counterGO = GameObject.Find("Equipped");
+            if (counterGO != null)
+            {
+                equippedCounterText = counterGO.GetComponent<TextMeshProUGUI>();
+            }
+            else
+            {
+                ResolveEquippedCounterTextReference();
+            }
+        }
+    }
+
+    public void ReassignData()
+    {
+        ReassingData();
     }
 }

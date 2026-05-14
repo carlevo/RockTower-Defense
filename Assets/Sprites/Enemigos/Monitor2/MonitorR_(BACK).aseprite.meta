@@ -139,7 +139,19 @@ ScriptedImporter:
       y: 4
       width: 38
       height: 26
+<<<<<<< Updated upstream
     spriteID: f935dabac47d3f74c9cdbcbd26162ee1
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: de86351fb6c777f4abde81dd98c85da3
+=======
+    spriteID: 286aa21231b40194e9720f5d33876f08
+>>>>>>> Stashed changes
+=======
+    spriteID: f095b8cc385e7174d9910e7cb69ad7d7
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -171,7 +183,19 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 26
+<<<<<<< Updated upstream
       spriteId: f935dabac47d3f74c9cdbcbd26162ee1
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: de86351fb6c777f4abde81dd98c85da3
+=======
+      spriteId: 286aa21231b40194e9720f5d33876f08
+>>>>>>> Stashed changes
+=======
+      spriteId: f095b8cc385e7174d9910e7cb69ad7d7
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

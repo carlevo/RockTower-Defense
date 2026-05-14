@@ -139,7 +139,19 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 32
+<<<<<<< Updated upstream
     spriteID: 3280e374698548e45854e6d4493dae52
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: 549025a9acf99074dada2fc723b4ab96
+=======
+    spriteID: dca33a995ce689842bd59dcfe1240720
+>>>>>>> Stashed changes
+=======
+    spriteID: 732f0a2008024234ca1436062e0f520a
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,7 +172,19 @@ ScriptedImporter:
       y: 84
       width: 28
       height: 31
+<<<<<<< Updated upstream
     spriteID: 6b962a3ce8dfe19448012015feee4a1a
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: f27a9294bef3fee4f8fde4086fb43004
+=======
+    spriteID: 5187b7ab008563a4e805cccd1abf229b
+>>>>>>> Stashed changes
+=======
+    spriteID: cb46560352c828c4b89f209c2e282a6e
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +205,19 @@ ScriptedImporter:
       y: 44
       width: 28
       height: 32
+<<<<<<< Updated upstream
     spriteID: 71183abf5434be448adf84576e908aeb
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: dfd2e8cded5b34e4cb32967e6c0fddee
+=======
+    spriteID: 777bf9199cfb6254ba62afe702d1428f
+>>>>>>> Stashed changes
+=======
+    spriteID: fe62734b92aa1984ca2f29178968a0a2
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -202,7 +238,19 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 31
+<<<<<<< Updated upstream
     spriteID: d97dcd8658e9f4d49b7a3987f2282b1e
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: dd4caace741eb5f40babc2c8b99e251a
+=======
+    spriteID: 297d736329f815448bf09062fd819df8
+>>>>>>> Stashed changes
+=======
+    spriteID: 9ef70c795ca00674484fb1865120ea06
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -234,7 +282,19 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
+<<<<<<< Updated upstream
       spriteId: 3280e374698548e45854e6d4493dae52
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: 549025a9acf99074dada2fc723b4ab96
+=======
+      spriteId: dca33a995ce689842bd59dcfe1240720
+>>>>>>> Stashed changes
+=======
+      spriteId: 732f0a2008024234ca1436062e0f520a
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -243,7 +303,19 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 31
+<<<<<<< Updated upstream
       spriteId: 6b962a3ce8dfe19448012015feee4a1a
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: f27a9294bef3fee4f8fde4086fb43004
+=======
+      spriteId: 5187b7ab008563a4e805cccd1abf229b
+>>>>>>> Stashed changes
+=======
+      spriteId: cb46560352c828c4b89f209c2e282a6e
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -252,7 +324,19 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 32
+<<<<<<< Updated upstream
       spriteId: 71183abf5434be448adf84576e908aeb
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: dfd2e8cded5b34e4cb32967e6c0fddee
+=======
+      spriteId: 777bf9199cfb6254ba62afe702d1428f
+>>>>>>> Stashed changes
+=======
+      spriteId: fe62734b92aa1984ca2f29178968a0a2
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -261,7 +345,19 @@ ScriptedImporter:
         y: 11
         width: 28
         height: 31
+<<<<<<< Updated upstream
       spriteId: d97dcd8658e9f4d49b7a3987f2282b1e
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: dd4caace741eb5f40babc2c8b99e251a
+=======
+      spriteId: 297d736329f815448bf09062fd819df8
+>>>>>>> Stashed changes
+=======
+      spriteId: 9ef70c795ca00674484fb1865120ea06
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

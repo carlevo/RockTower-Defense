@@ -139,7 +139,19 @@ ScriptedImporter:
       y: 4
       width: 38
       height: 26
+<<<<<<< Updated upstream
     spriteID: a796336f1650e53488c10ee7aa55286d
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: 336abcb56428c6642af26e6f64adcd34
+=======
+    spriteID: eecb03dcc59686343bf3ad5165faf51f
+>>>>>>> Stashed changes
+=======
+    spriteID: e39e43ce20ab4d84b8c00a9e8c27a4c2
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -160,7 +172,19 @@ ScriptedImporter:
       y: 38
       width: 38
       height: 25
+<<<<<<< Updated upstream
     spriteID: efe7f881c9b99a5489519bb62fe9b266
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    spriteID: 8c01758c935121b448d2be851facf910
+=======
+    spriteID: 1ad46c39304388840acfcec06a0141e4
+>>>>>>> Stashed changes
+=======
+    spriteID: d5f596493ec131b49b12b152f4f334a5
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +216,19 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 26
+<<<<<<< Updated upstream
       spriteId: a796336f1650e53488c10ee7aa55286d
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: 336abcb56428c6642af26e6f64adcd34
+=======
+      spriteId: eecb03dcc59686343bf3ad5165faf51f
+>>>>>>> Stashed changes
+=======
+      spriteId: e39e43ce20ab4d84b8c00a9e8c27a4c2
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -201,7 +237,19 @@ ScriptedImporter:
         y: 9
         width: 38
         height: 25
+<<<<<<< Updated upstream
       spriteId: efe7f881c9b99a5489519bb62fe9b266
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+      spriteId: 8c01758c935121b448d2be851facf910
+=======
+      spriteId: 1ad46c39304388840acfcec06a0141e4
+>>>>>>> Stashed changes
+=======
+      spriteId: d5f596493ec131b49b12b152f4f334a5
+>>>>>>> origin/Sprint7
+>>>>>>> Stashed changes
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
