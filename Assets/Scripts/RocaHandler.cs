@@ -147,6 +147,11 @@ public class RocaHandler : MonoBehaviour
         if (rocaHP > 0)
         {
             showMenu(true, "Victory");
+            
+            // Registrar el nivel completado
+            string sceneName = SceneManager.GetActiveScene().name;
+            string levelName = Niveles.ObtenerNombreNivelDesdeEscena(sceneName);
+            Niveles.CompletarNivel(levelName);
         }
     }
 
