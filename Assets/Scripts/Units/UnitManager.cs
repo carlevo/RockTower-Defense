@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
 public class UnitPlacer : MonoBehaviour
@@ -11,12 +12,15 @@ public class UnitPlacer : MonoBehaviour
 
     //variable que guardará el boton seleccionado
     private UnitSelectButton selectedButton;
-    private bool buttonClickedThisFrame = false;
 
     //Guardamos todas las "casillas" Tilemaps del hierarchy
     private Transform pathTileMapParent;
     //Diccionario que solo contiene las keys para guardar que tiles ya están ocupadas (no contiene el valor)
     private HashSet<GameObject> occupiedTiles = new HashSet<GameObject>();
+
+    private SpriteRenderer hoveredTileSR;
+    private static readonly Color highlightColor = new Color(0f, 1f, 0f, 0.5f);
+    private static readonly Color normalTileColor = Color.white;
 
     //Awake se utiliza para inicializar los valores al empezar el juego
     void Awake()
@@ -31,11 +35,8 @@ public class UnitPlacer : MonoBehaviour
             Debug.LogError("UnitPlacer: No se encontró 'PathTileMap' en la escena.");
     }
 
-    // Llamado desde OnMouseDown de UnitSelectButton, que dispara ANTES de Update
     public void SelectUnit(UnitSelectButton button)
     {
-        buttonClickedThisFrame = true;
-
         if (selectedButton != null)
             selectedButton.SetSelected(false);
 
@@ -48,18 +49,40 @@ public class UnitPlacer : MonoBehaviour
 
     void Update()
     {
-        if (!Input.GetMouseButtonDown(0)) return;
-
-        // Si este frame se clicó un botón, no colocar unidad
-        if (buttonClickedThisFrame)
-        {
-            buttonClickedThisFrame = false;
-            return;
-        }
-
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mouseWorld.x, mouseWorld.y);
+
+        if (selectedUnitData != null)
+            UpdateHoverHighlight(mousePos2D);
+
+        if (!Input.GetMouseButtonDown(0)) return;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+
         PlaceUnit(mousePos2D);
+    }
+
+    void UpdateHoverHighlight(Vector2 mousePos2D)
+    {
+        GameObject closestFree = null;
+        float closestDist = float.MaxValue;
+
+        foreach (Transform child in pathTileMapParent)
+        {
+            if (child.name != "RegularTile") continue;
+            if (occupiedTiles.Contains(child.gameObject)) continue;
+            float dist = Vector2.Distance(child.position, mousePos2D);
+            if (dist < closestDist) { closestDist = dist; closestFree = child.gameObject; }
+        }
+
+        SpriteRenderer newSR = (closestFree != null && closestDist <= 0.6f)
+            ? closestFree.GetComponent<SpriteRenderer>()
+            : null;
+
+        if (newSR == hoveredTileSR) return;
+
+        if (hoveredTileSR != null) hoveredTileSR.color = normalTileColor;
+        hoveredTileSR = newSR;
+        if (hoveredTileSR != null) hoveredTileSR.color = highlightColor;
     }
 
     void PlaceUnit(Vector2 mousePos2D)
@@ -120,7 +143,9 @@ public class UnitPlacer : MonoBehaviour
             }
 
             occupiedTiles.Add(closestTile);
+            hoveredTileSR = null;
             Debug.Log($"[UnitPlacer] {selectedUnitData.name} colocada con éxito.");
         }
     }
+
 }
