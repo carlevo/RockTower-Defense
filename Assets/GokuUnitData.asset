@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0f65d3d5ba3204e98a7893359a1e29, type: 3}
   m_Name: GokuUnitData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitPrefab: {fileID: 5208763038702043546, guid: bb8ff0b4b3b521f4f95a23496aa070eb, type: 3}
+  unitPrefab: {fileID: 5208763038702043546, guid: e732a791f85042a4dadff575572cbab3, type: 3}
   unitSprite: {fileID: -636206781202515568, guid: 6dcf2df50db2cf0458dfe327f0683f16, type: 3}
   cost: 500
+  attackRange: 5
+  attackDamage: 25
+  attackCooldown: 5
+  attackAnimationTrigger: Attack

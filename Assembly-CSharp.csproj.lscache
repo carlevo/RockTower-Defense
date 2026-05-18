@@ -76,32 +76,29 @@ Assets/Scripts/
  RocaHandler.cs
  Salir.cs
  SaveManager.cs
- Testing/NivelesDebugger.cs
  UI Scripts/
   BotonSombreado.cs
   Button_Scene_Changer.cs
-  LevelButtonManager.cs
  Units/abilities/
   projectil.cs
+  rayo.cs
   SummonAlly.cs
  Units/
   Alex.cs
   behavior/
    AIBehavior.cs
    AllyBehavior.cs
-  Goku.cs
+  GokuIdle.cs
   UnitAttack.cs
   UnitData.cs
   UnitManager.cs
   UnitSelectButton.cs
   UnitSlotLoader.cs
- ValoresGlobales/
-  niveles.cs
-  ValoresInventario.cs
+ ValoresGlobales/ValoresInventario.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]
-../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/Managed/UnityEngine/
+../../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/Managed/UnityEngine/
  UnityEditor.AccessibilityModule.dll
  UnityEditor.AdaptivePerformanceModule.dll
  UnityEditor.BuildProfileModule.dll
@@ -224,7 +221,7 @@ Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
  UnityEngine.VRModule.dll
  UnityEngine.WindModule.dll
  UnityEngine.XRModule.dll
-../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/
+../../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/
  mscorlib.dll
  System.ComponentModel.Composition.dll
  System.Core.dll
@@ -242,7 +239,7 @@ Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
  System.Xml.dll
  System.Xml.Linq.dll
  System.Xml.Serialization.dll
-../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/
+../../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/NetStandard/compat/2.1.0/shims/netstandard/
  Microsoft.Win32.Primitives.dll
  System.AppContext.dll
  System.Buffers.dll
@@ -346,7 +343,7 @@ Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
  System.Xml.XmlSerializer.dll
  System.Xml.XPath.dll
  System.Xml.XPath.XDocument.dll
-../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/NetStandard/
+../../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/NetStandard/
  Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll
  ref/2.1.0/netstandard.dll
 Library/PackageCache/com.unity.collections@d49facba0036/
@@ -426,11 +423,11 @@ Library/ScriptAssemblies/
  UnityEngine.UI.dll
 
 [analyzerReferences]
-../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/Tools/Unity.SourceGenerators/
+../../../../../Program Files/Unity/Hub/Editor/6000.2.5f1/Editor/Data/Tools/Unity.SourceGenerators/
  Unity.Properties.SourceGenerator.dll
  Unity.SourceGenerators.dll
  Unity.UIToolkit.SourceGenerator.dll
-../../.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll
+../../../.vscode/extensions/visualstudiotoolsforunity.vstuc-1.2.2/Analyzers/Microsoft.Unity.Analyzers.dll
 
 [analyzerConfigFiles]
 Temp/obj/Assembly-CSharp/Assembly-CSharp.GeneratedMSBuildEditorConfig.editorconfig
