@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class UnitAttack : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class UnitAttack : MonoBehaviour
     [SerializeField] private GameObject proyectilPrefab; 
     [SerializeField] private Sprite spriteProyectil;    
 
+    [Header("Ajustes de Rayo (Solo para CD)")]
+    [SerializeField] private GameObject rayoPrefab; // El prefab base del rayo (el mismo para todas)
+    [SerializeField] private RuntimeAnimatorController animacionRayo;
+    [SerializeField] private Sprite spriteRayo; // ¡NUEVO: Para rayos de una sola imagen!
+
     private float cooldownTimer = 0f;
     private Animator animator;
     private readonly Collider2D[] results = new Collider2D[20];
@@ -18,27 +24,22 @@ public class UnitAttack : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // MÉTODO CLAVE: Llamado por UnitPlacer justo al instanciar
     public void InicializarUnidad(UnitData nuevosDatos)
     {
         unitData = nuevosDatos;
-        // Reiniciamos el cooldown para que no dispare al milisegundo de nacer
         cooldownTimer = unitData.attackCooldown;
-        Debug.Log($"[UnitAttack] {gameObject.name} inicializado con éxito. Rango: {unitData.attackRange}");
+        Debug.Log($"[UnitAttack] {gameObject.name} inicializado. Rango: {unitData.attackRange}");
     }
 
     void Update()
     {
-        // Si aún no tenemos datos, no hacemos nada
         if (unitData == null) return;
 
         cooldownTimer -= Time.deltaTime;
 
-        // Buscamos al enemigo más cercano
         IDamageable nearest = GetNearestEnemy();
         if (nearest == null) return;
 
-        // Atacar solo cuando el cooldown llegue a 0
         if (cooldownTimer <= 0f)
         {
             EjecutarLogicaAtaque(nearest);
@@ -48,11 +49,10 @@ public class UnitAttack : MonoBehaviour
 
     private void EjecutarLogicaAtaque(IDamageable objetivo)
     {
-        // Animación
         if (!string.IsNullOrEmpty(unitData.attackAnimationTrigger))
             animator?.SetTrigger(unitData.attackAnimationTrigger);
 
-        // Lógica según TAG
+        // --- LÓGICA DPS ---
         if (gameObject.CompareTag("DPS"))
         {
             if (proyectilPrefab != null)
@@ -67,9 +67,70 @@ public class UnitAttack : MonoBehaviour
                 }
             }
         }
+        // --- LÓGICA DEBUFFER ---
         else if (gameObject.CompareTag("Debuffer"))
         {
             objetivo.TakeDamage(unitData.attackDamage);
+        }
+        // --- LÓGICA CD MODIFICADA ---
+        else if (gameObject.CompareTag("CD"))
+        {
+            StartCoroutine(CanalizarRayo(objetivo));
+        }
+    }
+
+   IEnumerator CanalizarRayo(IDamageable objetivo)
+    {
+        float duracionRayo = 2.5f; 
+        float tiempoEntreTicks = 0.25f; 
+        float tiempoPasado = 0f;
+
+        Component targetComp = objetivo as Component;
+        GameObject rayoVisual = null;
+
+        if (rayoPrefab != null && targetComp != null)
+        {
+            rayoVisual = Instantiate(rayoPrefab, transform.position, Quaternion.identity);
+            
+            Rayo scriptRayo = rayoVisual.GetComponent<Rayo>();
+            if (scriptRayo != null)
+            {
+                scriptRayo.ConfigurarRayo(transform, targetComp.transform, animacionRayo, spriteRayo);
+                Debug.Log("[CD] Rayo instanciado y configurado correctamente.");
+            }
+            else
+            {
+                Debug.LogError("[CD] ¡ERROR! El rayoPrefab no tiene el script 'RayoKamehameha' pegado.");
+            }
+        }
+
+        while (tiempoPasado < duracionRayo)
+        {
+            if (targetComp == null || targetComp.gameObject == null) 
+            {
+                Debug.LogWarning("[CD] El rayo se apagó porque el enemigo murió o desapareció.");
+                break;
+            }
+
+            float distanciaActual = Vector2.Distance(transform.position, targetComp.transform.position);
+            
+            // Si esto salta, el rango está mal calculado en el espacio 2D
+            if (distanciaActual > unitData.attackRange) 
+            {
+                Debug.LogWarning($"[CD] El rayo se apagó porque la distancia ({distanciaActual}) es mayor que el rango ({unitData.attackRange}).");
+                break; 
+            }
+
+            objetivo.TakeDamage(unitData.attackDamage);
+
+            yield return new WaitForSeconds(tiempoEntreTicks);
+            tiempoPasado += tiempoEntreTicks;
+        }
+
+        if (rayoVisual != null) 
+        {
+            Debug.Log("[CD] Fin de la canalización. Destruyendo rayo visual.");
+            Destroy(rayoVisual);
         }
     }
 
@@ -101,12 +162,6 @@ public class UnitAttack : MonoBehaviour
         {
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(transform.position, unitData.attackRange);
-        }
-        else
-        {
-            // Círculo rojo de aviso si no hay datos
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 0.5f);
         }
     }
 }
