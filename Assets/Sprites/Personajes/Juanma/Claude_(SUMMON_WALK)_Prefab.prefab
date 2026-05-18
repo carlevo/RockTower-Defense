@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Claude_(SUMMON_WALK)_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: d81a83291b05bc94c9e1d3abe0421ffc, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d81a83291b05bc94c9e1d3abe0421ffc, type: 3}
       propertyPath: m_LocalScale.x
       value: 3

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Copilot_(SUMMON_WALK)_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 6704e63560a5553409bb4442c463cb93, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6704e63560a5553409bb4442c463cb93, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
