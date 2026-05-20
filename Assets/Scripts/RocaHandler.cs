@@ -22,9 +22,9 @@ public class RocaHandler : MonoBehaviour
     [SerializeField] public TextMeshProUGUI textoHp;
 
     [SerializeField] public GameObject menu;
-    [SerializeField] private GameObject btnNextLevel; // Arrastra el botón aquí
+    [SerializeField] private GameObject btnNextNivel; // Arrastra el botón aquí
     [SerializeField] private TextMeshProUGUI resultText; // Arrastra el texto "Result" aquí
-    [SerializeField] private GameObject txtNextLevel;
+    [SerializeField] private GameObject txtNextNivel;
 
 
 
@@ -122,16 +122,16 @@ public class RocaHandler : MonoBehaviour
         resultText.text = _result;
 
     // Controlamos el botón y su texto por separado si es necesario
-    if (btnNextLevel != null)
+    if (btnNextNivel != null)
     {
         bool esVictoria = (_result == "Victory");
         
-        btnNextLevel.SetActive(esVictoria);
+        btnNextNivel.SetActive(esVictoria);
         
         // Si el texto no es hijo del botón, lo apagamos aquí también
-        if (txtNextLevel != null) 
+        if (txtNextNivel != null) 
         {
-            txtNextLevel.SetActive(esVictoria);
+            txtNextNivel.SetActive(esVictoria);
         }
     }
 
@@ -148,10 +148,8 @@ public class RocaHandler : MonoBehaviour
         {
             showMenu(true, "Victory");
             
-            // Registrar el nivel completado
-            string sceneName = SceneManager.GetActiveScene().name;
-            string levelName = Niveles.ObtenerNombreNivelDesdeEscena(sceneName);
-            Niveles.CompletarNivel(levelName);
+            // NOTA: CompletarNivel se llama desde WaveSpawner.FinalizarNivel()
+            // No duplicamos la llamada aquí para evitar conflictos
         }
     }
 

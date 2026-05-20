@@ -31,10 +31,10 @@ public class NivelesDebugger : MonoBehaviour
             ActualizarDebug();
         }
 
-        // Presiona L para marcar Level1 como completado
+        // Presiona L para marcar Nivel1 como completado
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Niveles.CompletarNivel("Level1");
+            Niveles.CompletarNivel("Nivel1");
             ActualizarDebug();
         }
 
@@ -53,15 +53,15 @@ public class NivelesDebugger : MonoBehaviour
         string text = "=== NIVELES DEBUG ===\n\n";
         text += $"Progreso: {Niveles.ObtenerPorcentajeProgreso()}%\n\n";
 
-        foreach (string levelName in Niveles.NIVEL_ORDEN)
+        foreach (string NivelName in Niveles.NIVEL_ORDEN)
         {
-            bool completado = Niveles.EsNivelCompletado(levelName);
-            bool puedoJugar = Niveles.PuedoJugarNivel(levelName);
+            bool completado = Niveles.EsNivelCompletado(NivelName);
+            bool puedoJugar = Niveles.PuedoJugarNivel(NivelName);
             
             string estado = completado ? "✓ COMPLETADO" : "✗ NO COMPLETADO";
             string acceso = puedoJugar ? "✓ DISPONIBLE" : "✗ BLOQUEADO";
             
-            text += $"{levelName}\n";
+            text += $"{NivelName}\n";
             text += $"  Estado: {estado}\n";
             text += $"  Acceso: {acceso}\n\n";
         }
@@ -69,7 +69,7 @@ public class NivelesDebugger : MonoBehaviour
         text += "CONTROLES:\n";
         text += "D = Toggle Debug\n";
         text += "T = Tutorial Completado\n";
-        text += "L = Level1 Completado\n";
+        text += "L = Nivel1 Completado\n";
         text += "R = Resetear Progreso";
 
         debugText.text = text;
@@ -91,11 +91,11 @@ public class NivelesDebugger : MonoBehaviour
         Debug.Log("Tutorial marcado como completado");
     }
 
-    public void BotonCompletarLevel1()
+    public void BotonCompletarNivel1()
     {
-        Niveles.CompletarNivel("Level1");
+        Niveles.CompletarNivel("Nivel1");
         ActualizarDebug();
-        Debug.Log("Level1 marcado como completado");
+        Debug.Log("Nivel1 marcado como completado");
     }
 
     public void BotonReiniciarProgreso()

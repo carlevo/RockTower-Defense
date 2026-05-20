@@ -5,6 +5,10 @@ public class Niveles : MonoBehaviour
 {
     public static Niveles Instance { get; private set; }
 
+    // Evento que se dispara cuando se completa un nivel
+    public delegate void NivelCompletadoDelegate(string nombreNivel);
+    public static event NivelCompletadoDelegate OnNivelCompletado;
+
     // Definir los nombres de los niveles en orden progresivo
     public static readonly string[] NIVEL_ORDEN = new string[]
     {
@@ -17,7 +21,7 @@ public class Niveles : MonoBehaviour
         // Añade más niveles según sea necesario
     };
 
-    private const string PREFS_PREFIX = "LevelCompleted_";
+    private const string PREFS_PREFIX = "NivelCompleted_";
 
     private void Awake()
     {
@@ -36,20 +40,35 @@ public class Niveles : MonoBehaviour
     /// <summary>
     /// Marca un nivel como completado
     /// </summary>
-    public static void CompletarNivel(string levelName)
+    public static void CompletarNivel(string NivelName)
     {
-        string key = PREFS_PREFIX + levelName;
+        // Si ya estaba completado, no hacer nada
+        if (EsNivelCompletado(NivelName))
+        {
+            Debug.Log($"[Niveles] ℹ️ Nivel ya estaba completado: {NivelName}");
+            return;
+        }
+
+        string key = PREFS_PREFIX + NivelName;
         PlayerPrefs.SetInt(key, 1);
         PlayerPrefs.Save();
-        Debug.Log($"[Niveles] Nivel completado: {levelName}");
+        
+        Debug.Log($"[Niveles] ✅ ¡NIVEL COMPLETADO! {NivelName}");
+        Debug.Log($"[Niveles]    Guardado en PlayerPrefs: {key} = 1");
+        Debug.Log($"[Niveles]    Disparando evento OnNivelCompletado...");
+        
+        // Disparar evento
+        OnNivelCompletado?.Invoke(NivelName);
+        
+        Debug.Log($"[Niveles] ✅ Evento disparado correctamente");
     }
 
     /// <summary>
     /// Verifica si un nivel está completado
     /// </summary>
-    public static bool EsNivelCompletado(string levelName)
+    public static bool EsNivelCompletado(string NivelName)
     {
-        string key = PREFS_PREFIX + levelName;
+        string key = PREFS_PREFIX + NivelName;
         return PlayerPrefs.GetInt(key, 0) == 1;
     }
 
@@ -58,12 +77,12 @@ public class Niveles : MonoBehaviour
     /// El Tutorial siempre está disponible
     /// Los demás niveles requieren completar el anterior
     /// </summary>
-    public static bool PuedoJugarNivel(string levelName)
+    public static bool PuedoJugarNivel(string NivelName)
     {
         // El Tutorial siempre está disponible
-        if (levelName == "Tutorial")
+        if (NivelName == "Tutorial")
         {
-            Debug.Log($"[Niveles] PuedoJugarNivel('{levelName}') = TRUE (Tutorial siempre disponible)");
+            Debug.Log($"[Niveles] PuedoJugarNivel('{NivelName}') = TRUE (Tutorial siempre disponible)");
             return true;
         }
 
@@ -71,7 +90,7 @@ public class Niveles : MonoBehaviour
         int nivelIndex = -1;
         for (int i = 0; i < NIVEL_ORDEN.Length; i++)
         {
-            if (NIVEL_ORDEN[i] == levelName)
+            if (NIVEL_ORDEN[i] == NivelName)
             {
                 nivelIndex = i;
                 break;
@@ -81,7 +100,7 @@ public class Niveles : MonoBehaviour
         // Si no existe el nivel, no se puede jugar
         if (nivelIndex <= 0)
         {
-            Debug.LogWarning($"[Niveles] PuedoJugarNivel('{levelName}') = FALSE (Nivel no encontrado o es Tutorial)");
+            Debug.LogWarning($"[Niveles] PuedoJugarNivel('{NivelName}') = FALSE (Nivel no encontrado o es Tutorial)");
             return false;
         }
 
@@ -89,7 +108,7 @@ public class Niveles : MonoBehaviour
         string nivelAnterior = NIVEL_ORDEN[nivelIndex - 1];
         bool puedeJugar = EsNivelCompletado(nivelAnterior);
 
-        Debug.Log($"[Niveles] PuedoJugarNivel('{levelName}') = {puedeJugar} | Requiere: '{nivelAnterior}' completado={EsNivelCompletado(nivelAnterior)}");
+        Debug.Log($"[Niveles] PuedoJugarNivel('{NivelName}') = {puedeJugar} | Requiere: '{nivelAnterior}' completado={EsNivelCompletado(nivelAnterior)}");
 
         return puedeJugar;
     }
@@ -105,36 +124,28 @@ public class Niveles : MonoBehaviour
         {
             case "tutorial":
             case "tutorialscene":
+            case "maptestscene":
+            case "maptest":
                 return "Tutorial";
 
             case "nivel1":
             case "nivel1scene":
-            case "level1":
-            case "level1scene":
                 return "Nivel1";
 
             case "nivel2":
             case "nivel2scene":
-            case "level2":
-            case "level2scene":
                 return "Nivel2";
 
             case "nivel3":
             case "nivel3scene":
-            case "level3":
-            case "level3scene":
                 return "Nivel3";
 
             case "nivel4":
             case "nivel4scene":
-            case "level4":
-            case "level4scene":
                 return "Nivel4";
 
             case "nivel5":
             case "nivel5scene":
-            case "level5":
-            case "level5scene":
                 return "Nivel5";
 
             default:
@@ -147,9 +158,9 @@ public class Niveles : MonoBehaviour
     /// </summary>
     public static void ReiniciarProgreso()
     {
-        foreach (string levelName in NIVEL_ORDEN)
+        foreach (string NivelName in NIVEL_ORDEN)
         {
-            string key = PREFS_PREFIX + levelName;
+            string key = PREFS_PREFIX + NivelName;
             PlayerPrefs.DeleteKey(key);
         }
         PlayerPrefs.Save();
@@ -174,9 +185,9 @@ public class Niveles : MonoBehaviour
     public static int ObtenerPorcentajeProgreso()
     {
         int nivelesCompletados = 0;
-        foreach (string levelName in NIVEL_ORDEN)
+        foreach (string NivelName in NIVEL_ORDEN)
         {
-            if (EsNivelCompletado(levelName))
+            if (EsNivelCompletado(NivelName))
             {
                 nivelesCompletados++;
             }

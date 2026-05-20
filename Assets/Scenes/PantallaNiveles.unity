@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0749d9eb7f0132d4381fba9007475778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelButtonManager
-  levelButtons:
+  NivelButtons:
   - {fileID: 1295473353}
   - {fileID: 45080620}
   - {fileID: 160082095}
@@ -1054,6 +1054,8 @@ MonoBehaviour:
   - {fileID: 2136446896}
   buttonDisabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.6}
   buttonEnabledColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonDisabledTextColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  buttonEnabledTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &781334709
 GameObject:
   m_ObjectHideFlags: 0

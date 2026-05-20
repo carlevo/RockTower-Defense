@@ -19,25 +19,25 @@ public void onClickEvent()
     {
         Debug.Log($"[Button_Scene_Changer] Click en botón. Scene a cargar: '{sceneName}'");
         
-        string levelName = Niveles.ObtenerNombreNivelDesdeEscena(sceneName);
-        Debug.Log($"[Button_Scene_Changer] Nombre de nivel mapeado: '{levelName}'");
+        string NivelName = Niveles.ObtenerNombreNivelDesdeEscena(sceneName);
+        Debug.Log($"[Button_Scene_Changer] Nombre de nivel mapeado: '{NivelName}'");
         
         // Validar si se puede jugar este nivel
-        if (!Niveles.PuedoJugarNivel(levelName))
+        if (!Niveles.PuedoJugarNivel(NivelName))
         {
-            Debug.LogWarning($"[Button_Scene_Changer] ❌ NO puedes jugar el nivel '{levelName}' aún. Completa el nivel anterior primero.");
-            MostrarMensajeBloqueo(levelName);
+            Debug.LogWarning($"[Button_Scene_Changer] ❌ NO puedes jugar el nivel '{NivelName}' aún. Completa el nivel anterior primero.");
+            MostrarMensajeBloqueo(NivelName);
             return;
         }
 
-        Debug.Log($"[Button_Scene_Changer] ✓ Acceso permitido a '{levelName}'. Cambiando escena...");
+        Debug.Log($"[Button_Scene_Changer] ✓ Acceso permitido a '{NivelName}'. Cambiando escena...");
         canvas.GetComponent<LobbySceneManager>().cambioEscena(sceneName);
     }
 
-    private void MostrarMensajeBloqueo(string levelName)
+    private void MostrarMensajeBloqueo(string NivelName)
     {
         // Buscar si existe un mensaje de bloqueo en la escena
-        GameObject messageGO = GameObject.Find("LevelBlockedMessage");
+        GameObject messageGO = GameObject.Find("NivelBlockedMessage");
         if (messageGO != null && messageGO.TryGetComponent(out CanvasGroup canvasGroup))
         {
             canvasGroup.alpha = 1;
@@ -48,13 +48,13 @@ public void onClickEvent()
         }
         else
         {
-            Debug.Log($"Para desbloquear '{levelName}', primero completa el nivel anterior.");
+            Debug.Log($"Para desbloquear '{NivelName}', primero completa el nivel anterior.");
         }
     }
 
     private void OcultarMensajeBloqueo()
     {
-        GameObject messageGO = GameObject.Find("LevelBlockedMessage");
+        GameObject messageGO = GameObject.Find("NivelBlockedMessage");
         if (messageGO != null)
         {
             messageGO.SetActive(false);

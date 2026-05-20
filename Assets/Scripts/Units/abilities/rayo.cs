@@ -31,17 +31,17 @@ public class Rayo : MonoBehaviour
         // 2. SI SOLO TIENE IMAGEN FIJA: Apagamos el Animator para que no interfiera y cambiamos el Sprite
         else if (spriteEstatico != null)
         {
-            if (rayoAnimator != null) 
+            if (rayoAnimator != null)
             {
                 rayoAnimator.enabled = false; // Apagar el animator evita conflictos con sprites estáticos
             }
-            
+
             if (spriteRenderer != null)
             {
                 spriteRenderer.sprite = spriteEstatico;
             }
         }
-        
+
         ActualizarPosicionYRotacion();
     }
 

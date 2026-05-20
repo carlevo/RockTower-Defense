@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GrupoEnemigos {
@@ -92,8 +93,24 @@ public class WaveSpawner : MonoBehaviour
     }
 
     private void FinalizarNivel()
-    {
-        if (DineroGlobal.Instance != null) DineroGlobal.Instance.SumarDinero(recompensaNivel);
-        if (RocaHandler.Instance != null) RocaHandler.Instance.ShowVictory();
-    }
+{
+    // Obtener nombre de escena actual
+    string escenaActual = SceneManager.GetActiveScene().name;
+
+    // Convertir escena -> nombre de nivel
+    string nombreNivel = Niveles.ObtenerNombreNivelDesdeEscena(escenaActual);
+
+    // Marcar completado
+    Niveles.CompletarNivel(nombreNivel);
+
+    Debug.Log($"Nivel completado guardado: {nombreNivel}");
+
+    // Recompensa
+    if (DineroGlobal.Instance != null)
+        DineroGlobal.Instance.SumarDinero(recompensaNivel);
+
+    // Pantalla victoria
+    if (RocaHandler.Instance != null)
+        RocaHandler.Instance.ShowVictory();
+}
 }
