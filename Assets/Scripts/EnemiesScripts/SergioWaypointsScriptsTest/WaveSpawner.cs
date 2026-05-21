@@ -15,6 +15,7 @@ public class GrupoEnemigos {
 public class Oleada {
     public string nombreOleada;
     public List<GrupoEnemigos> grupos;
+    public int recompensaOleada;
 }
 public class WaveSpawner : MonoBehaviour
 {
@@ -74,6 +75,9 @@ public class WaveSpawner : MonoBehaviour
                     yield return new WaitForSeconds(grupo.intervaloSpawn);
                 }
             }
+
+            if (oleadaActual.recompensaOleada > 0 && Coins.Instance != null)
+                Coins.Instance.AddCoins(oleadaActual.recompensaOleada);
 
             // --- AVISAR A ALEX ---
             // Cuando terminan de salir los enemigos de la oleada actual, lanzamos el evento

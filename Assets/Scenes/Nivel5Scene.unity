@@ -5512,6 +5512,7 @@ MonoBehaviour:
       prefab: {fileID: 5809374711748011590, guid: 9443c1ce4baa12641a952a5a0a392b3b, type: 3}
       cantidad: 2
       intervaloSpawn: 1
+    recompensaOleada: 500
   - nombreOleada: Oleada 2
     grupos:
     - nombreGrupo: Cables
@@ -5522,12 +5523,14 @@ MonoBehaviour:
       prefab: {fileID: 5809374711748011590, guid: 63e21169b90c48a4b91e3d001b74a1ef, type: 3}
       cantidad: 2
       intervaloSpawn: 2
+    recompensaOleada: 500
   - nombreOleada: Oleada 3
     grupos:
     - nombreGrupo: Ruben
       prefab: {fileID: 5809374711748011590, guid: 0bef2ab58804998409143e40d553324c, type: 3}
       cantidad: 1
       intervaloSpawn: 0
+    recompensaOleada: 500
   pausaEntreOleadas: 3
   recompensaNivel: 1000
 --- !u!1 &835573713

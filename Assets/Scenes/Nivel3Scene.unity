@@ -5449,6 +5449,7 @@ MonoBehaviour:
       prefab: {fileID: 5809374711748011590, guid: 9443c1ce4baa12641a952a5a0a392b3b, type: 3}
       cantidad: 2
       intervaloSpawn: 1
+    recompensaOleada: 300
   - nombreOleada: Oleada 2
     grupos:
     - nombreGrupo: Monitor
@@ -5463,12 +5464,14 @@ MonoBehaviour:
       prefab: {fileID: 5809374711748011590, guid: 9443c1ce4baa12641a952a5a0a392b3b, type: 3}
       cantidad: 3
       intervaloSpawn: 1
+    recompensaOleada: 300
   - nombreOleada: Oleada 3
     grupos:
     - nombreGrupo: Cables
       prefab: {fileID: 5809374711748011590, guid: 46acf20acde958e4a830163b0594213a, type: 3}
       cantidad: 2
       intervaloSpawn: 0.5
+    recompensaOleada: 300
   pausaEntreOleadas: 4
   recompensaNivel: 575
 --- !u!1001 &829908546
