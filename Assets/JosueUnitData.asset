@@ -16,6 +16,6 @@ MonoBehaviour:
   unitSprite: {fileID: -6342531441421894103, guid: 637b78b38212ffb44a239bf4529c9c0e, type: 3}
   cost: 500
   attackRange: 2
-  attackDamage: 20
+  attackDamage: 0
   attackCooldown: 1
   attackAnimationTrigger: Attack

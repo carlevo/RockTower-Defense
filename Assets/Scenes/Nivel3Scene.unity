@@ -5607,8 +5607,8 @@ MonoBehaviour:
       prefab: {fileID: 5809374711748011590, guid: 46acf20acde958e4a830163b0594213a, type: 3}
       cantidad: 2
       intervaloSpawn: 0.5
-  pausaEntreOleadas: 2
-  recompensaNivel: 150
+  pausaEntreOleadas: 4
+  recompensaNivel: 575
 --- !u!1001 &829908546
 PrefabInstance:
   m_ObjectHideFlags: 0

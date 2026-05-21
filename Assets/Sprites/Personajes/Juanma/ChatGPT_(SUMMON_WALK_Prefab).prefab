@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a106f342d10de3b4fb8d37529cb8658c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AllyBehavior
-  HP: 50
+  HP: 200
   vel: 2
-  attackDamage: 200
+  attackDamage: 75
   attackRange: 1.5
   attackCooldown: 0
 --- !u!61 &1961099028634355346

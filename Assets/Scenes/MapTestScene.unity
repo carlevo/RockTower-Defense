@@ -5240,7 +5240,7 @@ MonoBehaviour:
       cantidad: 10
       intervaloSpawn: 5
   pausaEntreOleadas: 3
-  recompensaNivel: 150
+  recompensaNivel: 100
 --- !u!1 &835573713
 GameObject:
   m_ObjectHideFlags: 0

@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eab5d3f43b23974686bd0734e2a7d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  vel: 2
-  hp: 100
-  damage: 10
+  vel: 1
+  hp: 10000
+  damage: 100
 --- !u!95 &3337639016982927147
 Animator:
   serializedVersion: 7

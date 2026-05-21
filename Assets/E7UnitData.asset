@@ -17,5 +17,5 @@ MonoBehaviour:
   cost: 1000
   attackRange: 2
   attackDamage: 100
-  attackCooldown: 1
+  attackCooldown: 2
   attackAnimationTrigger: Attack

@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   vel: 2
-  hp: 100
-  damage: 10
+  hp: 25
+  damage: 5
 --- !u!95 &3337639016982927147
 Animator:
   serializedVersion: 7
