@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ruben : MonoBehaviour
@@ -10,7 +11,6 @@ public class Ruben : MonoBehaviour
 
     [Header("Slow")]
     [SerializeField] private float slowDuration = 3f;
-    // Factor de velocidad aplicado: 0.25 = 25% de la vel original
     [SerializeField] private float slowFactor = 0.25f;
 
     [Header("Visual Candado")]
@@ -21,9 +21,7 @@ public class Ruben : MonoBehaviour
     private Animator animator;
     private float cooldownTimer;
     private readonly Collider2D[] results = new Collider2D[20];
-
-    private ISlowable currentTarget;
-    private GameObject currentLockObj;
+    private readonly Dictionary<ISlowable, GameObject> slowedEnemies = new Dictionary<ISlowable, GameObject>();
     private Coroutine slowCoroutine;
 
     void Awake()
@@ -37,19 +35,11 @@ public class Ruben : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer > 0f) return;
 
-        ISlowable nearest = GetNearestSlowableEnemy();
-        if (nearest == null)
-        {
-            Debug.LogWarning($"[Ruben] Timer llegó a 0 pero no encontró enemigo ISlowable en rango {attackRange}");
-            cooldownTimer = attackCooldown;
-            return;
-        }
-
-        EjecutarDebuff(nearest);
+        EjecutarDebuffAOE();
         cooldownTimer = attackCooldown;
     }
 
-    private void EjecutarDebuff(ISlowable objetivo)
+    private void EjecutarDebuffAOE()
     {
         if (!string.IsNullOrEmpty(attackAnimationTrigger))
             animator?.SetTrigger(attackAnimationTrigger);
@@ -57,82 +47,56 @@ public class Ruben : MonoBehaviour
         if (slowCoroutine != null)
             StopCoroutine(slowCoroutine);
 
-        QuitarSlowActual();
+        QuitarTodosLosSlows();
 
-        currentTarget = objetivo;
-        slowCoroutine = StartCoroutine(AplicarSlowConCandado(objetivo));
-    }
-
-    private IEnumerator AplicarSlowConCandado(ISlowable objetivo)
-    {
-        Component comp2 = objetivo as Component;
-        Debug.Log($"[Ruben] Aplicando slow x{slowFactor} a {comp2?.gameObject.name}");
-        objetivo.ApplySlow(slowFactor);
-
-        Component comp = objetivo as Component;
-        if (comp != null && lockSprite != null)
-        {
-            currentLockObj = new GameObject("LockVisual");
-            currentLockObj.transform.SetParent(comp.transform);
-            currentLockObj.transform.localPosition = new Vector3(0f, lockYOffset, 0f);
-            currentLockObj.transform.localScale = Vector3.one;
-
-            SpriteRenderer sr = currentLockObj.AddComponent<SpriteRenderer>();
-            sr.sprite = lockSprite;
-            sr.sortingOrder = lockSortingOrder;
-        }
-
-        yield return new WaitForSeconds(slowDuration);
-
-        QuitarSlowActual();
-    }
-
-    private void QuitarSlowActual()
-    {
-        if (currentTarget != null)
-        {
-            Component comp = currentTarget as Component;
-            if (comp != null)
-                currentTarget.RemoveSlow();
-            currentTarget = null;
-        }
-
-        if (currentLockObj != null)
-        {
-            Destroy(currentLockObj);
-            currentLockObj = null;
-        }
-    }
-
-    private ISlowable GetNearestSlowableEnemy()
-    {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, attackRange, results);
-        Debug.Log($"[Ruben] OverlapCircle encontró {count} colliders en rango {attackRange}");
-
-        ISlowable nearest = null;
-        float nearestDist = float.MaxValue;
 
         for (int i = 0; i < count; i++)
         {
-            Debug.Log($"[Ruben] Collider[{i}]: {results[i].gameObject.name} | tag: '{results[i].tag}'");
-
             if (!results[i].CompareTag("Enemy")) continue;
 
             ISlowable slowable = results[i].GetComponent<ISlowable>();
-            if (slowable == null)
+            if (slowable == null) continue;
+
+            slowable.ApplySlow(slowFactor);
+
+            GameObject lockObj = null;
+            if (lockSprite != null)
             {
-                Debug.LogWarning($"[Ruben] {results[i].gameObject.name} tiene tag Enemy pero NO tiene ISlowable");
-                continue;
+                lockObj = new GameObject("LockVisual");
+                lockObj.transform.SetParent(results[i].transform);
+                lockObj.transform.localPosition = new Vector3(0f, lockYOffset, 0f);
+                lockObj.transform.localScale = Vector3.one;
+                SpriteRenderer sr = lockObj.AddComponent<SpriteRenderer>();
+                sr.sprite = lockSprite;
+                sr.sortingOrder = lockSortingOrder;
             }
 
-            float dist = Vector2.Distance(transform.position, results[i].transform.position);
-            if (dist < nearestDist)
-            {
-                nearestDist = dist;
-                nearest = slowable;
-            }
+            slowedEnemies[slowable] = lockObj;
         }
-        return nearest;
+
+        if (slowedEnemies.Count > 0)
+            slowCoroutine = StartCoroutine(QuitarSlowDespuesDe(slowDuration));
+    }
+
+    private IEnumerator QuitarSlowDespuesDe(float tiempo)
+    {
+        yield return new WaitForSeconds(tiempo);
+        QuitarTodosLosSlows();
+    }
+
+    private void QuitarTodosLosSlows()
+    {
+        foreach (var kvp in slowedEnemies)
+        {
+            Component comp = kvp.Key as Component;
+            if (comp != null)
+                kvp.Key.RemoveSlow();
+
+            if (kvp.Value != null)
+                Destroy(kvp.Value);
+        }
+        slowedEnemies.Clear();
     }
 
     void OnDrawGizmos()
