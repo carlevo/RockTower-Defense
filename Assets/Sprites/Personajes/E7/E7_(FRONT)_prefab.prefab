@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: ae9ab20d9c7dd7446ad911e43345eca1, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: ae9ab20d9c7dd7446ad911e43345eca1, type: 3}
       propertyPath: m_SortingLayerID
-      value: -968989747
+      value: 1820897431
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: ae9ab20d9c7dd7446ad911e43345eca1, type: 3}
       propertyPath: m_LocalScale.x
@@ -103,6 +103,10 @@ MonoBehaviour:
   unitData: {fileID: 11400000, guid: 1e61e1d8ee04a864e90bdfc4a7b6cc14, type: 2}
   proyectilPrefab: {fileID: 8082563933104347448, guid: 5f76fc513bb64184ab66b47b285f3ffc, type: 3}
   spriteProyectil: {fileID: 3700909255294822976, guid: 896beb52dfce74547a44cfaae1c13edd, type: 3}
+  rayoPrefab: {fileID: 0}
+  animacionRayo: {fileID: 0}
+  spriteRayo: {fileID: 0}
+  spriteStun: {fileID: 0}
 --- !u!95 &-4702280052439936751
 Animator:
   serializedVersion: 7
