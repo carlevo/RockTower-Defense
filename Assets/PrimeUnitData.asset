@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitPrefab: {fileID: 200243051126802757, guid: 229c4dc83377e2a428e563627d8d47c4, type: 3}
   unitSprite: {fileID: -8465929682556194616, guid: 076222918725481488deb9898bb9b1e7, type: 3}
-  cost: 350
+  cost: 600
+  attackRange: 2
+  attackDamage: 20
+  attackCooldown: 1
+  attackAnimationTrigger: Attack
