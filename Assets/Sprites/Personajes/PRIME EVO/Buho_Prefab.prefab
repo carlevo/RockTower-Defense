@@ -100,5 +100,5 @@ MonoBehaviour:
   HP: 50
   vel: 2
   attackDamage: 200
-  attackRange: 1.5
-  attackCooldown: 1
+  attackRange: 0.1
+  attackCooldown: 0

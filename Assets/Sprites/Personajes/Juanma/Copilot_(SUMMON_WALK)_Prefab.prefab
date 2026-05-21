@@ -103,7 +103,7 @@ MonoBehaviour:
   HP: 50
   vel: 2
   attackDamage: 200
-  attackRange: 1.5
+  attackRange: 0.1
   attackCooldown: 0
 --- !u!61 &3046761152929026099
 BoxCollider2D:
