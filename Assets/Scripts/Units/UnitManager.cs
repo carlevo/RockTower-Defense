@@ -4,6 +4,22 @@ using System.Collections.Generic;
 
 public class UnitPlacer : MonoBehaviour
 {
+    //void Start()
+    //{
+    //    // Restaurar la selección de unidad si existe
+    //    string unidadSeleccionada = PlayerPrefs.GetString("UnidadSeleccionada", "");
+    //    if (!string.IsNullOrEmpty(unidadSeleccionada))
+    //    {
+    //        foreach (var btn in FindObjectsOfType<UnitSelectButton>())
+    //        {
+    //            if (btn.unitData != null && btn.unitData.name == unidadSeleccionada)
+    //            {
+    //                SelectUnit(btn);
+    //                break;
+    //            }
+    //        }
+    //    }
+    //}
 
     //Declaración para que otros scripts lo puedan invocar desde cualquier sitio sin tener que buscarlo
     public static UnitPlacer Instance { get; private set; }
@@ -37,12 +53,37 @@ public class UnitPlacer : MonoBehaviour
 
     public void SelectUnit(UnitSelectButton button)
     {
+        if (button == null)
+        {
+            Debug.LogWarning("[UnitPlacer] SelectUnit recibió un botón null.");
+            return;
+        }
+
+        if (button.unitData == null)
+        {
+            Debug.LogWarning($"[UnitPlacer] El botón '{button.name}' no tiene UnitData asignado.");
+            return;
+        }
+
+        if (button.unitData.unitPrefab == null)
+        {
+            Debug.LogWarning($"[UnitPlacer] UnitData '{button.unitData.name}' no tiene unitPrefab asignado.");
+            return;
+        }
+
         if (selectedButton != null)
             selectedButton.SetSelected(false);
 
         selectedButton = button;
         selectedUnitData = button.unitData;
         button.SetSelected(true);
+
+        // Guardar la selección en PlayerPrefs
+        if (selectedUnitData != null)
+        {
+            PlayerPrefs.SetString("UnidadSeleccionada", selectedUnitData.name);
+            PlayerPrefs.Save();
+        }
 
         Debug.Log($"[UnitPlacer] Seleccionado: {selectedUnitData.unitPrefab.name} (coste: {selectedUnitData.cost})");
     }
@@ -95,6 +136,18 @@ public class UnitPlacer : MonoBehaviour
         if (selectedUnitData == null)
         {
             Debug.LogWarning("[UnitPlacer] Ninguna unidad seleccionada.");
+            return;
+        }
+
+        if (selectedUnitData.unitPrefab == null)
+        {
+            Debug.LogWarning($"[UnitPlacer] La unidad seleccionada '{selectedUnitData.name}' no tiene prefab asignado.");
+            return;
+        }
+
+        if (Coins.Instance == null)
+        {
+            Debug.LogError("[UnitPlacer] Coins.Instance es null.");
             return;
         }
 

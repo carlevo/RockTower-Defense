@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 1581927116742039777, guid: 776fb37ec0425794aaaea9f90fbc6a4b, type: 3}
     - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_SortingLayer
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 5f3f22dcd83a2e54198058eb74cae0fe, type: 3}
       propertyPath: m_SortingLayerID
@@ -192,5 +192,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.25, y: 0.38}
   m_EdgeRadius: 0

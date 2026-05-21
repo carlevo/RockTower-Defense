@@ -142,11 +142,16 @@ public class UnitAttack : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            if (!results[i].CompareTag("Enemy")) continue;
-            IDamageable enemy = results[i].GetComponent<IDamageable>();
+            IDamageable enemy = results[i].GetComponentInParent<IDamageable>();
             if (enemy == null) continue;
 
-            float dist = Vector2.Distance(transform.position, results[i].transform.position);
+            Component enemyComponent = enemy as Component;
+            if (enemyComponent == null) continue;
+
+            bool hasEnemyTag = results[i].CompareTag("Enemy") || enemyComponent.CompareTag("Enemy");
+            if (!hasEnemyTag) continue;
+
+            float dist = Vector2.Distance(transform.position, enemyComponent.transform.position);
             if (dist < nearestDist)
             {
                 nearestDist = dist;

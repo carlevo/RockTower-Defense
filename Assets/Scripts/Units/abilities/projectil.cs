@@ -38,7 +38,7 @@ public class Proyectil : MonoBehaviour
 
         if (Vector2.Distance(transform.position, objetivo.position) < 0.2f)
         {
-            objetivo.GetComponent<IDamageable>()?.TakeDamage(daño);
+            objetivo.GetComponentInParent<IDamageable>()?.TakeDamage(daño);
             Destroy(gameObject);
         }
     }
