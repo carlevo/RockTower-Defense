@@ -102,8 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AllyBehavior
   HP: 200
   vel: 2
-  attackDamage: 75
-  attackRange: 1.5
+  attackDamage: 200
+  attackRange: 0.1
   attackCooldown: 0
 --- !u!61 &3046761152929026099
 BoxCollider2D:

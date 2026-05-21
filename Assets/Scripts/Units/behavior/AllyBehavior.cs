@@ -12,7 +12,6 @@ public class AllyBehavior : MonoBehaviour, IDamageable
 
     private float cooldownTimer = 0f;
     private readonly Collider2D[] attackResults = new Collider2D[10];
-    private ContactFilter2D enemyFilter;
 
     private Transform[] waypoints;
     private int currentWaypointIndex;
@@ -25,11 +24,6 @@ public class AllyBehavior : MonoBehaviour, IDamageable
         fixedScale = transform.localScale;
         renderers = GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var r in renderers) r.enabled = false;
-
-        enemyFilter = new ContactFilter2D();
-        enemyFilter.useTriggers = true;
-        enemyFilter.SetLayerMask(Physics2D.AllLayers);
-        enemyFilter.useLayerMask = true;
     }
 
     void Start()
@@ -66,12 +60,14 @@ public class AllyBehavior : MonoBehaviour, IDamageable
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer > 0f) return;
 
-        int count = Physics2D.OverlapCircle(transform.position, attackRange, enemyFilter, attackResults);
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, attackRange, attackResults);
         for (int i = 0; i < count; i++)
         {
-            if (!attackResults[i].CompareTag("Enemy")) continue;
             IDamageable enemy = attackResults[i].GetComponentInParent<IDamageable>();
             if (enemy == null) continue;
+            Component comp = enemy as Component;
+            bool hasTag = attackResults[i].CompareTag("Enemy") || (comp != null && comp.CompareTag("Enemy"));
+            if (!hasTag) continue;
             enemy.TakeDamage(attackDamage);
             cooldownTimer = attackCooldown;
             break;

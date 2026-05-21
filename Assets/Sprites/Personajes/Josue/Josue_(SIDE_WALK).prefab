@@ -95,6 +95,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AllyBehavior
   HP: 100
   vel: 2
-  attackDamage: 25
-  attackRange: 1.5
+  attackDamage: 200
+  attackRange: 0.1
   attackCooldown: 1
