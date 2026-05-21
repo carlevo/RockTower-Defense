@@ -188,11 +188,12 @@ public class UnitPlacer : MonoBehaviour
             {
                 scriptAtaque.InicializarUnidad(selectedUnitData);
             }
-            else 
+            else
             {
-                // Si es la unidad generadora de dinero, buscamos su script específico
                 Alex scriptDinero = torreInstanciada.GetComponent<Alex>();
-                if(scriptDinero == null) Debug.LogWarning("La unidad colocada no tiene script de ataque ni de dinero.");
+                Ruben scriptRuben = torreInstanciada.GetComponent<Ruben>();
+                if (scriptDinero == null && scriptRuben == null)
+                    Debug.LogWarning("La unidad colocada no tiene script de ataque ni de dinero.");
             }
 
             occupiedTiles.Add(closestTile);

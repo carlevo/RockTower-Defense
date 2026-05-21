@@ -37,17 +37,21 @@ public class AllyBehavior : MonoBehaviour, IDamageable
         anim = GetComponent<Animator>();
         foreach (var r in renderers) r.enabled = true;
 
-        Route route = FindObjectOfType<Route>();
-        if (route != null && route.waypoints.Length > 0)
+        if (waypoints == null || waypoints.Length == 0)
         {
-            waypoints = route.waypoints;
-            currentWaypointIndex = waypoints.Length - 1;
-            transform.position = waypoints[currentWaypointIndex].position;
+            Route route = FindObjectOfType<Route>();
+            if (route != null && route.waypoints.Length > 0)
+                InicializarRuta(route.waypoints);
+            else
+                Debug.LogWarning("[AllyBehavior] No se encontro Route en la escena.");
         }
-        else
-        {
-            Debug.LogWarning("[AllyBehavior] No se encontro Route en la escena.");
-        }
+    }
+
+    public void InicializarRuta(Transform[] puntos)
+    {
+        waypoints = puntos;
+        currentWaypointIndex = waypoints.Length - 1;
+        transform.position = waypoints[currentWaypointIndex].position;
     }
 
     void Update()

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class Teclaenemy : MonoBehaviour, IDamageable
+public class Teclaenemy : MonoBehaviour, IDamageable, ISlowable
 {
     //Campo de velocidad de este enemigo
     [SerializeField] private float vel;
@@ -72,6 +72,28 @@ public class Teclaenemy : MonoBehaviour, IDamageable
                 WaveSpawner.Instance.RegistrarMuerteEnemigo();
 
             Destroy(gameObject);
+        }
+    }
+
+    private float originalVel;
+    private bool isSlowed = false;
+
+    public void ApplySlow(float factor)
+    {
+        if (!isSlowed)
+        {
+            originalVel = vel;
+            isSlowed = true;
+        }
+        vel = originalVel * factor;
+    }
+
+    public void RemoveSlow()
+    {
+        if (isSlowed)
+        {
+            vel = originalVel;
+            isSlowed = false;
         }
     }
 }
