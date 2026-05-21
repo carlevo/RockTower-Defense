@@ -15,7 +15,7 @@ public class Coins : MonoBehaviour
 
     void Start()
     {
-        currency = 500;
+        currency = 1500;
     }
 
     void Update()
