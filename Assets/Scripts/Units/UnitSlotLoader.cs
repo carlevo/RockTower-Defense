@@ -3,6 +3,7 @@ using System.Linq;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UnitSlotLoader : MonoBehaviour
 {
@@ -57,6 +58,11 @@ public class UnitSlotLoader : MonoBehaviour
                 slots[i].unitData = null;
                 Collider2D emptyCollider = slots[i].GetComponent<Collider2D>();
                 if (emptyCollider != null) emptyCollider.enabled = false;
+
+                // Si el slot está vacío, borramos el texto del coste
+                TextMeshProUGUI emptyText = slots[i].GetComponentInChildren<TextMeshProUGUI>();
+                if (emptyText != null) emptyText.text = "";
+
                 continue;
             }
 
@@ -84,6 +90,20 @@ public class UnitSlotLoader : MonoBehaviour
             else
             {
                 Debug.LogWarning($"[UnitSlotLoader] No se encontro PJ_Image en {slots[i].name}");
+            }
+
+            // --- NUEVA LÓGICA PARA ASIGNAR EL COSTE ---
+            // Busca automáticamente cualquier componente TextMeshProUGUI dentro del slot actual
+            TextMeshProUGUI textoCoste = slots[i].GetComponentInChildren<TextMeshProUGUI>();
+            if (textoCoste != null)
+            {
+                // NOTA: Revisa si en tu UnitData se llama 'cost'. Si se llama 'coste', cambia units[i].cost por units[i].coste
+                textoCoste.text = $"${units[i].cost}";
+                Debug.Log($"[UnitSlotLoader] Coste asignado a {slots[i].name}: {units[i].cost}");
+            }
+            else
+            {
+                Debug.LogWarning($"[UnitSlotLoader] No se encontró ningún componente de texto TextMeshProUGUI hijo en {slots[i].name}");
             }
         }
         // Restaurar selección de unidad después de asignar los datos
