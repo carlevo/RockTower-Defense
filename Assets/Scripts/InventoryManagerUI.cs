@@ -2,20 +2,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class InventoryManagerUI : MonoBehaviour
 {
     public GameObject itemSlotPrefab;
     public RectTransform inventoryContainer;
     private const int MaxEquippedTicks = 5;
-    int currentMoney = 1500;
+    [SerializeField] private string inventorySceneName = "InventoryScene";
+    [SerializeField] private DineroGlobal dineroGlobalSource;
+    public int dineroGlobal
+    {
+        get => dineroGlobalSource != null ? dineroGlobalSource.dineroGlobal : 0;
+        set
+        {
+            if (dineroGlobalSource != null)
+            {
+                dineroGlobalSource.dineroGlobal = value;
+            }
+        }
+    }
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI equippedCounterText;
-    private readonly HashSet<string> unlockedItems = new HashSet<string>();
-    private readonly HashSet<string> equippedItems = new HashSet<string>();
+    public HashSet<string> unlockedItems = new HashSet<string>();
+    public HashSet<string> equippedItems  = new HashSet<string>();
 
     private void Awake()
     {
+        
+        ResolveDineroGlobalReference();
+        LoadProgress();
         EnsureReferences();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
@@ -25,25 +41,92 @@ public class InventoryManagerUI : MonoBehaviour
 
     private void Start()
     {
+        ResolveDineroGlobalReference();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
         UpdateEquippedCounterText();
+       
     }
 
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        ResolveDineroGlobalReference();
         ResolveMoneyTextReference();
         ResolveEquippedCounterTextReference();
         UpdateMoneyText();
         UpdateEquippedCounterText();
     }
 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!string.IsNullOrEmpty(inventorySceneName) && scene.name != inventorySceneName)
+        {
+            return;
+        }
+
+        ReassingData();
+        UpdateMoneyText();
+        UpdateEquippedCounterText();
+        RefreshInventoryUI();
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveProgress();
+    }
+
+    private void SaveProgress()
+    {
+        ResolveDineroGlobalReference();
+        Debug.Log("[SAVE] money=" + dineroGlobal + " | unlocked=[" + string.Join(",", unlockedItems) + "] | equipped=[" + string.Join(",", equippedItems) + "]");
+        SaveManager.SaveToPrefs(dineroGlobal, unlockedItems, equippedItems);
+    }
+
+    private void LoadProgress()
+    {
+        ResolveDineroGlobalReference();
+        if (SaveManager.LoadFromPrefs(out int money, out var unlocked, out var equipped))
+        {
+            dineroGlobal  = money;
+            unlockedItems = unlocked;
+            equippedItems = equipped;
+            Debug.Log("[LOAD] money=" + money + " | unlocked=[" + string.Join(",", unlocked) + "] | equipped=[" + string.Join(",", equipped) + "]");
+        }
+        else
+        {
+            Debug.Log("[LOAD] No save found.");
+        }
+    }
+
     private void UpdateMoneyText()
     {
+        ResolveDineroGlobalReference();
         if (moneyText != null)
         {
-            moneyText.text =currentMoney.ToString();
+            moneyText.text =dineroGlobal.ToString();
+        }
+    }
+
+    private void ResolveDineroGlobalReference()
+    {
+        if (dineroGlobalSource != null)
+        {
+            return;
+        }
+
+        dineroGlobalSource = FindFirstObjectByType<DineroGlobal>();
+        if (dineroGlobalSource == null)
+        {
+            GameObject dineroGlobalGO = new GameObject("DineroGlobal");
+            dineroGlobalSource = dineroGlobalGO.AddComponent<DineroGlobal>();
+            Debug.Log("InventoryManagerUI: Se creo automaticamente DineroGlobal en escena.");
         }
     }
 
@@ -306,7 +389,13 @@ public class InventoryManagerUI : MonoBehaviour
             return item.itemData.itemName;
         }
 
-        return item.GetHashCode().ToString();
+        // Fallback: use the Unity asset name (stable between sessions)
+        if (item.itemData != null && !string.IsNullOrEmpty(item.itemData.name))
+        {
+            return item.itemData.name;
+        }
+
+        return string.Empty;
     }
 
     private bool IsItemPurchased(Item item)
@@ -378,16 +467,17 @@ public class InventoryManagerUI : MonoBehaviour
             return true;
         }
 
-        if (currentMoney < totalPrice)
+        if (dineroGlobal < totalPrice)
         {
             Debug.Log("Not enough money to buy " + itemName);
             return false;
         }
 
-        currentMoney -= totalPrice;
+        dineroGlobal -= totalPrice;
         UpdateMoneyText();
 
         string key = GetItemKey(item);
+        Debug.Log("[BUY] key='" + key + "' item='" + itemName + "'");
         if (!string.IsNullOrEmpty(key))
         {
             unlockedItems.Add(key);
@@ -398,6 +488,7 @@ public class InventoryManagerUI : MonoBehaviour
             slotUI.SetPurchasedState(true);
         }
 
+        SaveProgress();
         Debug.Log("Purchased: " + itemName);
         return true;
     }
@@ -409,5 +500,56 @@ public class InventoryManagerUI : MonoBehaviour
         if (item.itemData.unitData == null)
             Debug.LogWarning($"[InventoryManagerUI] {item.itemData.itemName} no tiene UnitData asignado en su ItemData.");
         return item.itemData.unitData;
+    }
+
+    public void ReassingData(){
+        if (inventoryContainer == null)
+        {
+            GameObject containerGO = GameObject.Find("PNL_InventoryContainer");
+            if (containerGO != null)
+            {
+                if (containerGO.TryGetComponent(out RectTransform containerRect))
+                {
+                    inventoryContainer = containerRect;
+                }
+                else
+                {
+                    EnsureReferences();
+                }
+            }
+            else
+            {
+                EnsureReferences();
+            }
+        }
+        if(moneyText == null)
+        {
+            GameObject moneyGO = GameObject.Find("Monedas");
+            if (moneyGO != null)
+            {
+                moneyText = moneyGO.GetComponent<TextMeshProUGUI>();
+            }
+            else
+            {
+                ResolveMoneyTextReference();
+            }
+        }
+        if(equippedCounterText == null)
+        {
+            GameObject counterGO = GameObject.Find("Equipped");
+            if (counterGO != null)
+            {
+                equippedCounterText = counterGO.GetComponent<TextMeshProUGUI>();
+            }
+            else
+            {
+                ResolveEquippedCounterTextReference();
+            }
+        }
+    }
+
+    public void ReassignData()
+    {
+        ReassingData();
     }
 }

@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
       propertyPath: m_Name
-      value: Juanma_(FRONT)
+      value: Juanma_(FRONT)_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
+      propertyPath: m_TagString
+      value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
       propertyPath: m_SortingLayer
@@ -71,5 +75,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4731885343922605217}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
+--- !u!1 &2917687942870634785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: bf627962b1ed70f479381ab4536c4eab, type: 3}
+  m_PrefabInstance: {fileID: 5243820446461281865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4731885343922605217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917687942870634785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650c7e79af224df459762dfc22587609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AllyInvoker
+  summonCooldown: 15
+  summonDelay: 5
+  prefabsToSummon:
+  - {fileID: 4754180257116586453, guid: a88974263499cb34f99fdf63932b02d8, type: 3}
+  - {fileID: 5522602812697290437, guid: 254f81ab9cac3924ebad5ef4cc2e72a1, type: 3}
+  - {fileID: 7907120604994391638, guid: 1c480fe81cb8b1041b5d86f2976dab06, type: 3}
+  - {fileID: 4027530457658855486, guid: c70f44df361442e4f8f98a3e0f133f25, type: 3}

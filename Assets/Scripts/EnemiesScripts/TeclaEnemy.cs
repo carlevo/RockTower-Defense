@@ -1,16 +1,16 @@
 using UnityEngine;
 
 
-public class Teclaenemy : MonoBehaviour
+public class Teclaenemy : MonoBehaviour, IDamageable, ISlowable
 {
     //Campo de velocidad de este enemigo
     [SerializeField] private float vel;
 
-//Creamos el hp para este tipo de enemigo
+    //Creamos el hp para este tipo de enemigo
     public float HP;
 
-//daño que hace el enemigo
-public float damage;
+    //daño que hace el enemigo
+    public float damage;
     private Camera mainCamera;
     Vector3 limitInferiorEsquerra;
     SpriteRenderer hitPLayerGm;
@@ -24,10 +24,10 @@ public float damage;
         //Devuelve la camara marcada como Main Camera en la escena
         mainCamera = Camera.main;
         //Empiezan con 100
-       if(HP==0f) HP = 100.0f;
+        if (HP == 0f) HP = 100.0f;
 
         //Daño que hace
-        if(damage==0f) damage = 10f;
+        if (damage == 0f) damage = 10f;
 
         limitInferiorEsquerra = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
         //limitSuperiorDret = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
@@ -39,11 +39,11 @@ public float damage;
     {
         if (arrivedTorRoca)
         {
-            counterTilDestroy-=Time.deltaTime;
+            counterTilDestroy -= Time.deltaTime;
 
-            if(counterTilDestroy <= 0)
+            if (counterTilDestroy <= 0)
             {
-              HitPlayer(false);
+                HitPlayer(false);
                 Destroy(this.gameObject);
             }
         }
@@ -59,16 +59,41 @@ public float damage;
 
     private void HitPlayer(bool activeUIEffect)
     {
-        hitPLayerGm.enabled=activeUIEffect;
+        hitPLayerGm.enabled = activeUIEffect;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float amount)
     {
-        HP -= damage;
-        if (HP <= 0f)
+        //hp -= amount;
+        //if (hp <= 0)
         {
-            RocaHandler.Instance.RegisterKill();
+            // ESTA ES LA LÍNEA IMPORTANTE
+            if (WaveSpawner.Instance != null)
+                WaveSpawner.Instance.RegistrarMuerteEnemigo();
+
             Destroy(gameObject);
+        }
+    }
+
+    private float originalVel;
+    private bool isSlowed = false;
+
+    public void ApplySlow(float factor)
+    {
+        if (!isSlowed)
+        {
+            originalVel = vel;
+            isSlowed = true;
+        }
+        vel = originalVel * factor;
+    }
+
+    public void RemoveSlow()
+    {
+        if (isSlowed)
+        {
+            vel = originalVel;
+            isSlowed = false;
         }
     }
 }

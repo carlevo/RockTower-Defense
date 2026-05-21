@@ -12,13 +12,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jia_(FRONT)
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
+      propertyPath: m_TagString
+      value: DPS
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
       propertyPath: m_SortingLayerID
-      value: -968989747
+      value: 1820897431
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: b535cc603ceeba84781c7660d2f0dce8, type: 3}
       propertyPath: m_LocalScale.x
@@ -96,9 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c91639ebdfbceb47b19e13a40433807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitAttack
-  attackRange: 200
-  attackDamage: 20
-  attackCooldown: 1
+  unitData: {fileID: 11400000, guid: 2cee8914ed1ee5a42ba470eb8a5d4d8b, type: 2}
+  proyectilPrefab: {fileID: 8082563933104347448, guid: 5f76fc513bb64184ab66b47b285f3ffc, type: 3}
+  spriteProyectil: {fileID: -1685794502099959302, guid: 800950097a5ad164288c6746479ccd6c, type: 3}
+  rayoPrefab: {fileID: 0}
+  animacionRayo: {fileID: 0}
+  spriteRayo: {fileID: 0}
+  spriteStun: {fileID: 0}
 --- !u!95 &-4444054801563017087
 Animator:
   serializedVersion: 7

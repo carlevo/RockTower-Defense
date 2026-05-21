@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - DPS
+  - Debuffer
+  - Spawner
+  - Farmer
+  - CD
   layers:
   - Default
   - TransparentFX
@@ -46,6 +52,9 @@ TagManager:
     locked: 0
   - name: Midground
     uniqueID: 1820897431
+    locked: 0
+  - name: Projectile_Layer
+    uniqueID: 1672186209
     locked: 0
   - name: Foreground
     uniqueID: 4281015825
