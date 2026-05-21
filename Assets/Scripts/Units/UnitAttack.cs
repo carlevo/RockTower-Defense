@@ -15,6 +15,9 @@ public class UnitAttack : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController animacionRayo;
     [SerializeField] private Sprite spriteRayo; // ¡NUEVO: Para rayos de una sola imagen!
 
+    [Header("Ajustes de Slow (Solo para debuffers)")]
+    [SerializeField] private Sprite spriteStun; //El sprite del stuneo
+
     private float cooldownTimer = 0f;
     private Animator animator;
     private readonly Collider2D[] results = new Collider2D[20];

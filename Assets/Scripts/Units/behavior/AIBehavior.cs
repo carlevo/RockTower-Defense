@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AIBehavior : MonoBehaviour, IDamageable
+public class AIBehavior : MonoBehaviour, IDamageable, ISlowable
 {
     public float HP = 50f;
     public float DMG = 10f;
@@ -73,5 +73,27 @@ public class AIBehavior : MonoBehaviour, IDamageable
         HP -= damage;
         if (HP <= 0)
             Destroy(gameObject);
+    }
+
+    private float originalVel;
+    private bool isSlowed = false;
+
+    public void ApplySlow(float factor)
+    {
+        if (!isSlowed)
+        {
+            originalVel = vel;
+            isSlowed = true;
+        }
+        vel = originalVel * factor;
+    }
+
+    public void RemoveSlow()
+    {
+        if (isSlowed)
+        {
+            vel = originalVel;
+            isSlowed = false;
+        }
     }
 }

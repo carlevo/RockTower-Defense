@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour, IDamageable
+public class EnemyMovement : MonoBehaviour, IDamageable, ISlowable
 {
     [Header("Configuración")]
     [SerializeField] private float vel = 2f;
@@ -112,5 +112,25 @@ public class EnemyMovement : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
+    private float originalVel;
+    private bool isSlowed = false;
 
+    public void ApplySlow(float factor)
+    {
+        if (!isSlowed)
+        {
+            originalVel = vel;
+            isSlowed = true;
+        }
+        vel = originalVel * factor;
+    }
+
+    public void RemoveSlow()
+    {
+        if (isSlowed)
+        {
+            vel = originalVel;
+            isSlowed = false;
+        }
+    }
 }
