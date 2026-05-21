@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: d3be077d429ccb443b332af81294bf79, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: d3be077d429ccb443b332af81294bf79, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1820897431
+      value: 1672186209
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d3be077d429ccb443b332af81294bf79, type: 3}
       propertyPath: m_LocalScale.x
@@ -118,16 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37c67c55964c3841aa722acf75d9331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Devs
-  proyectilPrefab: {fileID: 0}
-  spriteProyectil: {fileID: 0}
+  proyectilPrefab: {fileID: 8082563933104347448, guid: 5f76fc513bb64184ab66b47b285f3ffc, type: 3}
+  spriteProyectil: {fileID: 9118522479747734410, guid: b844c3aaadfdaec4fb2acc1398b99cb4, type: 3}
   launchRange: 5
   launchCooldown: 2.5
-  launchDamage: 15
+  launchDamage: 75
   debuffRange: 4
   debuffCooldown: 6
   slowFactor: 0.4
   slowDuration: 3
-  lockSprite: {fileID: 0}
+  lockSprite: {fileID: 6592154662454341356, guid: 82871bbfa3037a0438301a237d876f42, type: 3}
   lockYOffset: 0.5
   lockSortingOrder: 10
   prefabsToSummon:
