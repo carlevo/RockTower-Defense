@@ -8,7 +8,7 @@ public class AllyBehavior : MonoBehaviour, IDamageable
     [Header("Attack")]
     [SerializeField] public float attackDamage = 200f;
     [SerializeField] private float attackRange = 1.5f;
-    [SerializeField] private float attackCooldown = 1f;
+    [SerializeField] private float attackCooldown = 0.5f;
 
     private float cooldownTimer = 0f;
     private readonly Collider2D[] attackResults = new Collider2D[10];
