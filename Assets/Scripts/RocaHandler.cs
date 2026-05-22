@@ -99,7 +99,9 @@ public class RocaHandler : MonoBehaviour
     {
         if (rocaHP <= 0)
         {
+            //Enseñamos el defeat y paramos el tiempo
             showMenu(true, "Defeat");
+            Time.timeScale = 0f;
         }
     }
 
@@ -147,6 +149,8 @@ public class RocaHandler : MonoBehaviour
         if (rocaHP > 0)
         {
             showMenu(true, "Victory");
+            //Congelamos el tiempo para que el jugador pueda ver el resultado
+            Time.timeScale = 0f;
             
             // NOTA: CompletarNivel se llama desde WaveSpawner.FinalizarNivel()
             // No duplicamos la llamada aquí para evitar conflictos
@@ -155,7 +159,7 @@ public class RocaHandler : MonoBehaviour
 
     public void ReiniciarEscena()
     {
-        // Asegúrate de devolver el tiempo a la normalidad antes de cargar la escena
+        // Nos aseguramos que el tiempo se vuelva a la normalidad al reiniciar la escena
         Time.timeScale = 1f; 
         
         // Carga la escena que está activa actualmente
