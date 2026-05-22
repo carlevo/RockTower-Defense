@@ -62,6 +62,8 @@ public class LobbySceneManager : MonoBehaviour
         }
         
         Debug.Log($"[LobbySceneManager] Cargando escena: {nameScene}");
+        //resumimos el tiempo ya que lo paramos al ganar
+        Time.timeScale = 1f;
         SceneManager.LoadScene(nameScene);
     }
 

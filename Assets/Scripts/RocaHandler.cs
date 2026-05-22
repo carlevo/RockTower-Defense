@@ -51,10 +51,6 @@ public class RocaHandler : MonoBehaviour
         //    rocaHP = Mathf.Min(rocaHP + regenPerSecond * Time.deltaTime, maxHP);
         //    UpdateAlpha();
         //}
-        if (rocaHP <= 0)
-        {
-            Time.timeScale = 0f; //Ponerlo en el victory
-        }
     }
 
     public void TakeDamage(float damage)

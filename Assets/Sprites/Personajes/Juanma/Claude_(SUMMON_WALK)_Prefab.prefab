@@ -101,4 +101,4 @@ MonoBehaviour:
   vel: 2
   attackDamage: 75
   attackRange: 1.5
-  attackCooldown: 0
+  attackCooldown: 0.3
